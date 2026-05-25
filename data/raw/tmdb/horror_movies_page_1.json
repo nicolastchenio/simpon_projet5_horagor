@@ -1,0 +1,415 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/wMrV8SLne1jHLeYS0lLrA1Tf86P.jpg",
+            "genre_ids": [
+                27,
+                9648
+            ],
+            "id": 1304313,
+            "title": "Le Réveil de la Momie",
+            "original_language": "en",
+            "original_title": "Lee Cronin's The Mummy",
+            "overview": "Une jeune fille disparue dans le désert égyptien réapparaît mystérieusement huit ans plus tard. Mais les retrouvailles tournent vite au cauchemar. Alors que son comportement devient de plus en plus inquiétant, sa famille se lance dans une course contre la montre pour comprendre l’origine du mal. Ce qu’ils vont découvrir dépasse tout ce qu’ils imaginaient.",
+            "popularity": 710.3831,
+            "poster_path": "/f77yGBGOjainowvlGHU70CCQrjV.jpg",
+            "release_date": "2026-04-15",
+            "softcore": false,
+            "video": false,
+            "vote_average": 8.011,
+            "vote_count": 958
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1pKFDggvtk23zcn1vUcPiKyuHxM.jpg",
+            "genre_ids": [
+                27
+            ],
+            "id": 1339713,
+            "title": "obsession",
+            "original_language": "en",
+            "original_title": "Obsession",
+            "overview": "Et si vous pouviez réaliser votre rêve le plus fou ? Un jeune introverti met la main sur un objet magique capable d’exaucer n’importe quel souhait. Son crush de toujours tombe alors raide dingue de lui… jusqu’à l’obsession la plus totale. Faites attention à ce que vous souhaitez !",
+            "popularity": 257.9027,
+            "poster_path": "/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
+            "release_date": "2026-04-16",
+            "softcore": false,
+            "video": false,
+            "vote_average": 7.9,
+            "vote_count": 220
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/hdLsZ3dCjKt5A6xDpoo3UFgcTSm.jpg",
+            "genre_ids": [
+                27,
+                28
+            ],
+            "id": 1426822,
+            "title": "Mortal Game",
+            "original_language": "en",
+            "original_title": "Mortal Game",
+            "overview": "",
+            "popularity": 143.2041,
+            "poster_path": "/iCvucorbs3hFqWshDbLe0fHzB71.jpg",
+            "release_date": "2025-02-03",
+            "softcore": false,
+            "video": false,
+            "vote_average": 4.818,
+            "vote_count": 11
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9dMp9t0d0nIGhiil8TyqChwiNwA.jpg",
+            "genre_ids": [
+                53,
+                27,
+                35
+            ],
+            "id": 1266127,
+            "title": "Wedding Nightmare : Deuxième partie",
+            "original_language": "en",
+            "original_title": "Ready or Not: Here I Come",
+            "overview": "Peu après avoir échappé à l'attaque sans merci de la famille Le Domas, Grace découvre qu'elle vient d'atteindre un nouveau niveau dans ce jeu cauchemardesque, et cette fois, elle aura à ses côtés sa sœur dont elle s'était éloignée, Faith. Grace n’a qu'une seule chance de survivre, de protéger sa sœur et de s’emparer du Trône du Conseil qui dirige le monde. Traquée par quatre familles rivales prêtes à tout pour le pouvoir, elle sait que l’issue de cette chasse à l'homme déterminera qui régnera sur tout.",
+            "popularity": 98.9121,
+            "poster_path": "/ygbalhUdg7RnQKwnnyyqqSXoSvY.jpg",
+            "release_date": "2026-03-19",
+            "softcore": false,
+            "video": false,
+            "vote_average": 7.665,
+            "vote_count": 826
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/gMItMzDOyrfQGZsMWRM9tdxq5cV.jpg",
+            "genre_ids": [
+                878,
+                28,
+                27
+            ],
+            "id": 1196067,
+            "title": "Worldbreaker",
+            "original_language": "en",
+            "original_title": "Worldbreaker",
+            "overview": "Un père cache sa fille sur une île pour la protéger, tout en la préparant à survivre et à affronter les combats qui l'attendent et qui détermineront l'avenir de l'Humanité.",
+            "popularity": 119.9777,
+            "poster_path": "/ahj1JU8r0uJv7QII5Uj7tKzbEsC.jpg",
+            "release_date": "2025-10-30",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.882,
+            "vote_count": 165
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qnTdOizsXBzYu3uIbfhHSfE29TE.jpg",
+            "genre_ids": [
+                28,
+                35,
+                27
+            ],
+            "id": 1292695,
+            "title": "They Will Kill You",
+            "original_language": "en",
+            "original_title": "They Will Kill You",
+            "overview": "Une jeune femme doit survivre toute une nuit, enfermée dans le mystérieux et sordide repaire d'une secte démoniaque, et tout faire pour ne pas devenir leur prochain sacrifice. Une lutte acharnée, des combats saisissants et un humour profondément noir vous attendent.",
+            "popularity": 64.673,
+            "poster_path": "/gyc0CMzFS91ZtXyhPcw7mE60v6Y.jpg",
+            "release_date": "2026-03-25",
+            "softcore": false,
+            "video": false,
+            "vote_average": 6.92,
+            "vote_count": 576
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qdyeQg2gWj1L8cDlwU3tI4s0Hub.jpg",
+            "genre_ids": [
+                27
+            ],
+            "id": 855435,
+            "title": "Faces of Death",
+            "original_language": "en",
+            "original_title": "Faces of Death",
+            "overview": "Une modératrice d'un site similaire à YouTube trie des contenus inappropriés pour la plateforme. Elle découvre un groupe qui semble reconstituer les meurtres du film original. Mais à l'ère du numérique et de la désinformation en ligne, ces meurtres sont-ils réels ou des deepfakes ?",
+            "popularity": 58.2649,
+            "poster_path": "/vPVY3S57lEooBLJCg6KGdMHkUxm.jpg",
+            "release_date": "2026-04-10",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.419,
+            "vote_count": 62
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/i5c2Tvhn2mZWT43zdwHEliau58j.jpg",
+            "genre_ids": [
+                27,
+                53,
+                10752
+            ],
+            "id": 1254594,
+            "title": "โอมุคาเดะ",
+            "original_language": "th",
+            "original_title": "โอมุคาเดะ",
+            "overview": "",
+            "popularity": 46.6028,
+            "poster_path": "/7RdzEmKj2yy3DttYkvZ6G5cCtoE.jpg",
+            "release_date": "2026-01-22",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.0,
+            "vote_count": 1
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wfGDy0KVZsiQpGgYoxObUGgccwk.jpg",
+            "genre_ids": [
+                878,
+                27,
+                12
+            ],
+            "id": 1235192,
+            "title": "Wormtown",
+            "original_language": "en",
+            "original_title": "Wormtown",
+            "overview": "Lorsqu'une secte vénérant des parasites altérant l'esprit prend le contrôle d'une petite ville, trois femmes confinées se retrouvent entraînées dans une lutte pour la survie et la vengeance.",
+            "popularity": 54.1923,
+            "poster_path": "/lE10ww38b7XA5LIagIsVQj9a8Hn.jpg",
+            "release_date": "2025-09-27",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.7,
+            "vote_count": 15
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/t9J2HXaDuJR7bvIG9XF7mttn4VY.jpg",
+            "genre_ids": [
+                27,
+                9648,
+                80
+            ],
+            "id": 1159559,
+            "title": "Scream 7",
+            "original_language": "en",
+            "original_title": "Scream 7",
+            "overview": "Lorsqu’un nouveau Ghostface surgit dans la paisible ville où Sidney Prescott a reconstruit sa vie, ses pires cauchemars refont surface. Alors que sa fille devient la prochaine cible, Sidney n’a d’autre choix que de reprendre le combat. Déterminée à protéger les siens, elle doit alors affronter les démons de son passé pour tenter de mettre fin une bonne fois pour toutes au bain de sang.",
+            "popularity": 55.9082,
+            "poster_path": "/j6Y7vqULt8tRlXVFXHK5aj3nCo4.jpg",
+            "release_date": "2026-02-25",
+            "softcore": false,
+            "video": false,
+            "vote_average": 6.122,
+            "vote_count": 924
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/fBh0OlTY5XSHuFrQ7ylXHniwg9s.jpg",
+            "genre_ids": [
+                27,
+                53,
+                35
+            ],
+            "id": 1198994,
+            "title": "Send Help",
+            "original_language": "en",
+            "original_title": "Send Help",
+            "overview": "Après un terrible accident d'avion, deux collègues d'une compagnie se retrouvent seuls survivants, coincés sur une île déserte. L'une est une employée maligne et pleine de ressources, l'autre son patron tyrannique et désagréable. Obligés de s'adapter aux conditions extrêmes de leur isolement, ils doivent surmonter leurs vieilles rancunes et travailler ensemble pour survivre.",
+            "popularity": 52.2626,
+            "poster_path": "/bMAn4qERdEfxotddEHWfMmkfjRv.jpg",
+            "release_date": "2026-01-22",
+            "softcore": false,
+            "video": false,
+            "vote_average": 7.048,
+            "vote_count": 1547
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/pRrH098VPYiUtDwKOm2mVXVQZdf.jpg",
+            "genre_ids": [
+                10402,
+                18,
+                27
+            ],
+            "id": 1102883,
+            "title": "Mother Mary",
+            "original_language": "en",
+            "original_title": "Mother Mary",
+            "overview": "Une célèbre chanteuse pop, en pleine tournée, interrompt ses concerts suite à une crise existentielle. Elle se retire à la campagne et noue une relation complexe avec une créatrice de mode renommée, qui travaille justement sur une robe. Les deux femmes se rapprochent.",
+            "popularity": 47.0595,
+            "poster_path": "/uaCJhncUYYXFlG253BEPAzog3hl.jpg",
+            "release_date": "2026-04-16",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.893,
+            "vote_count": 56
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/hV6eicjIYxP1v6Qki0bAUMF2Ijf.jpg",
+            "genre_ids": [
+                27,
+                9648
+            ],
+            "id": 1404791,
+            "title": "ドールハウス",
+            "original_language": "ja",
+            "original_title": "ドールハウス",
+            "overview": "",
+            "popularity": 45.3419,
+            "poster_path": "/gBCT1BbU5i0p9yj4M12Vvd2rVM2.jpg",
+            "release_date": "2025-06-13",
+            "softcore": false,
+            "video": false,
+            "vote_average": 7.539,
+            "vote_count": 64
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/i8MupUe4xgmYXoRNAQMYvuoexSU.jpg",
+            "genre_ids": [
+                27
+            ],
+            "id": 1038392,
+            "title": "Conjuring : L'Heure du jugement",
+            "original_language": "en",
+            "original_title": "The Conjuring: Last Rites",
+            "overview": "Alors qu’ils espéraient une nouvelle vie, Ed et Lorraine Warren se voient impliqués dans une dernière enquête…qu’ils n’auraient jamais dû accepter. Dans la maison de la famille Smurl, un mal ancien les attend. Un ennemi qu’ils croyaient à jamais enfoui... Découvrez comment les Warren ont affronté le cas le plus maléfique de leur carrière, inspiré de faits réels qui ont terrorisé l’Amérique.",
+            "popularity": 50.0135,
+            "poster_path": "/mlkMH0Em29I0QBc7YeRc9yGFRKw.jpg",
+            "release_date": "2025-09-03",
+            "softcore": false,
+            "video": false,
+            "vote_average": 6.902,
+            "vote_count": 1826
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/hl7FEzMqgpsD0RfwMzskzQoiD1M.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "id": 1368314,
+            "title": "Passenger",
+            "original_language": "en",
+            "original_title": "Passenger",
+            "overview": "Après avoir été témoin d’un terrible accident de la route, un jeune couple réalise qu’il n’a pas quitté les lieux du drame sans être suivi. Une présence démoniaque, le Passager, se joint à leur voyage en van et transforme leur aventure en un véritable cauchemar, déterminée à ne s’arrêter qu’une fois qu’elle les aura tous les deux emportés.",
+            "popularity": 42.1384,
+            "poster_path": "/6BDQJoZpzhFJCTop59BRR51k9yp.jpg",
+            "release_date": "2026-05-20",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.886,
+            "vote_count": 22
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qGk24C6fV10LkXCEpAJ4BbzViFC.jpg",
+            "genre_ids": [
+                35,
+                27
+            ],
+            "id": 1657678,
+            "title": "Indian Institute of Zombies",
+            "original_language": "hi",
+            "original_title": "Indian Institute of Zombies",
+            "overview": "",
+            "popularity": 43.3035,
+            "poster_path": "/zSiNbahfCoezs5LQYNtJrvczngM.jpg",
+            "release_date": "2026-05-08",
+            "softcore": false,
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/oV472EbPedkc5QzqolGc7sCgCnn.jpg",
+            "genre_ids": [
+                27,
+                28,
+                53
+            ],
+            "id": 1110034,
+            "title": "Kraken",
+            "original_language": "no",
+            "original_title": "Kraken",
+            "overview": "La biologiste marine Johanne fait des recherches dans une pisciculture à Vangsnes, une communauté rurale située près du fjord, lorsqu'elle rencontre plusieurs événements étranges. Avec la mort brutale de deux adolescents locaux, tous les signes pointent vers le fjord profond ; peut-il y avoir plus dans les profondeurs que l'œil ne peut voir ? Au fond du fjord le plus profond repose un monstre mythique aussi grand qu'une montagne, avec une myriade de bras prêts à écraser et à dévorer tout ce qu'ils peuvent saisir.",
+            "popularity": 43.137,
+            "poster_path": "/8ExwomWgJoXBdY3u1Otiw2zY9wZ.jpg",
+            "release_date": "2026-02-06",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.819,
+            "vote_count": 47
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/903T5F2DUV2ve6YIkP92y9gKy95.jpg",
+            "genre_ids": [
+                878,
+                27,
+                18,
+                53
+            ],
+            "id": 510657,
+            "title": "Wellwood",
+            "original_language": "en",
+            "original_title": "Wellwood",
+            "overview": "",
+            "popularity": 35.3191,
+            "poster_path": "/vRwzVKNHeeQ9srX6u2qsuflBozb.jpg",
+            "release_date": "2025-03-24",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.167,
+            "vote_count": 12
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/be5T7oHxmDG4ytEimwPdmDHZD9N.jpg",
+            "genre_ids": [
+                27
+            ],
+            "id": 1352874,
+            "title": "The Crucifix: Blood of the Exorcist",
+            "original_language": "en",
+            "original_title": "The Crucifix: Blood of the Exorcist",
+            "overview": "",
+            "popularity": 39.1883,
+            "poster_path": "/u3qOxvlykoTpurg1G8VOcawoePI.jpg",
+            "release_date": "2025-01-09",
+            "softcore": false,
+            "video": false,
+            "vote_average": 5.571,
+            "vote_count": 49
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/be5SIsRGMckO8tU9lrLcIik70Dy.jpg",
+            "genre_ids": [
+                27,
+                14,
+                10749
+            ],
+            "id": 1246049,
+            "title": "Dracula",
+            "original_language": "fr",
+            "original_title": "Dracula",
+            "overview": "Au XVe siècle, le Prince Vladimir renie Dieu après la perte brutale et cruelle de son épouse. Il hérite alors d’une malédiction : la vie éternelle. Il devient Dracula. Condamné à errer à travers les siècles, il n’aura plus qu’un seul espoir : celui de retrouver son amour perdu.",
+            "popularity": 41.3856,
+            "poster_path": "/hCKkybW6EfSZoOW3xia9ZsQwaUd.jpg",
+            "release_date": "2025-07-30",
+            "softcore": false,
+            "video": false,
+            "vote_average": 7.113,
+            "vote_count": 1195
+        }
+    ],
+    "total_pages": 3535,
+    "total_results": 70686
+}

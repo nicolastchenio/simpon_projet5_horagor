@@ -1,0 +1,1707 @@
+[
+    {
+        "adult": false,
+        "backdrop_path": "/v0NEB75SZjxY8GS3ho8WeEvjIT3.jpg",
+        "belongs_to_collection": {
+            "id": 64748,
+            "name": "Silent Hill - Saga",
+            "poster_path": "/w3M2GggGGQsv3fNKqtvAUvN27hG.jpg",
+            "backdrop_path": "/jWF319ozJUsXY6x8y4XghLoX8cD.jpg"
+        },
+        "budget": 23000000,
+        "genres": [
+            {
+                "id": 9648,
+                "name": "Mystère"
+            },
+            {
+                "id": 18,
+                "name": "Drame"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "https://metrofilms.com/film/retour-a-silent-hill/",
+        "id": 680493,
+        "imdb_id": "tt22868010",
+        "origin_country": [
+            "GB",
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Return to Silent Hill",
+        "overview": "Lorsqu’il reçoit une mystérieuse lettre de Mary, son amour perdu, James est attiré vers Silent Hill, une ville autrefois familière, aujourd’hui engloutie par les ténèbres.En partant à sa recherche, James affronte des créatures monstrueuses et découvre une vérité terrifiante qui le poussera aux limites de la folie.",
+        "popularity": 26.1212,
+        "poster_path": "/A0eYqBMVdcM6RLpDpLZuKMLpdKS.jpg",
+        "production_companies": [
+            {
+                "id": 55914,
+                "logo_path": "/fLZm5yRhOmaYb82wvCMOPiClMMB.png",
+                "name": "Konami",
+                "origin_country": "JP"
+            },
+            {
+                "id": 342,
+                "logo_path": "/kZ99mxyNvNgyAFjm7rcl9vfYmU8.png",
+                "name": "Davis Films",
+                "origin_country": "FR"
+            },
+            {
+                "id": 189103,
+                "logo_path": "/hu0qcD4k7kfWpdAewqmJSUyZPa7.png",
+                "name": "Ashland Hill Media Finance",
+                "origin_country": "US"
+            },
+            {
+                "id": 239077,
+                "logo_path": null,
+                "name": "Supernix",
+                "origin_country": "DE"
+            },
+            {
+                "id": 178277,
+                "logo_path": null,
+                "name": "WIP",
+                "origin_country": ""
+            },
+            {
+                "id": 215964,
+                "logo_path": "/hgueKTQkSwc6r7rNfMaC155E1bl.png",
+                "name": "Richmond Pictures",
+                "origin_country": "GB"
+            },
+            {
+                "id": 9987,
+                "logo_path": "/o5OTKAw7Acl5fTZYPyl8M8D9570.png",
+                "name": "Lipsync Productions",
+                "origin_country": "GB"
+            },
+            {
+                "id": 67260,
+                "logo_path": "/oV2FZfhRcEc1HReC66e1L4t2qPV.png",
+                "name": "Electric Shadow Company",
+                "origin_country": "GB"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
+            },
+            {
+                "iso_3166_1": "JP",
+                "name": "Japan"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "DE",
+                "name": "Germany"
+            }
+        ],
+        "release_date": "2026-01-21",
+        "revenue": 47976996,
+        "runtime": 106,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Spanish",
+                "iso_639_1": "es",
+                "name": "Español"
+            },
+            {
+                "english_name": "Polish",
+                "iso_639_1": "pl",
+                "name": "Polski"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Portuguese",
+                "iso_639_1": "pt",
+                "name": "Português"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Dans mes rêves agités, je vois cette ville.",
+        "title": "Retour à Silent Hill",
+        "video": false,
+        "vote_average": 5.353,
+        "vote_count": 556
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/mCpwRayjXMFzKHbjbzc5JRKfq1O.jpg",
+        "belongs_to_collection": null,
+        "budget": 10000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            },
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            }
+        ],
+        "homepage": "",
+        "id": 1083381,
+        "imdb_id": "tt26657236",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Backrooms",
+        "overview": "Un jeune cinéaste bascule dans une autre dimension vide et labyrinthique, qui semble abriter des êtres d'un autre monde.",
+        "popularity": 30.6725,
+        "poster_path": "/9a5XkgyzuRrsjkbJlJeDU7x4S9J.jpg",
+        "production_companies": [
+            {
+                "id": 76907,
+                "logo_path": "/ygMQtjsKX7BZkCQhQZY82lgnCUO.png",
+                "name": "Atomic Monster",
+                "origin_country": "US"
+            },
+            {
+                "id": 2575,
+                "logo_path": "/9YJrHYlcfHtwtulkFMAies3aFEl.png",
+                "name": "21 Laps Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 41077,
+                "logo_path": "/1ZXsGaFPgrgS6ZZGS37AqD5uU12.png",
+                "name": "A24",
+                "origin_country": "US"
+            },
+            {
+                "id": 262307,
+                "logo_path": "/Yt9QqQjZzvdZCRLN5vGoi3dc8n.png",
+                "name": "Phobos",
+                "origin_country": "CA"
+            },
+            {
+                "id": 251729,
+                "logo_path": "/lKT1JrDNMwC9M3HvQQCofbiYtRr.png",
+                "name": "The North Road Company",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "CA",
+                "name": "Canada"
+            }
+        ],
+        "release_date": "2026-05-27",
+        "revenue": 0,
+        "runtime": 110,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Backrooms",
+        "video": false,
+        "vote_average": 9.2,
+        "vote_count": 4
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/tId87yE7JnQsQsqOpnGXjz9PoEe.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 18,
+                "name": "Drame"
+            },
+            {
+                "id": 35,
+                "name": "Comédie"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 329505,
+        "imdb_id": "tt0089790",
+        "origin_country": [
+            "IT"
+        ],
+        "original_language": "it",
+        "original_title": "Il peccato di Lola",
+        "overview": "",
+        "popularity": 24.9602,
+        "poster_path": "/iQt9Kydd8yn9xfBvYeKec56glyv.jpg",
+        "production_companies": [
+            {
+                "id": 131024,
+                "logo_path": null,
+                "name": "Geo Film",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "IT",
+                "name": "Italy"
+            }
+        ],
+        "release_date": "1984-05-04",
+        "revenue": 0,
+        "runtime": 88,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Italian",
+                "iso_639_1": "it",
+                "name": "Italiano"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Il peccato di Lola",
+        "video": false,
+        "vote_average": 7.0,
+        "vote_count": 71
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/8VyTWJrNEyV2MTWvniDVp0MpOAe.jpg",
+        "belongs_to_collection": {
+            "id": 1531466,
+            "name": "Évanouis - Saga",
+            "poster_path": "/IUmfYfmZiVfxTYtxRcsIV2ujJ3.jpg",
+            "backdrop_path": "/xt2V8A0NVw4lUIUU8gRLnrCBrIR.jpg"
+        },
+        "budget": 38000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            }
+        ],
+        "homepage": "https://newsroom.warnerbros.fr/weapons",
+        "id": 1078605,
+        "imdb_id": "tt26581740",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Weapons",
+        "overview": "En plein cœur de la nuit, les 17 enfants d'une classe de l'école primaire de Maybrook aux États-Unis se réveillent à une heure précise et s'enfuient de leurs foyers. Mus par une force inébranlable, ils sont partis à la course et personne ne sait où ils s'en sont allés. Tous ont disparu, sauf un. Alex est le seul élève restant. Paniqués et inquiets, les parents soupçonnent l'enseignante Justine Gandy d'avoir manigancé quelque chose.",
+        "popularity": 23.8479,
+        "poster_path": "/3eRJV97oZDY6LORwPNdWlfdPLnd.jpg",
+        "production_companies": [
+            {
+                "id": 240675,
+                "logo_path": null,
+                "name": "Subconscious",
+                "origin_country": "US"
+            },
+            {
+                "id": 829,
+                "logo_path": "/iJo9zP5QCKyBsmKSOcvXd6UDNih.png",
+                "name": "Vertigo Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 18609,
+                "logo_path": "/pxtYCfl1DWzvizqZcYwE4NefOOF.png",
+                "name": "BoulderLight Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 12,
+                "logo_path": "/2ycs64eqV5rqKYHyQK0GVoKGvfX.png",
+                "name": "New Line Cinema",
+                "origin_country": "US"
+            },
+            {
+                "id": 216687,
+                "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+                "name": "Domain Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-08-04",
+        "revenue": 269972492,
+        "runtime": 129,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "À 2h17, 17 enfants sont sortis de chez eux… et ne sont jamais revenus.",
+        "title": "Évanouis",
+        "video": false,
+        "vote_average": 7.254,
+        "vote_count": 3384
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/ecKQlAEG95k62SMGhvX83oEqANK.jpg",
+        "belongs_to_collection": {
+            "id": 313086,
+            "name": "Conjuring - Saga",
+            "poster_path": "/xBsE8zg23ZUkAoDS0p3IWeRtBRX.jpg",
+            "backdrop_path": "/kHZaX0vuhZdbuq0WKU3BpA9WIQ0.jpg"
+        },
+        "budget": 13000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 138843,
+        "imdb_id": "tt1457767",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Conjuring",
+        "overview": "Avant Amityville, il y avait Harrisville… Conjuring : Les dossiers Warren, raconte l'histoire horrible, mais vraie, d'Ed et Lorraine Warren, enquêteurs paranormaux réputés dans le monde entier, venus en aide à une famille terrorisée par une présence inquiétante dans leur ferme isolée… Contraints d'affronter une créature démoniaque d'une force redoutable, les Warren se retrouvent face à l'affaire la plus terrifiante de leur carrière.",
+        "popularity": 25.9058,
+        "poster_path": "/vOnTvcSsxdJWL9xgauljHHmFSN4.jpg",
+        "production_companies": [
+            {
+                "id": 31375,
+                "logo_path": null,
+                "name": "Evergreen Media Group",
+                "origin_country": "US"
+            },
+            {
+                "id": 11565,
+                "logo_path": "/odU3l6csuBmXUrzFm6araUgEUHQ.png",
+                "name": "The Safran Company",
+                "origin_country": "US"
+            },
+            {
+                "id": 12,
+                "logo_path": "/2ycs64eqV5rqKYHyQK0GVoKGvfX.png",
+                "name": "New Line Cinema",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2013-07-18",
+        "revenue": 321293998,
+        "runtime": 112,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Inspiré de faits réels",
+        "title": "Conjuring : Les Dossiers Warren",
+        "video": false,
+        "vote_average": 7.538,
+        "vote_count": 12692
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/1buxBsiQM1zQvEEM8FyJH6lZgHa.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 35,
+                "name": "Comédie"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "homepage": "",
+        "id": 1177445,
+        "imdb_id": "tt27480944",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Cannibal Mukbang",
+        "overview": "",
+        "popularity": 23.772,
+        "poster_path": "/f30neqyKxshsD9T5bCGenqVSkjf.jpg",
+        "production_companies": [
+            {
+                "id": 208494,
+                "logo_path": null,
+                "name": "Melty Media",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-09-25",
+        "revenue": 0,
+        "runtime": 103,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Cannibal Mukbang",
+        "video": false,
+        "vote_average": 4.5,
+        "vote_count": 10
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/cEobq5QrnOJjO6giDs8q4RxmMKh.jpg",
+        "belongs_to_collection": {
+            "id": 8091,
+            "name": "Alien - Saga",
+            "poster_path": "/ygHKpMEcbarcC7YcaKekhzz3cUl.jpg",
+            "backdrop_path": "/6X42JnSMdo3dPAswOHUuvebdTq7.jpg"
+        },
+        "budget": 11000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            }
+        ],
+        "homepage": "",
+        "id": 348,
+        "imdb_id": "tt0078748",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Alien",
+        "overview": "En 2122, le Nostromo, vaisseau de commerce, fait route vers la Terre avec à son bord un équipage de sept personnes en hibernation et une cargaison de minerais. Il interrompt soudain sa course suite à la réception d’un mystérieux message provenant d’une planète inexplorée. Réveillé par l’ordinateur de bord, l’équipage se rend sur place et découvre les restes d’un gigantesque vaisseau extraterrestre dont le seul passager semble être mort dans d’étranges circonstances…",
+        "popularity": 23.5735,
+        "poster_path": "/l8CES84JndFlNfBNMxdLRYaLvI6.jpg",
+        "production_companies": [
+            {
+                "id": 401,
+                "logo_path": "/t7mM3DvQ9MwDT3YzMCBrkWpWiiz.png",
+                "name": "Brandywine Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 276266,
+                "logo_path": null,
+                "name": "Twentieth Century-Fox Productions",
+                "origin_country": "GB"
+            },
+            {
+                "id": 276267,
+                "logo_path": null,
+                "name": "Ronald Shusett Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            }
+        ],
+        "release_date": "1979-05-25",
+        "revenue": 104931801,
+        "runtime": 117,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Spanish",
+                "iso_639_1": "es",
+                "name": "Español"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Dans l’espace, personne ne vous entend crier.",
+        "title": "Alien, le huitième passager",
+        "video": false,
+        "vote_average": 8.171,
+        "vote_count": 16341
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/hpXBJxLD2SEf8l2CspmSeiHrBKX.jpg",
+        "belongs_to_collection": null,
+        "budget": 120000000,
+        "genres": [
+            {
+                "id": 18,
+                "name": "Drame"
+            },
+            {
+                "id": 14,
+                "name": "Fantastique"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "https://www.netflix.com/fr/title/81507921",
+        "id": 1062722,
+        "imdb_id": "tt1312221",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Frankenstein",
+        "overview": "Fin du XVIIIe siècle. Victor Frankenstein, scientifique visionnaire et ambitieux, se consacre corps et âme à un projet dément : recréer la vie à partir de restes humains, et ainsi remporter sa conquête obsédée de la mort. Financé par un mécène aux obscures motivations, Victor finit par donner vie à sa créature. Mais, au lieu de l’aimer comme un fils, il la rejette et l’enferme. Rejetée et meurtrie, celle-ci finit par se retourner contre lui.",
+        "popularity": 23.2136,
+        "poster_path": "/aSMz7X2yQaN0ojeXEmOonbIJFhU.jpg",
+        "production_companies": [
+            {
+                "id": 101082,
+                "logo_path": "/zjAYU6sUmYaeFeJ1yWeaqzsWAz8.png",
+                "name": "Double Dare You",
+                "origin_country": "US"
+            },
+            {
+                "id": 10678,
+                "logo_path": null,
+                "name": "Demilo Films",
+                "origin_country": "CA"
+            },
+            {
+                "id": 279898,
+                "logo_path": null,
+                "name": "Bluegrass 7",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "CA",
+                "name": "Canada"
+            }
+        ],
+        "release_date": "2025-10-17",
+        "revenue": 480678,
+        "runtime": 150,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Danish",
+                "iso_639_1": "da",
+                "name": "Dansk"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Français"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Seuls les monstres se rêvent tout-puissants.",
+        "title": "Frankenstein",
+        "video": false,
+        "vote_average": 7.643,
+        "vote_count": 3440
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/54BOXpX2ieTXMDzHymdDMnUIzYG.jpg",
+        "belongs_to_collection": {
+            "id": 1240438,
+            "name": "Five Nights at Freddy's - Saga",
+            "poster_path": "/mziuu7XpcnsOb6eRvHDi666U6Nc.jpg",
+            "backdrop_path": "/537TH9PnmUk5X0FZaRP0wH1PJqV.jpg"
+        },
+        "budget": 36000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "https://www.universalpictures.fr/micro/five-nights-2",
+        "id": 1228246,
+        "imdb_id": "tt30274401",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Five Nights at Freddy's 2",
+        "overview": "Un an s’est écoulé depuis le cauchemar surnaturel survenu chez Freddy Fazbear's Pizza. Un effroyable nouveau chapitre d'horreur s'ouvre lorsqu’Abby, la sœur de Mike, ancien agent de sécurité, s'échappe à la recherche de ses amis animatroniques : Freddy, Bonnie, Chica et Foxy. Alors que de terrifiants événements se déclenchent, de sombres secrets sur les véritables origines de Freddy sont révélés, libérant une horreur oubliée depuis des décennies.",
+        "popularity": 24.1327,
+        "poster_path": "/zaKVvYUJRqgz48FadyxWqGi4m3Z.jpg",
+        "production_companies": [
+            {
+                "id": 3172,
+                "logo_path": "/rzKluDcRkIwHZK2pHsiT667A2Kw.png",
+                "name": "Blumhouse Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 211144,
+                "logo_path": null,
+                "name": "Scott Cawthon Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 116736,
+                "logo_path": "/5qSrmPricJH5TKXvfRSmUc7o1wP.png",
+                "name": "Mind Hive Films",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-12-03",
+        "revenue": 239568877,
+        "runtime": 104,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Français"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Ravi de vous revoir ! Prêts pour le grand spectacle ?",
+        "title": "Five Nights at Freddy's 2",
+        "video": false,
+        "vote_average": 6.676,
+        "vote_count": 940
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/oJ1MIABA0WF0a7MDVQnnMvBdex8.jpg",
+        "belongs_to_collection": {
+            "id": 1267164,
+            "name": "Wedding Nightmare - Saga",
+            "poster_path": "/oJBkp2jl6S9h8yNXtRf23bmxH7j.jpg",
+            "backdrop_path": "/5webUKxijJEvolYGWXzM2zw5f9T.jpg"
+        },
+        "budget": 6000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 35,
+                "name": "Comédie"
+            }
+        ],
+        "homepage": "",
+        "id": 567609,
+        "imdb_id": "tt7798634",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Ready or Not",
+        "overview": "La nuit de noces d’une jeune mariée tourne au cauchemar, quand sa riche et excentrique belle-famille lui demande d’honorer une tradition, qui va se révéler meurtrière, où chacun luttera pour sa survie.",
+        "popularity": 22.9366,
+        "poster_path": "/iI53NwzcNpkImU346bV866G7G46.jpg",
+        "production_companies": [
+            {
+                "id": 34982,
+                "logo_path": "/uvTmiRZzNfG88dVXi9hQ7eFNirq.png",
+                "name": "Mythology Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 19367,
+                "logo_path": null,
+                "name": "Vinson Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 43,
+                "logo_path": "/4RgIPr55kBakgupWkzdDxqXJEqr.png",
+                "name": "Fox Searchlight Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 126588,
+                "logo_path": "/cNhOITS96oOV7SCgUHxvZlWRecx.png",
+                "name": "Radio Silence",
+                "origin_country": "US"
+            },
+            {
+                "id": 22213,
+                "logo_path": "/qx9K6bFWJupwde0xQDwOvXkOaL8.png",
+                "name": "TSG Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2019-08-21",
+        "revenue": 57615777,
+        "runtime": 91,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Réfléchissez bien avant de dire oui…",
+        "title": "Wedding Nightmare",
+        "video": false,
+        "vote_average": 7.066,
+        "vote_count": 5443
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/fPfDB0IHOqvmKIzFP9CA51OOS1N.jpg",
+        "belongs_to_collection": {
+            "id": 1172926,
+            "name": "Les Intrus - Saga",
+            "poster_path": "/nT6rpPMoDm8lk0jf0HRQLl2xA2T.jpg",
+            "backdrop_path": "/1IihKmAv26AkN9jVmzx3JPsd9BU.jpg"
+        },
+        "budget": 8500000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 1010755,
+        "imdb_id": "tt28682323",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Strangers: Chapter 3",
+        "overview": "Maya affronte une dernière fois les tueurs masqués dans un règlement de comptes brutal et complet, une histoire de survie et de vengeance.",
+        "popularity": 22.6719,
+        "poster_path": "/8GkCZUA8RnpvbY6mZFMKziOnOD6.jpg",
+        "production_companies": [
+            {
+                "id": 1632,
+                "logo_path": "/cisLn1YAUuptXVBa0xjq7ST9cH0.png",
+                "name": "Lionsgate",
+                "origin_country": "US"
+            },
+            {
+                "id": 200342,
+                "logo_path": null,
+                "name": "Fifth Element Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 9987,
+                "logo_path": "/o5OTKAw7Acl5fTZYPyl8M8D9570.png",
+                "name": "Lipsync Productions",
+                "origin_country": "GB"
+            },
+            {
+                "id": 175756,
+                "logo_path": null,
+                "name": "Sherbone Media",
+                "origin_country": "US"
+            },
+            {
+                "id": 229418,
+                "logo_path": null,
+                "name": "Stream Media",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2026-02-05",
+        "revenue": 9191988,
+        "runtime": 92,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Accepte tes peurs.",
+        "title": "Les Intrus : Chapitre 3",
+        "video": false,
+        "vote_average": 5.7,
+        "vote_count": 169
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/8ODNt5olCeIqBYTP3GgXEQYTfeX.jpg",
+        "belongs_to_collection": null,
+        "budget": 17500000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "https://metrofilms.com/film/the-substance",
+        "id": 933260,
+        "imdb_id": "tt17526714",
+        "origin_country": [
+            "GB",
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Substance",
+        "overview": "Elisabeth Sparkle, vedette d’une émission d’aérobic, est licenciée le jour de ses 50 ans à cause de son âge. Le moral au plus bas, elle reçoit une proposition inattendue, celle d'un mystérieux laboratoire lui proposant une « substance » miraculeuse : si elle se l’injecte, elle deviendra la meilleure version d’elle-même, plus jeune, plus belle, plus parfaite grâce à une modification de son ADN…",
+        "popularity": 19.4335,
+        "poster_path": "/bUPlFWbl8jVdhrBYNOOurOMzad6.jpg",
+        "production_companies": [
+            {
+                "id": 10163,
+                "logo_path": "/16KWBMmfPX0aJzDExDrPxSLj0Pg.png",
+                "name": "Working Title Films",
+                "origin_country": "GB"
+            },
+            {
+                "id": 233939,
+                "logo_path": "/pAVTrExieWU4GEfxhpmQc0G9CUi.png",
+                "name": "Blacksmith",
+                "origin_country": "FR"
+            },
+            {
+                "id": 221513,
+                "logo_path": "/16KWBMmfPX0aJzDExDrPxSLj0Pg.png",
+                "name": "Working Title Films",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
+            },
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2024-09-07",
+        "revenue": 77316812,
+        "runtime": 141,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Avez-vous déjà rêvé d'une meilleure version de vous-même ?",
+        "title": "The Substance",
+        "video": false,
+        "vote_average": 7.133,
+        "vote_count": 5989
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/uIpJPDNFoeX0TVml9smPrs9KUVx.jpg",
+        "belongs_to_collection": {
+            "id": 8864,
+            "name": "Destination Finale - Saga",
+            "poster_path": "/8HZxSkP3bN6yBGmiO2d1zZyb73B.jpg",
+            "backdrop_path": "/y3aWOInifbGKXM34KjtcMITrZRZ.jpg"
+        },
+        "budget": 50000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            }
+        ],
+        "homepage": "https://newsroom.warnerbros.fr/final-destination-bloodlines",
+        "id": 574475,
+        "imdb_id": "tt9619824",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Final Destination Bloodlines",
+        "overview": "Hantée par un cauchemar terrifiant qui revient sans cesse, Stefanie, étudiante à l’université, rentre chez elle pour retrouver la trace de la seule personne susceptible d’enrayer ce cycle infernal et de sauver ses proches du sort funeste qui les attend…",
+        "popularity": 23.1376,
+        "poster_path": "/4uI8C2zcfLWRhZDBgd0oTlZjV9j.jpg",
+        "production_companies": [
+            {
+                "id": 12,
+                "logo_path": "/2ycs64eqV5rqKYHyQK0GVoKGvfX.png",
+                "name": "New Line Cinema",
+                "origin_country": "US"
+            },
+            {
+                "id": 48788,
+                "logo_path": "/4B35ruSPcfEL1hxVFFmNTlGcCS0.png",
+                "name": "Practical Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 252366,
+                "logo_path": "/DwpaN189I3OYb0u2HKZUDe7xox.png",
+                "name": "Freshman Year",
+                "origin_country": "US"
+            },
+            {
+                "id": 252367,
+                "logo_path": null,
+                "name": "Fireside Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 216687,
+                "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+                "name": "Domain Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-05-14",
+        "revenue": 317854739,
+        "runtime": 110,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "La mort n'oublie pas. La mort ne pardonne pas.",
+        "title": "Destination Finale : Bloodlines",
+        "video": false,
+        "vote_average": 7.04,
+        "vote_count": 2839
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/76J14zgwVWyOciri7X7F3DGP3TA.jpg",
+        "belongs_to_collection": null,
+        "budget": 18000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 5876,
+        "imdb_id": "tt0884328",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Mist",
+        "overview": "Tandis qu'une brume étrange semble envelopper une petite ville du Maine, David Drayton et son jeune fils Billy se retrouvent pris au piège dans un supermarché, en compagnie d'autres habitants terrorisés. David ne tarde pas à s'apercevoir que le brouillard est peuplé d'inquiétantes créatures... Leur seule chance à tous de s'en sortir consiste à s'unir. Mais est-ce possible quand on connaît la nature humaine ? Alors que certains cèdent à la panique, David se demande ce qui est le plus effrayant : les monstres qui rôdent dans la brume ou ses semblables réfugiés dans le supermarché ?",
+        "popularity": 20.9561,
+        "poster_path": "/dW7yzvfGFHCWlOGJUclrs9fGNV4.jpg",
+        "production_companies": [
+            {
+                "id": 3982,
+                "logo_path": "/bli7HkPOXOEWsDwDK0W7XXfeUU2.png",
+                "name": "Darkwoods Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 7405,
+                "logo_path": "/rfnws0uY8rsNAsrLbx3gEIcYXx3.png",
+                "name": "Dimension Films",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2007-11-21",
+        "revenue": 57470220,
+        "runtime": 120,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "La peur change tout",
+        "title": "The Mist",
+        "video": false,
+        "vote_average": 6.945,
+        "vote_count": 5820
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/yJi6g0CnsqANLNuVaRX28tZxeHX.jpg",
+        "belongs_to_collection": null,
+        "budget": 2000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            }
+        ],
+        "homepage": "",
+        "id": 1193501,
+        "imdb_id": "tt29550683",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Whistle",
+        "overview": "Un groupe d'élèves inadaptés découvre par hasard un objet maudit, un ancien Sifflet de la Mort aztèque. Ils découvrent qu'en soufflant dans le sifflet, le son terrifiant qu'il émet fera venir leurs morts futures pour les traquer.",
+        "popularity": 20.4266,
+        "poster_path": "/d3U7rzj3ReOjpxNBd2n09WAxSLH.jpg",
+        "production_companies": [
+            {
+                "id": 35846,
+                "logo_path": "/tOJlsgZNRdMurnJgSiuRFIUz0te.png",
+                "name": "No Trace Camping",
+                "origin_country": "US"
+            },
+            {
+                "id": 129815,
+                "logo_path": "/qbCmnVTQEuFqrVkbxn3i9P7Jrcw.png",
+                "name": "Wild Atlantic Pictures",
+                "origin_country": "IE"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "IE",
+                "name": "Ireland"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2026-01-20",
+        "revenue": 4686337,
+        "runtime": 97,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Le Sifflet",
+        "video": false,
+        "vote_average": 6.265,
+        "vote_count": 402
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/wxijmbo9Oy5L9M9e4K1QhXVBRgm.jpg",
+        "belongs_to_collection": null,
+        "budget": 29000000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Aventure"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 36,
+                "name": "Histoire"
+            }
+        ],
+        "homepage": "",
+        "id": 6312,
+        "imdb_id": "tt0237534",
+        "origin_country": [
+            "FR"
+        ],
+        "original_language": "fr",
+        "original_title": "Le Pacte des loups",
+        "overview": "Délégué par le roi Louis XV, le chevalier Grégoire de Fronsac, accompagné de son vieil ami Mani, un Indien de la tribu des Mohawk, arrive dans le pays du Gévaudan afin d'élucider le mystère de la Bête, qui saigne les campagnes locales depuis plus d'un an. Les premières investigations du chevalier ne tardent pas à mettre au jour des éléments troublants.",
+        "popularity": 22.0544,
+        "poster_path": "/d7TXucKJ9MkLSNmVMDONv1Eu0V8.jpg",
+        "production_companies": [
+            {
+                "id": 342,
+                "logo_path": "/kZ99mxyNvNgyAFjm7rcl9vfYmU8.png",
+                "name": "Davis Films",
+                "origin_country": "FR"
+            },
+            {
+                "id": 616,
+                "logo_path": "/aeBPwUMUqIOFnt3Fxv9fC91hBuq.png",
+                "name": "Eskwad",
+                "origin_country": "FR"
+            },
+            {
+                "id": 694,
+                "logo_path": "/5LEHONGkZBIoWvp1ygHOF8iyi1M.png",
+                "name": "StudioCanal",
+                "origin_country": "FR"
+            },
+            {
+                "id": 356,
+                "logo_path": "/9tW5wZEGotn1Ei5pErA88m47XiD.png",
+                "name": "TF1 Films Production",
+                "origin_country": "FR"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
+            }
+        ],
+        "release_date": "2001-01-31",
+        "revenue": 70800000,
+        "runtime": 151,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Italian",
+                "iso_639_1": "it",
+                "name": "Italiano"
+            },
+            {
+                "english_name": "German",
+                "iso_639_1": "de",
+                "name": "Deutsch"
+            },
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Français"
+            }
+        ],
+        "status": "Released",
+        "tagline": "C'est en l'an 1764 que la Bête apparut sur nos terres et les fit siennes.",
+        "title": "Le Pacte des loups",
+        "video": false,
+        "vote_average": 6.736,
+        "vote_count": 1718
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/z9qFZHT8K7tG2PlpKBSAqlmGST8.jpg",
+        "belongs_to_collection": {
+            "id": 1025281,
+            "name": "Constantine - Saga",
+            "poster_path": "/wfV9uKdkbEguX5XfNZ80G6jeb4z.jpg",
+            "backdrop_path": "/44TlYuWbWBpRY3i0Ch7MJtLv4Yd.jpg"
+        },
+        "budget": 100000000,
+        "genres": [
+            {
+                "id": 14,
+                "name": "Fantastique"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 561,
+        "imdb_id": "tt0360486",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Constantine",
+        "overview": "John Constantine, extralucide anticonformiste, qui a littéralement fait un aller-retour aux enfers, doit aider Katelin Dodson, une policière incrédule, à lever le voile sur le suicide mystérieux de sa sœur jumelle. Cette enquête leur fera découvrir l'univers d'anges et de démons qui hantent les sous-sols de Los Angeles d'aujourd'hui.",
+        "popularity": 19.8338,
+        "poster_path": "/7jQjFsHX1lHFqrVZB8kCu6dOpGs.jpg",
+        "production_companies": [
+            {
+                "id": 79,
+                "logo_path": "/at4uYdwAAgNRKhZuuFX8ShKSybw.png",
+                "name": "Village Roadshow Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 430,
+                "logo_path": null,
+                "name": "Lonely Film Productions",
+                "origin_country": "DE"
+            },
+            {
+                "id": 431,
+                "logo_path": "/6dcR1MbRqYgt3jUVYxkHe68GFnZ.png",
+                "name": "The Donners' Company",
+                "origin_country": "US"
+            },
+            {
+                "id": 432,
+                "logo_path": null,
+                "name": "Batfilm Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 433,
+                "logo_path": "/iafkKMpcRfEXq9a4sQf0h6tg2E2.png",
+                "name": "Weed Road Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 787,
+                "logo_path": "/cCefBs1t7jxtiz3eCxBp9yxrxGx.png",
+                "name": "3 Arts Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 165407,
+                "logo_path": "/73fMdMsX7azqI6ZveqtlzTnKdtu.png",
+                "name": "DC Vertigo",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "DE",
+                "name": "Germany"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2005-02-08",
+        "revenue": 230900000,
+        "runtime": 121,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Latin",
+                "iso_639_1": "la",
+                "name": "Latin"
+            },
+            {
+                "english_name": "Spanish",
+                "iso_639_1": "es",
+                "name": "Español"
+            },
+            {
+                "english_name": "Tagalog",
+                "iso_639_1": "tl",
+                "name": ""
+            }
+        ],
+        "status": "Released",
+        "tagline": "L'enfer et le paradis se sont lancés un défi. Il se joue sur Terre...",
+        "title": "Constantine",
+        "video": false,
+        "vote_average": 7.151,
+        "vote_count": 8078
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/1Xi0FNU0uj82GfUw2vWHsVCiRv5.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 18,
+                "name": "Drame"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            }
+        ],
+        "homepage": "",
+        "id": 1281425,
+        "imdb_id": "tt33029349",
+        "origin_country": [
+            "PL"
+        ],
+        "original_language": "pl",
+        "original_title": "Cisza nocna",
+        "overview": "",
+        "popularity": 19.3136,
+        "poster_path": "/qfqSIq7MVsbepXqiZeVFNl2ARhl.jpg",
+        "production_companies": [
+            {
+                "id": 76035,
+                "logo_path": "/4vsIMYcrlPDGP6tTmm5Rm7SzL1G.png",
+                "name": "Film it",
+                "origin_country": "PL"
+            },
+            {
+                "id": 130189,
+                "logo_path": null,
+                "name": "Plan Zet",
+                "origin_country": "PL"
+            },
+            {
+                "id": 6480,
+                "logo_path": "/qJUUNzFYXNUDaisssBTV3Zdki9R.png",
+                "name": "Telewizja Polska",
+                "origin_country": "PL"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "PL",
+                "name": "Poland"
+            }
+        ],
+        "release_date": "2024-10-31",
+        "revenue": 0,
+        "runtime": 87,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Polish",
+                "iso_639_1": "pl",
+                "name": "Polski"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Cisza nocna",
+        "video": false,
+        "vote_average": 4.7,
+        "vote_count": 6
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/vD2IsRkXyIzZkT8NHop8FUh4jwv.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 1534530,
+        "imdb_id": "tt35956182",
+        "origin_country": [
+            "AR",
+            "UY"
+        ],
+        "original_language": "es",
+        "original_title": "El Susurro",
+        "overview": "",
+        "popularity": 18.6185,
+        "poster_path": "/evDvchrDRS2i9jKcLJpixSLjx45.jpg",
+        "production_companies": [
+            {
+                "id": 29240,
+                "logo_path": "/qz14qTCqR1KdkOGFsP1DQ4LcmI3.png",
+                "name": "Mother Superior",
+                "origin_country": "UY"
+            },
+            {
+                "id": 106553,
+                "logo_path": "/f4SuFvgXUHrX6hpQ3VzidSkdFE.png",
+                "name": "NonStop",
+                "origin_country": "AR"
+            },
+            {
+                "id": 28912,
+                "logo_path": "/jMjy9m6msnTVMEqrM22ULXJa45Y.png",
+                "name": "Machaco Films",
+                "origin_country": "AR"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "AR",
+                "name": "Argentina"
+            },
+            {
+                "iso_3166_1": "UY",
+                "name": "Uruguay"
+            }
+        ],
+        "release_date": "2026-01-22",
+        "revenue": 0,
+        "runtime": 101,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Spanish",
+                "iso_639_1": "es",
+                "name": "Español"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "El Susurro",
+        "video": false,
+        "vote_average": 6.9,
+        "vote_count": 4
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/mmd1HnuvAzFc4iuVJcnBrhDNEKr.jpg",
+        "belongs_to_collection": {
+            "id": 530064,
+            "name": "Shining - Saga",
+            "poster_path": "/kcnev6134jmaDHB7UT1neXB3fbn.jpg",
+            "backdrop_path": "/8L2bt7OWxrVhZPrFPkyZW4rEXzq.jpg"
+        },
+        "budget": 19000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 694,
+        "imdb_id": "tt0081505",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Shining",
+        "overview": "Jack Torrance, gardien d’un hôtel fermé l’hiver, sa femme et son fils Danny s’apprêtent à vivre de longs mois de solitude. Danny, qui possède un don de médium, le «Shining», est effrayé à l’idée d’habiter ce lieu, théâtre marqué par de terribles événements passés…",
+        "popularity": 18.2547,
+        "poster_path": "/cnniZQGtjK8kh2tsjih4GtkX6bl.jpg",
+        "production_companies": [
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 11272,
+                "logo_path": null,
+                "name": "Peregrine",
+                "origin_country": "GB"
+            },
+            {
+                "id": 88,
+                "logo_path": null,
+                "name": "Hawk Films",
+                "origin_country": "GB"
+            },
+            {
+                "id": 734,
+                "logo_path": "/nJ9FtMXQZ0zoP8VEzxGJNvWPRZb.png",
+                "name": "The Producer Circle Co.",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1980-05-23",
+        "revenue": 44781695,
+        "runtime": 119,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Un tiens vaut mieux que deux tu l’auras.",
+        "title": "Shining",
+        "video": false,
+        "vote_average": 8.204,
+        "vote_count": 18900
+    }
+]

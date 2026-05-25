@@ -1,0 +1,1528 @@
+[
+    {
+        "adult": false,
+        "backdrop_path": "/hl7FEzMqgpsD0RfwMzskzQoiD1M.jpg",
+        "belongs_to_collection": null,
+        "budget": 15000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "https://www.paramountpictures.fr/film/passenger/",
+        "id": 1368314,
+        "imdb_id": "tt33763941",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Passenger",
+        "overview": "Après avoir été témoin d’un terrible accident de la route, un jeune couple réalise qu’il n’a pas quitté les lieux du drame sans être suivi. Une présence démoniaque, le Passager, se joint à leur voyage en van et transforme leur aventure en un véritable cauchemar, déterminée à ne s’arrêter qu’une fois qu’elle les aura tous les deux emportés.",
+        "popularity": 46.243,
+        "poster_path": "/6BDQJoZpzhFJCTop59BRR51k9yp.jpg",
+        "production_companies": [
+            {
+                "id": 225897,
+                "logo_path": null,
+                "name": "18Hz Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 149696,
+                "logo_path": "/w0ARek3q2bIKGfoM2WRsFOqyYCB.png",
+                "name": "Coin Operated",
+                "origin_country": "US"
+            },
+            {
+                "id": 4,
+                "logo_path": "/jay6WcMgagAklUt7i9Euwj1pzTF.png",
+                "name": "Paramount Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 216687,
+                "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+                "name": "Domain Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2026-05-20",
+        "revenue": 15300000,
+        "runtime": 94,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "L'an dernier, plus de 130 millions de personnes ont pris la route. 15 400 d'entre elles ne sont jamais revenues.",
+        "title": "Passenger",
+        "video": false,
+        "vote_average": 5.944,
+        "vote_count": 27
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/be5SIsRGMckO8tU9lrLcIik70Dy.jpg",
+        "belongs_to_collection": null,
+        "budget": 52000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 14,
+                "name": "Fantastique"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "homepage": "https://www.snd-films.com/movies/47",
+        "id": 1246049,
+        "imdb_id": "tt31434030",
+        "origin_country": [
+            "FR"
+        ],
+        "original_language": "fr",
+        "original_title": "Dracula",
+        "overview": "Au XVe siècle, le Prince Vladimir renie Dieu après la perte brutale et cruelle de son épouse. Il hérite alors d’une malédiction : la vie éternelle. Il devient Dracula. Condamné à errer à travers les siècles, il n’aura plus qu’un seul espoir : celui de retrouver son amour perdu.",
+        "popularity": 48.9787,
+        "poster_path": "/hCKkybW6EfSZoOW3xia9ZsQwaUd.jpg",
+        "production_companies": [
+            {
+                "id": 6896,
+                "logo_path": "/2Q89KvzxTKB5BAv9RqFIPI1qb7E.png",
+                "name": "EuropaCorp",
+                "origin_country": "FR"
+            },
+            {
+                "id": 356,
+                "logo_path": "/9tW5wZEGotn1Ei5pErA88m47XiD.png",
+                "name": "TF1 Films Production",
+                "origin_country": "FR"
+            },
+            {
+                "id": 2902,
+                "logo_path": "/vFmmYSgFp8eE6C34JVCXy9bJFmc.png",
+                "name": "SND",
+                "origin_country": "FR"
+            },
+            {
+                "id": 18626,
+                "logo_path": "/gb0xmYIKvNy2LnUOfLVglww7U0g.png",
+                "name": "Kinology",
+                "origin_country": "FR"
+            },
+            {
+                "id": 255253,
+                "logo_path": null,
+                "name": "Actarus Productions",
+                "origin_country": "FR"
+            },
+            {
+                "id": 170748,
+                "logo_path": null,
+                "name": "Luc Besson Production",
+                "origin_country": "FR"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
+            }
+        ],
+        "release_date": "2025-07-30",
+        "revenue": 42404858,
+        "runtime": 129,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "German",
+                "iso_639_1": "de",
+                "name": "Deutsch"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Romanian",
+                "iso_639_1": "ro",
+                "name": "Română"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Il a renié sa foi pour devenir immortel. La passion, la colère, la vengeance et la haine se déchaîneront dans le monde moderne.",
+        "title": "Dracula",
+        "video": false,
+        "vote_average": 7.116,
+        "vote_count": 1201
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/be5T7oHxmDG4ytEimwPdmDHZD9N.jpg",
+        "belongs_to_collection": null,
+        "budget": 100000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 1352874,
+        "imdb_id": "tt32059878",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Crucifix: Blood of the Exorcist",
+        "overview": "",
+        "popularity": 41.7294,
+        "poster_path": "/u3qOxvlykoTpurg1G8VOcawoePI.jpg",
+        "production_companies": [
+            {
+                "id": 186394,
+                "logo_path": null,
+                "name": "Equalize Entertainment",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            }
+        ],
+        "release_date": "2025-01-09",
+        "revenue": 82873,
+        "runtime": 92,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "The Crucifix: Blood of the Exorcist",
+        "video": false,
+        "vote_average": 5.58,
+        "vote_count": 50
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/hHDNOlATHhre4eZ7aYz5cdyJLik.jpg",
+        "belongs_to_collection": {
+            "id": 1565,
+            "name": "28 … plus tard - Saga",
+            "poster_path": "/94IlufFhtKLLKaEcxvptRqmEzj5.jpg",
+            "backdrop_path": "/liImaqVpPGo3ddLWkJPeJxvaqCI.jpg"
+        },
+        "budget": 63000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            }
+        ],
+        "homepage": "",
+        "id": 1272837,
+        "imdb_id": "tt32141377",
+        "origin_country": [
+            "GB"
+        ],
+        "original_language": "en",
+        "original_title": "28 Years Later: The Bone Temple",
+        "overview": "Le docteur Kelson noue une relation aussi troublante qu'inattendue dont les répercussions sont susceptibles de bouleverser le monde. De l'autre côté, la rencontre entre Spike et Jimmy Crystal tourne au cauchemar.",
+        "popularity": 39.4563,
+        "poster_path": "/1SQVgXrkBVbwUWugj3ZZ6T26So2.jpg",
+        "production_companies": [
+            {
+                "id": 5,
+                "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+                "name": "Columbia Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 22213,
+                "logo_path": "/qx9K6bFWJupwde0xQDwOvXkOaL8.png",
+                "name": "TSG Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 284,
+                "logo_path": "/gSysiPcBixtWRFMnmEUOjkxuD4w.png",
+                "name": "DNA Films",
+                "origin_country": "GB"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2026-01-14",
+        "revenue": 58522222,
+        "runtime": 110,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "La peur est la nouvelle croyance.",
+        "title": "28 Ans plus tard : Le Temple des morts",
+        "video": false,
+        "vote_average": 7.109,
+        "vote_count": 1217
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/yQUTEvEb5pJi0BH3b1biQRpGvEx.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 967998,
+        "imdb_id": "tt18305922",
+        "origin_country": [
+            "BR"
+        ],
+        "original_language": "pt",
+        "original_title": "Conspiração Fatal",
+        "overview": "",
+        "popularity": 34.8844,
+        "poster_path": "/zpj3nNoc5xaUZTIdnuhwXwUcRag.jpg",
+        "production_companies": [
+            {
+                "id": 79880,
+                "logo_path": null,
+                "name": "Perocini Filmes",
+                "origin_country": "BR"
+            },
+            {
+                "id": 170077,
+                "logo_path": null,
+                "name": "Encripta",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "BR",
+                "name": "Brazil"
+            }
+        ],
+        "release_date": "2022-05-26",
+        "revenue": 0,
+        "runtime": 0,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Portuguese",
+                "iso_639_1": "pt",
+                "name": "Português"
+            },
+            {
+                "english_name": "Spanish",
+                "iso_639_1": "es",
+                "name": "Español"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Conspiração Fatal",
+        "video": false,
+        "vote_average": 7.0,
+        "vote_count": 3
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/A7BiqPOKvGNalAZhFn1WfSeG9aO.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 10770,
+                "name": "Téléfilm"
+            }
+        ],
+        "homepage": "",
+        "id": 137051,
+        "imdb_id": "tt0095602",
+        "origin_country": [
+            "CA",
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Midnight Matinee",
+        "overview": "L'hôtesse sensuelle du film d'horreur de minuit et de fin de soirée, a l'émission la mieux notée à la télévision. M. B a l'intention de voler les droits de l'émission. Le bras de fer commence et dégénère bientôt en un conflit meurtrier.",
+        "popularity": 36.5137,
+        "poster_path": "/czam6wq46B9UCZvq85vicElckFq.jpg",
+        "production_companies": [
+            {
+                "id": 10316,
+                "logo_path": null,
+                "name": "British Columbia Film",
+                "origin_country": "CA"
+            },
+            {
+                "id": 18217,
+                "logo_path": null,
+                "name": "D Slayer Productions",
+                "origin_country": ""
+            },
+            {
+                "id": 8335,
+                "logo_path": null,
+                "name": "The Image Organization",
+                "origin_country": ""
+            },
+            {
+                "id": 18218,
+                "logo_path": null,
+                "name": "Malofilm Communications Inc.",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "CA",
+                "name": "Canada"
+            }
+        ],
+        "release_date": "1988-10-12",
+        "revenue": 0,
+        "runtime": 78,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Midnight Matinee",
+        "video": false,
+        "vote_average": 5.4,
+        "vote_count": 7
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/gM1kQRPwOVW1Eos5tVWqcYmHR5S.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            }
+        ],
+        "homepage": "",
+        "id": 1470130,
+        "imdb_id": "tt36647890",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Mortuary Assistant",
+        "overview": "Rebecca Owens, diplômée en thanatopraxie, accepte un emploi de nuit aux pompes funèbres River Fields. Ce qui commence comme une tâche routinière prend rapidement une tournure sinistre lorsqu’elle se retrouve confrontée à de terrifiantes forces surnaturelles.",
+        "popularity": 35.4972,
+        "poster_path": "/72AoFPC5TY4DfJwXXS9rPwPeReD.jpg",
+        "production_companies": [
+            {
+                "id": 7662,
+                "logo_path": "/uGLpMN6r5MyFosNTgP9PKU48CHp.png",
+                "name": "Epic Pictures Group",
+                "origin_country": "US"
+            },
+            {
+                "id": 31787,
+                "logo_path": "/dWkJVibgXMBhPathe3rn7raMcta.png",
+                "name": "Creativity Capital",
+                "origin_country": "GB"
+            },
+            {
+                "id": 153351,
+                "logo_path": "/dMusWUKSqpqXQOh0WiXHSmRBTci.png",
+                "name": "Dread",
+                "origin_country": "US"
+            },
+            {
+                "id": 138068,
+                "logo_path": null,
+                "name": "Traverse Terror",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            }
+        ],
+        "release_date": "2026-02-13",
+        "revenue": 1300011,
+        "runtime": 91,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "The Mortuary Assistant",
+        "video": false,
+        "vote_average": 5.548,
+        "vote_count": 104
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/903T5F2DUV2ve6YIkP92y9gKy95.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 18,
+                "name": "Drame"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 510657,
+        "imdb_id": "tt7945270",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Wellwood",
+        "overview": "",
+        "popularity": 35.3191,
+        "poster_path": "/vRwzVKNHeeQ9srX6u2qsuflBozb.jpg",
+        "production_companies": [
+            {
+                "id": 101969,
+                "logo_path": null,
+                "name": "Amalgamated Dynamics",
+                "origin_country": ""
+            },
+            {
+                "id": 55132,
+                "logo_path": null,
+                "name": "Studio ADI",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-03-24",
+        "revenue": 0,
+        "runtime": 89,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Wellwood",
+        "video": false,
+        "vote_average": 5.167,
+        "vote_count": 12
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/fVpFOcQyHJM2di9upgSIwWD5wac.jpg",
+        "belongs_to_collection": {
+            "id": 619537,
+            "name": "Dernier train pour Busan - Saga",
+            "poster_path": "/lu8SvrY95ktSAKzyV899VuDCJlv.jpg",
+            "backdrop_path": "/qFKb25O9ROiGYt3GwtuXG5Lb2J.jpg"
+        },
+        "budget": 8500000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 12,
+                "name": "Aventure"
+            }
+        ],
+        "homepage": "",
+        "id": 396535,
+        "imdb_id": "tt5700672",
+        "origin_country": [
+            "KR"
+        ],
+        "original_language": "ko",
+        "original_title": "부산행",
+        "overview": "Tandis qu'un virus qui transforme tous les êtres vivants en zombies ravage la Corée du Sud, un père et sa fille tentent de survivre dans le dernier train pour Busan, l'unique ville à n'avoir pas encore été contaminée.",
+        "popularity": 38.5061,
+        "poster_path": "/9FiRluXOwGJZhb1BPSvJYO7SB7y.jpg",
+        "production_companies": [
+            {
+                "id": 20064,
+                "logo_path": "/2In7Heq6DuXDjOwPmJqHWkpohaL.png",
+                "name": "Next Entertainment World",
+                "origin_country": "KR"
+            },
+            {
+                "id": 103875,
+                "logo_path": "/b4VEWBV2hgvrXts7VlAcnkZTLwM.png",
+                "name": "RedPeter Films",
+                "origin_country": "KR"
+            },
+            {
+                "id": 73918,
+                "logo_path": "/lnHDA1Fnpdjbg6fUF4gpneeAdf1.png",
+                "name": "Contents Panda",
+                "origin_country": "KR"
+            },
+            {
+                "id": 88607,
+                "logo_path": null,
+                "name": "Union Investment Partners",
+                "origin_country": "KR"
+            },
+            {
+                "id": 710,
+                "logo_path": null,
+                "name": "KTB Network",
+                "origin_country": "KR"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "KR",
+                "name": "South Korea"
+            }
+        ],
+        "release_date": "2016-07-20",
+        "revenue": 87547518,
+        "runtime": 118,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Korean",
+                "iso_639_1": "ko",
+                "name": "한국어/조선말"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Pour rester en vie, montez à bord.",
+        "title": "Dernier train pour Busan",
+        "video": false,
+        "vote_average": 7.749,
+        "vote_count": 8356
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/swxhEJsAWms6X1fDZ4HdbvYBSf9.jpg",
+        "belongs_to_collection": null,
+        "budget": 45000000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Aventure"
+            },
+            {
+                "id": 35,
+                "name": "Comédie"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "https://anacondamovie.com/",
+        "id": 1234731,
+        "imdb_id": "tt33244668",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Anaconda",
+        "overview": "Doug et Griff sont amis d'enfance et partagent depuis toujours un objectif un peu fou : réaliser leur propre remake d’Anaconda en plein cœur de l'Amazonie. Mais le rêve vire rapidement au cauchemar lorsqu'un véritable serpent géant fait son apparition et transforme leur plateau déjà chaotique en un piège mortel. Le film qu'ils mourraient d'envie de faire… va vraiment devenir mortel !",
+        "popularity": 33.1025,
+        "poster_path": "/5EbKjIowNw5yExzrhvu231GFVCf.jpg",
+        "production_companies": [
+            {
+                "id": 134756,
+                "logo_path": "/saCxMqh2hFSbDeojykvP2qc6zNX.png",
+                "name": "Fully Formed Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 5,
+                "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+                "name": "Columbia Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 22213,
+                "logo_path": "/qx9K6bFWJupwde0xQDwOvXkOaL8.png",
+                "name": "TSG Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-12-24",
+        "revenue": 135148320,
+        "runtime": 100,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Gros enjeux. Très gros serpents.",
+        "title": "Anaconda",
+        "video": false,
+        "vote_average": 5.883,
+        "vote_count": 1156
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/z3bzhmC0CPikWeerUkLO73YvGrC.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 10402,
+                "name": "Musique"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "https://www.primevideo.com/detail/0L6M8WTWOEP6Y8WWG0FNVVPP5F",
+        "id": 1084187,
+        "imdb_id": "tt26678938",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Pretty Lethal",
+        "overview": "Un thriller effréné où cinq ballerines, bloquées dans une forêt isolée en chemin vers un concours de danse, se réfugient dans une sinistre auberge routière tenue par Devora Kasimer et doivent transformer leur formation d'élite pour survivre.",
+        "popularity": 32.7416,
+        "poster_path": "/xnh0rBBPKB6DyLiqek8dX1X7F7t.jpg",
+        "production_companies": [
+            {
+                "id": 121470,
+                "logo_path": "/zvJFu1C6gB80A98n6IGXBvMtgVl.png",
+                "name": "87North Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 20788,
+                "logo_path": "/7hBlD2RPUo6LHgSDSSnyYuXdigU.png",
+                "name": "GulfStream Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 74933,
+                "logo_path": null,
+                "name": "Pioneer Stillking",
+                "origin_country": "HU"
+            },
+            {
+                "id": 210099,
+                "logo_path": "/g5oRCNCi8kNVb8gEoSoIcqkhjmR.png",
+                "name": "Amazon MGM Studios",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "HU",
+                "name": "Hungary"
+            },
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            }
+        ],
+        "release_date": "2026-03-13",
+        "revenue": 0,
+        "runtime": 91,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Hungarian",
+                "iso_639_1": "hu",
+                "name": "Magyar"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Pirouette fatale",
+        "video": false,
+        "vote_average": 6.766,
+        "vote_count": 376
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/rgC6Vz3PZPEepbas7gCZRLxWMYD.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Aventure"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 9648,
+                "name": "Mystère"
+            }
+        ],
+        "homepage": "",
+        "id": 1505183,
+        "imdb_id": "tt37501704",
+        "origin_country": [
+            "ID"
+        ],
+        "original_language": "id",
+        "original_title": "Dusun Mayit",
+        "overview": "",
+        "popularity": 30.5877,
+        "poster_path": "/pkcOwMJXYAbjxEwO8rDTi8H9irL.jpg",
+        "production_companies": [
+            {
+                "id": 29666,
+                "logo_path": "/azzRruIHtw7NrqSIYNNpQgPkU6A.png",
+                "name": "Hitmaker Studios",
+                "origin_country": "ID"
+            },
+            {
+                "id": 46840,
+                "logo_path": "/y5TYYZWMM6CoNyAMMRL9lJA10yD.png",
+                "name": "Legacy Pictures",
+                "origin_country": "ID"
+            },
+            {
+                "id": 223756,
+                "logo_path": "/raolHp5Fq0aElDtL5P9BljxpZ7J.png",
+                "name": "Masih Belajar Pictures",
+                "origin_country": "ID"
+            },
+            {
+                "id": 123429,
+                "logo_path": null,
+                "name": "DT Films",
+                "origin_country": "ID"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "ID",
+                "name": "Indonesia"
+            }
+        ],
+        "release_date": "2025-12-31",
+        "revenue": 0,
+        "runtime": 95,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Javanese",
+                "iso_639_1": "jv",
+                "name": ""
+            },
+            {
+                "english_name": "Indonesian",
+                "iso_639_1": "id",
+                "name": "Bahasa indonesia"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Dusun Mayit",
+        "video": false,
+        "vote_average": 3.0,
+        "vote_count": 2
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/qmWypRw88VYp35oTQn0a1sqdZRs.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 1510745,
+        "imdb_id": "tt37538172",
+        "origin_country": [
+            "CA"
+        ],
+        "original_language": "en",
+        "original_title": "Bodycam",
+        "overview": "Deux policiers répondent à un appel pour un différend domestique, la situation bascule dans la tragédie.",
+        "popularity": 30.3016,
+        "poster_path": "/xFpBNcG3Dlr8mYF5Kz9Tizs3Pxn.jpg",
+        "production_companies": [
+            {
+                "id": 176562,
+                "logo_path": null,
+                "name": "Superchill",
+                "origin_country": ""
+            },
+            {
+                "id": 285635,
+                "logo_path": null,
+                "name": "Essential Film Group",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "CA",
+                "name": "Canada"
+            }
+        ],
+        "release_date": "2026-03-12",
+        "revenue": 0,
+        "runtime": 75,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Bodycam",
+        "video": false,
+        "vote_average": 5.5,
+        "vote_count": 54
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/8HbNKB2pMiD3mfLgbxe7DgAKjdS.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 1173559,
+        "imdb_id": "tt26349732",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Insidious Inferno",
+        "overview": "",
+        "popularity": 31.4991,
+        "poster_path": "/8kljUAovBatZRYp2ye2RZr239hU.jpg",
+        "production_companies": [
+            {
+                "id": 173289,
+                "logo_path": null,
+                "name": "Raptor FX Studio",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2024-11-29",
+        "revenue": 0,
+        "runtime": 97,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Insidious Inferno",
+        "video": false,
+        "vote_average": 5.579,
+        "vote_count": 19
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/l8rKKMU2M9dDULO9CEtDNdWAEUJ.jpg",
+        "belongs_to_collection": null,
+        "budget": 80000000,
+        "genres": [
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 14,
+                "name": "Fantastique"
+            }
+        ],
+        "homepage": "https://www.warnerbros.com/movies/thebride",
+        "id": 1159831,
+        "imdb_id": "tt30851137",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Bride!",
+        "overview": "Un Frankenstein esseulé se rend dans le Chicago des années 30 afin de convaincre la brillante scientifique Dr Euphronious de lui concevoir une compagne. Les deux ressuscitent une jeune femme assassinée et La fiancée voit le jour. Et ce qui suit dépasse toutes leurs attentes : Meurtre ! Possession ! Un mouvement culturel déchaîné et radical ! Et des amants rebelles dans une romance sauvage et explosive !",
+        "popularity": 30.5437,
+        "poster_path": "/6TQDTJtHxkz1Ln7oJsw60hPWEw4.jpg",
+        "production_companies": [
+            {
+                "id": 206484,
+                "logo_path": null,
+                "name": "First Love Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 275188,
+                "logo_path": null,
+                "name": "In The Current Company",
+                "origin_country": ""
+            },
+            {
+                "id": 216687,
+                "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+                "name": "Domain Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2026-03-04",
+        "revenue": 23844025,
+        "runtime": 127,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Voici venue la put*#n de fiancée.",
+        "title": "The Bride!",
+        "video": false,
+        "vote_average": 6.21,
+        "vote_count": 458
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/31VpBgUX5O4Z3dn5ZbX8HLqoXH3.jpg",
+        "belongs_to_collection": {
+            "id": 1674208,
+            "name": "World War Z - Saga",
+            "poster_path": null,
+            "backdrop_path": null
+        },
+        "budget": 200000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 878,
+                "name": "Science-Fiction"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 72190,
+        "imdb_id": "tt0816711",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "World War Z",
+        "overview": "Gerry Lane se lance dans une course contre la montre pour aider le monde à surmonter ses divisions et faire face à l'apocalypse. Dans tous les pays, par tous les moyens, chacun devra se battre car l'humanité n'aura plus qu'un seul espoir de survie : La guerre.",
+        "popularity": 27.8234,
+        "poster_path": "/xqk3gTrNODmH90QEgeBgEIHN1Fu.jpg",
+        "production_companies": [
+            {
+                "id": 3281,
+                "logo_path": "/8tMybAieh64uzvm8knSjXOFX8Qc.png",
+                "name": "GK Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 4,
+                "logo_path": "/jay6WcMgagAklUt7i9Euwj1pzTF.png",
+                "name": "Paramount Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 9169,
+                "logo_path": "/fsjn4BwBzxlEBWmmWPOeBpubvOx.png",
+                "name": "Hemisphere Media Capital",
+                "origin_country": "US"
+            },
+            {
+                "id": 23644,
+                "logo_path": "/wF4SeLFv2qjKQa3oS1eaGyS4Hms.png",
+                "name": "2DUX²",
+                "origin_country": "US"
+            },
+            {
+                "id": 82819,
+                "logo_path": "/gXfFl9pRPaoaq14jybEn1pHeldr.png",
+                "name": "Skydance Media",
+                "origin_country": "US"
+            },
+            {
+                "id": 81,
+                "logo_path": "/8wOfUhA7vwU2gbPjQy7Vv3EiF0o.png",
+                "name": "Plan B Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2013-06-19",
+        "revenue": 531865000,
+        "runtime": 116,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Il n'y aura pas d'avertissement.",
+        "title": "World War Z",
+        "video": false,
+        "vote_average": 6.831,
+        "vote_count": 16537
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/pzt8pTRDtkNcaXLPaO92KEtCD4B.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 39924,
+        "imdb_id": "tt0072960",
+        "origin_country": [
+            "GB"
+        ],
+        "original_language": "en",
+        "original_title": "Exposé",
+        "overview": "",
+        "popularity": 22.1765,
+        "poster_path": "/7bEV13lR9QrVTpx7RVYk3ea1hkR.jpg",
+        "production_companies": [
+            {
+                "id": 41933,
+                "logo_path": null,
+                "name": "Norfolk International Pictures",
+                "origin_country": "GB"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            }
+        ],
+        "release_date": "1976-03-01",
+        "revenue": 0,
+        "runtime": 84,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Exposé",
+        "video": false,
+        "vote_average": 4.857,
+        "vote_count": 42
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/hniERZojXCEc7Fp3yljZUigOAhm.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "",
+        "id": 1290417,
+        "imdb_id": "tt32362890",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Thrash",
+        "overview": "Au cœur d’un ouragan catastrophique, une ville côtière lutte contre la fureur de la nature et une attaque de requins. Bravant les pluies torrentielles, les débris et l’obscurité, les habitants s’unissent pour survivre aux prédateurs mortels et réussir à traverser la tempête.",
+        "popularity": 27.137,
+        "poster_path": "/528AmsLDzY0M9w2xvu52OuxvK7z.jpg",
+        "production_companies": [
+            {
+                "id": 34,
+                "logo_path": "/mtp1fvZbe4H991Ka1HOORl572VH.png",
+                "name": "Sony Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 125055,
+                "logo_path": "/8iY66HqRqdQdwOjoS3sNvokcH9r.png",
+                "name": "Hyperobject Industries",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2026-04-10",
+        "revenue": 0,
+        "runtime": 84,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Français"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Si le déluge ne te tue pas, lui le fera.",
+        "title": "Nature prédatrice",
+        "video": false,
+        "vote_average": 6.01,
+        "vote_count": 590
+    },
+    {
+        "adult": false,
+        "backdrop_path": null,
+        "belongs_to_collection": {
+            "id": 1074148,
+            "name": "镜花风月",
+            "poster_path": null,
+            "backdrop_path": null
+        },
+        "budget": 0,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            }
+        ],
+        "homepage": "",
+        "id": 687259,
+        "imdb_id": null,
+        "origin_country": [
+            "TW"
+        ],
+        "original_language": "zh",
+        "original_title": "镜花风月三之螺女挑情",
+        "overview": "",
+        "popularity": 26.6394,
+        "poster_path": "/m4ALMhsuqOOUkkABvgQWfrgoL8y.jpg",
+        "production_companies": [],
+        "production_countries": [
+            {
+                "iso_3166_1": "TW",
+                "name": "Taiwan"
+            }
+        ],
+        "release_date": "1982-01-01",
+        "revenue": 0,
+        "runtime": 80,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Mandarin",
+                "iso_639_1": "zh",
+                "name": "普通话"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "镜花风月三之螺女挑情",
+        "video": false,
+        "vote_average": 6.2,
+        "vote_count": 2
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/nAxGnGHOsfzufThz20zgmRwKur3.jpg",
+        "belongs_to_collection": null,
+        "budget": 90000000,
+        "genres": [
+            {
+                "id": 27,
+                "name": "Horreur"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "https://newsroom.warnerbros.fr/sinners",
+        "id": 1233413,
+        "imdb_id": "tt31193180",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Sinners",
+        "overview": "Alors qu’ils cherchent à s’affranchir d’un lourd passé, deux frères jumeaux reviennent dans leur ville natale pour repartir à zéro. Mais ils comprennent qu’une puissance maléfique bien plus redoutable guette leur retour avec impatience.",
+        "popularity": 34.1763,
+        "poster_path": "/9ZmdDOIbiFCZOvRXBQ7muWUu32l.jpg",
+        "production_companies": [
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 148495,
+                "logo_path": "/2fQRDickgp9vuDIxJTlDLEs7j0y.png",
+                "name": "Proximity Media",
+                "origin_country": "US"
+            },
+            {
+                "id": 216687,
+                "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+                "name": "Domain Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2025-04-16",
+        "revenue": 369425281,
+        "runtime": 138,
+        "softcore": false,
+        "spoken_languages": [
+            {
+                "english_name": "Mandarin",
+                "iso_639_1": "zh",
+                "name": "普通话"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Yoruba",
+                "iso_639_1": "yo",
+                "name": "Èdè Yorùbá"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Une nuit pour survivre.",
+        "title": "Sinners",
+        "video": false,
+        "vote_average": 7.489,
+        "vote_count": 4520
+    }
+]
