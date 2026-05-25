@@ -3,6 +3,12 @@
 venv/
 env/
 
+# variables d'environnement
+.env
+
+# logs
+*.log
+
 # Python cache
 __pycache__/
 *.pyc
@@ -14,3 +20,31 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# =========================
+# DATASETS
+# =========================
+
+# RAW
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/tmdb/
+
+data/raw/tmdb/*
+!data/raw/tmdb/.gitkeep
+
+# CLEANED
+data/cleaned/*
+!data/cleaned/.gitkeep
+!data/cleaned/tmdb/
+
+data/cleaned/tmdb/*
+!data/cleaned/tmdb/.gitkeep
+
+# GOLD
+data/gold/*
+!data/gold/.gitkeep
+
+# Databases
+*.sqlite
+*.db
