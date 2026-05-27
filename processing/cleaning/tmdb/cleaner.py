@@ -1,4 +1,4 @@
-# processing/cleaning/tmdb_cleaning.py
+# processing/cleaning/tmdb/cleaner.py
 
 from typing import List, Dict, Any
 from datetime import datetime

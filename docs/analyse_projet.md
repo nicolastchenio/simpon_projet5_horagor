@@ -235,9 +235,21 @@ project/
 ├── processing/
 │   │
 │   ├── cleaning/ => suppression doublons, gestion des nulles, conversion de type, nettoyage textes, dates, colonnes inutiles, ...
-│   │   ├── tmdb_cleaning.py
-│   │   ├── imdb_cleaning.py
-│   │   └── omdb_cleaning.py
+│   │   ├── tmdb/
+│   │   │   ├── cleaner.py
+│   │   │   └── run.py
+│   │   │
+│   │   ├── imdb/
+│   │   │   ├── cleaner.py
+│   │   │   └── run.py
+│   │   │
+│   │   ├── omdb/
+│   │   │   ├── cleaner.py
+│   │   │   └── run.py
+│   │   │
+│   │   ├── shared/
+│   │   │   ├── text_utils.py
+│   │   │   └── dataframe_utils.py
 │   │
 │   ├── normalization/  => Responsable des données imbriquées JSON
 │   │   ├── tmdb_normalization.py
@@ -260,9 +272,9 @@ project/
 │   └── session.py
 │
 ├── pipeline/ => construction des datasets
-│   └── main.py => orchestration
-│   ├── tmdb_pipeline.py
-│   ├── imdb_pipeline.py
+│   └── runner.py => orchestration
+│   ├── tmdb.py
+│   ├── imdb.py
 │   └── rotten_pipeline.py
 │
 ├── tests/
