@@ -1,6 +1,8 @@
+# processing/cleaning/tmdb/run.py
+
 import json
 from pathlib import Path
-from processing.cleaning.tmdb_cleaning import TMDBCleaner
+from processing.cleaning.tmdb.cleaner import TMDBCleaner
 
 
 # Dossier contenant les données brutes TMDB

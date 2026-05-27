@@ -37,7 +37,7 @@
 - Une stratégie de récupération des films d’horreur
 - Une idée du volume de données
 
-## Test api Tmbd ##
+## Tests api Tmbd ##
 ### test api ###
 
 1) Créer un fichier .env => ``` TMDB_API_KEY=ta_cle_api ```
@@ -193,7 +193,7 @@ si je fais :
    j'ai une erreur `ModuleNotFoundError: No module named 'ingestion' ` catr python considére "tests/" comme point de départ mais n’inclut pas` automatiquement la racine du projet dans le  => ` from ingestion.tmdb_client import TMDBClient `ne trouve pas "ingestion"
 
 - Autres fichiers tests creer :
-  - ` uv run tests/tmdb/test_movie_genres.py `
+  - ` uv run python -m tests.tmdb.test_movie_genres.py `
   - ` uv run python -m tests.tmdb.test_horror_movies `
   - ` uv run python -m tests.tmdb.test_movie_details `
   - ` uv run python -m tests.tmdb.test_pagination `
@@ -581,3 +581,245 @@ Transformer les fichiers "data/raw/tmdb/enriched_horror_page_X.json" vers "data/
 
 3) execution  
 Depuis la racine : ` uv run python -m processing.cleaning.run_tmdb_cleaning `
+
+# Base SQLite IMDB #
+
+- site  => https://www.kaggle.com/code/priy998/imdb-sqlite
+- fichier imdb-sqlite-DATASET => https://www.kaggle.com/datasets/priy998/imdbsqlitedataset
+
+--------
+- exploration schéma
+- requêtes SQL
+-  tables
+- échantillonnage
+- profiling local
+
+## Phase 1 IMDb = "TESTS EXPLORATION" ##
+
+1) Test 1 — connexion base SQLite
+
+   Objectif :
+   - vérifier ouverture DB
+   - lister tables
+
+   ``` SELECT name FROM sqlite_master WHERE type='table'; ```
+
+2) Test 2 — analyse structure des tables
+
+   Objectif :
+   - comprendre schéma réel IMDb
+
+   ```
+   PRAGMA table_info(title_basics);
+   PRAGMA table_info(title_ratings);
+   ```
+
+   PRAGMA est une commande spéciale SQLite utilisée pour :
+   - inspecter la base de données
+   - obtenir des métadonnées (structure, index, tables, etc.)
+   - modifier certains comportements du moteur SQLite
+
+   Ce n’est pas du SQL “standard”, mais spécifique à SQLite.
+
+   Exemples utiles :
+   - PRAGMA table_info(table_name) → structure d’une table
+   - PRAGMA database_list → bases attachées
+   - PRAGMA foreign_key_list(table_name) → clés étrangères
+
+3) Test 3 — extraction brute films
+
+   Objectif :voir contenu réel
+
+   ``` SELECT * FROM title_basics LIMIT 20; ```
+
+4) Test 4 — filtrage films (équivalent horror TMDB)
+
+   Objectif : trouver films pertinents
+
+   IMDb n’a pas “genre API”, mais souvent :
+
+   ```
+   SELECT * 
+   FROM title_basics
+   WHERE genres LIKE '%Horror%'
+   LIMIT 20;
+   ```
+5) Test 5 — jointures essentielles
+
+   Objectif : comprendre structure relationnelle
+
+   Ex :
+   ```
+   SELECT *
+   FROM title_basics b
+   JOIN title_ratings r ON b.tconst = r.tconst
+   LIMIT 20;
+   ```
+
+6) Test 6 — analyse qualité des données et identification des champs utiles (MDM)
+
+Objectif :
+- NULL values
+- formats dates
+- doublons
+- titres incohérents
+
+mapping TMDB ↔ IMDb
+- tconst → imdb_id
+- primaryTitle → title
+- originalTitle → original_title
+- startYear → release_year
+- runtimeMinutes → runtime
+- genres → genres
+
+### tests sqlite de imdb ###
+1) Teste de connexion a la Base de donnee imdb
+- creer "ingestion/imdb_client.py"
+- creer "tests/imdb/test_connection.py"
+- executer ``` uv run python -m tests.imdb.test_connection ```
+  
+2) Test 2 (PRAGMA table_info) pour analyser la structure des tables IMDb.
+- comprendre les colonnes de chaque table
+- identifier types, clés primaires, champs exploitables pour le MDM
+
+- creer "tests/imdb/test_schema.py"
+- executer ``` uv run python -m tests.imdb.test_schema ```
+
+   Note :  
+   On voit qu'il n'y a apas de colonne "genres" donc on ne pourra pas trier ce dataset par genre "horror".  
+   => On va utiliser TMDB comme source de vérité pour les genres 
+    - TMDB = source principale des genres
+    - IMDb = source enrichissement (rating, revenue, director)
+   
+   Matching via :
+   - title
+   - release_date
+   - imdb_id (si dispo plus tard)
+
+   Nouvelle logique propre (MDM) :
+   ```
+   TMDB (genre filtering) → base dataset
+         ↓
+   IMDb (enrichment join)
+         ↓
+   fusion
+   ```
+
+3) Test 3 — extraction brute films
+- visualiser les vraies données
+- comprendre le contenu réel du dataset
+- identifier :
+  - valeurs NULL
+  - formats de dates
+  - types réels
+  - qualité des champs
+  - colonnes utiles pour le MDM
+
+- creer "tests/imdb/test_extract_movies.py"
+- executer ``` uv run python -m tests.imdb.test_extract_movies ```
+
+4) Test 4 — filtrage films (équivalent horror TMDB)
+
+   =>  Ce n est pas possible car il n y a pas dans ce dataset de colonne "genre" ou categorie", ... qui permet de recuperer tout les film "horror"
+
+5) Test 5 — jointures essentielles
+- creer "tests/imdb/test_movies_directors.py"
+- execuiter ``` uv run python -m tests.imdb.test_movies_directors ```
+
+6) Test 6 — analyse qualité des données et identification des champs utiles (MDM) si il y en a
+- creer "tests/imdb/test_data_quality.py"
+- executer ``` uv run python -m tests.imdb.test_data_quality ```
+
+## Pipline IMDB ##
+
+1) creer pipeline/imdb_pipeline.py
+- connexion SQLite
+- extraction films
+- sauvegarde JSON brut dans data/raw/imdb/imdb_movies.json
+
+Mais ici different de TMDB car :
+- source = SQLite locale
+- pas d’API
+
+Donc le pipeline sera plus simple
+
+enrichissement des données avec la table directors
+
+uid => est intéressant  pour l'instant on ne l inetgre pas a notre enrichissement car il faut le valider par rapport au TMDB movie id avant exploitation
+
+2) Mise à jour pipeline/main.py
+
+3) execution  
+Depuis la racine : `uv run python -m pipeline.main `. On obtient le fichier "imdb_movies.json"
+
+## Transformation / nettoyage des données ##
+1) creer "processing/cleaning/imdb_cleaning.py"
+2) creer "processing/cleaning/run_imdb_cleaning.py"
+
+Harmonisation avec TMDB, même structure logique :
+- genres list
+- release_year
+- overview/tagline standardisés
+
+Objectif : structure propre par source
+- mêmes noms de champs “généraux”
+- mêmes types (list, string, int, etc.)
+- valeurs nettoyées
+- champs manquants acceptés
+
+3) execution  
+Depuis la racine : `uv run python -m processing.cleaning.run_imdb_cleaning `
+
+
+# RESTRUCTURATION DU PROJET #
+
+## processing\cleaning ##
+
+```
+processing/
+│
+├── cleaning/
+│   ├── tmdb/
+│   │   ├── cleaner.py
+│   │   └── run.py
+│   │
+│   ├── imdb/
+│   │   ├── cleaner.py
+│   │   └── run.py
+```
+
+Actuellement IMDB:
+- imdb_cleaning.py
+- run_imdb_cleaning.py
+
+Devient :
+- processing/cleaning/imdb/cleaner.py
+- processing/cleaning/imdb/run.py
+
+Pour executer en fera ` uv run python -m processing.cleaning.imdb.run `
+
+Actuellement TMDB :
+- tmdb_cleaning.py
+- run_tmdb_cleaning.py
+
+Devient :
+- processing/cleaning/tmdb/cleaner.py
+- processing/cleaning/tmdb/run.py
+
+Pour executer en fera ` uv run python -m processing.cleaning.tmdb.run `
+
+## pipeline (renommage des fichiers) ##
+Actuellement :
+
+pipeline/  
+- tmdb_pipeline.py  
+- imdb_pipeline.py  
+ - main.py  
+
+Proposition simplifiée :
+pipeline/  
+- tmdb.py  
+- imdb.py  
+- runner.py
+
+pour exercuter on fera maintenant depuis la racine : `uv run python -m pipeline.runner `
