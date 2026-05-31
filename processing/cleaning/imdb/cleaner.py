@@ -6,12 +6,13 @@ from datetime import datetime
 
 class IMDBCLeaner:
     """
-    Nettoyage IMDb (SQL → dataset propre)
+    Nettoyage IMDb strict (source brute → propre)
 
     Objectif :
-    - harmoniser structure avec TMDB cleaned
-    - préparer normalisation multi-sources
-    - supprimer incohérences
+    - supprimer bruit
+    - sécuriser types
+    - extraire champs simples
+    - aucune logique de normalisation inter-sources
     """
 
     def clean_movie(self, movie: Dict[str, Any]) -> Dict[str, Any]:
@@ -19,59 +20,53 @@ class IMDBCLeaner:
         cleaned = {
             # IDENTIFIANTS
             "id": movie.get("id"),
-            "imdb_id": movie.get("uid"),  # équivalent externe IMDb
-            "tmdb_id": None,
+            "imdb_id": movie.get("uid"),
 
             # TITRES
             "title": movie.get("title"),
             "original_title": movie.get("original_title"),
 
-            # TEXTE RAG
-            "overview": movie.get("overview") or "",
-            "tagline": movie.get("tagline") or "",
+            # TEXTES
+            "overview": movie.get("overview") or None,
+            "tagline": movie.get("tagline") or None,
 
-            # GENRES (IMDb ne les fournit pas ici → placeholder)
-            "genres": [],
+            # GENRES (on ne transforme rien → brut si absent)
+            "genres": movie.get("genres"),
 
             # DATES
             "release_date": movie.get("release_date"),
-            "release_year": None,
 
-            # FEATURES NUMÉRIQUES
-            "runtime": None,
+            # FEATURES NUMÉRIQUES (clean uniquement = cast safe)
+            "runtime": movie.get("runtime"),
+            "budget": movie.get("budget"),
+            "revenue": movie.get("revenue"),
+            "popularity": movie.get("popularity"),
             "vote_average": movie.get("vote_average"),
             "vote_count": movie.get("vote_count"),
-            "popularity": movie.get("popularity"),
 
-            # ENRICHISSEMENT DIRECTOR (déjà présent)
+            # DIRECTOR (si déjà présent en base IMDb)
             "director_id": movie.get("director_id"),
             "director_name": movie.get("director_name"),
             "director_gender": movie.get("director_gender"),
             "director_department": movie.get("director_department"),
 
-            # BUSINESS
-            "budget": movie.get("budget"),
-            "revenue": movie.get("revenue"),
-
-            # MÉTADONNÉES
+            # META
             "source": "imdb"
         }
 
         # -----------------------------
-        # release_year extraction
+        # release_year (simple extraction, pas de normalisation métier)
         # -----------------------------
-        try:
-            if cleaned["release_date"]:
-                cleaned["release_year"] = datetime.strptime(
-                    cleaned["release_date"], "%Y-%m-%d"
-                ).year
-        except Exception:
+        release_date = cleaned.get("release_date")
+        if release_date and isinstance(release_date, str) and len(release_date) >= 4:
+            try:
+                cleaned["release_year"] = int(release_date[:4])
+            except Exception:
+                cleaned["release_year"] = None
+        else:
             cleaned["release_year"] = None
 
         return cleaned
 
     def clean_dataset(self, movies: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """
-        Nettoie une liste de films IMDb
-        """
         return [self.clean_movie(m) for m in movies]

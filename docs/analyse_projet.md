@@ -83,6 +83,21 @@ https://www.kaggle.com/code/priy998/imdb-sqlite
 
 Objectif : rendre chaque source propre avant fusion.
 
+Le cleaner doit seulement faire
+- nettoyage des chaînes (strip)
+- gestion des None
+- suppression des doublons
+- nettoyage des listes
+- filtrage Horror
+- suppression d'éventuels caractères parasites
+
+Le cleaner ne doit plus faire
+- création de nouveaux champs (release_year)
+- transformation de structure
+- extraction de valeurs métier
+- harmonisation entre sources
+- normalisation
+
 ### 3.1 Nettoyage général ###
 
 - Suppression HTML
@@ -103,6 +118,18 @@ Conserver uniquement :
 ## Phase 4 — Normalisation ##
 
 Objectif : homogénéiser les formats.
+
+normlisation :
+- release_year
+- genres -> list[str]
+- runtime_minutes
+- date ISO
+- vote scores
+- schéma commun
+- suppression doublons de films
+- fusion d’entrées
+- règles métier
+- déduplication cross-sources
 
 ### 4.1 Dates ###
 
@@ -224,7 +251,7 @@ project/
 │   ├── __init__.py
 │   └── config.py
 │
-├── ingestion/  => récupèration des données”
+├── ingestion/  => récupèration des données” (logique client metier)
 │   ├── __init__.py
 │   ├── tmdb_client.py
 │   ├── rotten_client.py
@@ -280,6 +307,9 @@ project/
 ├── tests/
 │   ├── tmdb/
 │   ├── rotten/
+│   │   ├── phase_1_selenium.py
+│   │   ├── phase_2_extraction.py
+│   │   ├── phase_3_catalog_movies
 │   ├── imdb/
 │   ├── kaggle/
 │   └── spark/
@@ -287,7 +317,17 @@ project/
 ├── data/
 │   ├── raw/ => données brutes non modifiées
 │   │   ├── tmdb
+│   │   ├── imdb
+│   │   ├── rotten
+│   │   │   ├── movies_at_home
+│   │   │   ├── movies_coming_soon
+│   │   │   ├── movies_in_theaters
+│   │   │   └── tv_series_browse
+│   
 │   ├── cleaned/ => données nettoyées
+│   │   ├── tmdb
+│   │   ├── imdb
+│   │   ├── rotten
 │   └── gold/ => données finales prêtes pour usage
 │
 ├── docs/
