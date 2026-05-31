@@ -25,25 +25,15 @@ Thumbs.db
 # DATASETS
 # =========================
 
-# RAW
-data/raw/*
-!data/raw/.gitkeep
-!data/raw/tmdb/
+# On ignore tous les fichiers dans les sous-dossiers de data
+data/raw/**
+data/cleaned/**
+data/gold/**
 
-data/raw/tmdb/*
-!data/raw/tmdb/.gitkeep
-
-# CLEANED
-data/cleaned/*
-!data/cleaned/.gitkeep
-!data/cleaned/tmdb/
-
-data/cleaned/tmdb/*
-!data/cleaned/tmdb/.gitkeep
-
-# GOLD
-data/gold/*
-!data/gold/.gitkeep
+# MAIS on autorise explicitement TOUS les fichiers .gitkeep, peu importe la profondeur
+!data/raw/**/.gitkeep
+!data/cleaned/**/.gitkeep
+!data/gold/**/.gitkeep
 
 # Databases
 *.sqlite
