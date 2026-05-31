@@ -456,7 +456,7 @@ Objectif pour obtenir :
 Depuis la racine : ` uv run python -m pipeline.main `  
 On obtient des fichier de type "enriched_horror_page_1.json"
 
-## Transformation / nettoyage des données ##
+## Nettoyage des données / transformation ( pré-normalisation)  ##
 Transformer les fichiers "data/raw/tmdb/enriched_horror_page_X.json" vers "data/cleaned/tmdb/cleaned_horror_page_X.json"
 
 1) cleaning TMDB => processing/cleaning/tmdb_cleaning.py
@@ -730,7 +730,7 @@ mapping TMDB ↔ IMDb
 - creer "tests/imdb/test_data_quality.py"
 - executer ``` uv run python -m tests.imdb.test_data_quality ```
 
-## Pipline IMDB ##
+## Pipeline IMDB ##
 
 1) creer pipeline/imdb_pipeline.py
 - connexion SQLite
@@ -752,7 +752,7 @@ uid => est intéressant  pour l'instant on ne l inetgre pas a notre enrichisseme
 3) execution  
 Depuis la racine : `uv run python -m pipeline.main `. On obtient le fichier "imdb_movies.json"
 
-## Transformation / nettoyage des données ##
+##  Nettoyage des données / transformation ( pré-normalisation) ##
 1) creer "processing/cleaning/imdb_cleaning.py"
 2) creer "processing/cleaning/run_imdb_cleaning.py"
 
@@ -823,3 +823,369 @@ pipeline/
 - runner.py
 
 pour exercuter on fera maintenant depuis la racine : `uv run python -m pipeline.runner `
+
+# Rotten tomatoes #
+
+https://www.rottentomatoes.com/
+
+installation de 
+- selenium => ` uv add selenium `
+- ChromeDriver => ` uv add webdriver-manager ` => avec selenium on en as pas besoin (car => ` driver = webdriver.Chrome() `)
+- beautifulsoup => ` uv add beautifulsoup4 `
+
+## Ingestion ##
+```
+ingestion/
+    rotten_client.py
+```
+
+Responsabilité :
+- Selenium
+- ouverture pages
+- extraction HTML
+- parsing 
+  
+
+## Tests ##
+```
+tests/
+└── rotten/
+    ├── __init__.py
+    │
+    ├── phase_1_selenium/
+    │   ├── __init__.py
+    │   ├── test_connection.py
+    │   └── test_movie_page.py
+    │
+    ├── phase_2_extraction/
+    │   ├── __init__.py
+    │   ├── test_movie_infos.py
+    │   └── test_scores.py
+    │
+    ├── phase_3_catalog_movies/
+    │   ├── __init__.py
+    │   ├── test_one_base_movies.py
+    │   ├── test_all_bases_movies.py   
+    │   ├── test_one_base_movies_listing.py
+    │   ├── test_all_bases_movies_listing.py   
+    │   ├── test_rotten_horror_pagination_behavior.py
+    │   └── test_rotten_horror_raw_dataset_integrity.py
+    │
+    ├── phase_4_robustness/
+    │   ├── __init__.py
+    │   ├── test_waits.py
+    │   ├── test_error_handling.py
+    │   └── test_antibot.py
+    │
+    └── phase_5_data_engineering/
+        ├── __init__.py
+        ├── test_matching.py
+        └── test_data_quality.py
+```
+les tests doivent surtout couvrir :
+- Selenium
+- chargement dynamique
+- parsing HTML
+- robustesse scraping
+- matching des films
+
+1) Phase Selenium
+- connexion Selenium
+   - Vérifier :
+     - Selenium fonctionne
+     - ChromeDriver fonctionne
+     - Rotten accessible
+   - Vérifications
+     - ouverture navigateur
+     - chargement page
+     - récupération du title
+
+- ouverture page film  
+accès direct à une fiche film
+  - Vérifications
+    - HTTP OK
+    - page correctement chargée
+    - pas de redirection anti-bot
+
+2) Phase extraction film
+   - scores
+     - tomatometer
+     - audience score
+   - movie infos 
+     - Core RAG
+       - synopsis
+       - genre
+       - rating
+     - Enrichissement MDM
+       - director
+       - producer
+       - production_companies
+       - distributor
+     - Metadata dataset
+       - runtime
+       - box_office
+       - release_date
+
+3) Phase catalogue Horror
+- récupération liste horror
+- pagination / lazy loading => vérifier que le site supporte pagination / navigation pages
+  - on essaye de verifier si :
+    - page=1 ≠ page=2
+    - e site répond bien à ?page=2
+    - le scraper respecte la navigation
+  - Parce que Rotten :
+    - change souvent son DOM
+    - peut ignorer ?page=
+    - ou passer en lazy-loading JS sans pagination réelle
+- integrité du datasets => vérifier qualité + cohérence dataset brut =>  
+  - intégrité => pas de doublons
+  - format =< URLs valides
+  - cohérence +> structure homogène
+  - stabilité scraping +> extraction répétable
+
+4) Phase robustesse
+- waits Selenium
+  - Tester :
+    - WebDriverWait
+    - éléments async
+    - timing JS
+
+- gestion erreurs
+   -Tester :
+   - 404
+   - films supprimés
+   - pages incomplètes
+
+- anti-bot
+  - Observer :
+    - limitations
+    - captchas éventuels
+    - ralentissements
+  - Tester :
+    - delays
+    - user-agent
+    - pauses
+
+5) Phase data engineering
+- matching TMDB ↔ Rotten
+- qualité données
+
+### les tests ###
+- creer "tests/rotten/phase1_selenium/test_connection.py"
+- executer => `uv run python -m tests.rotten.phase_1_selenium.test_connection `
+
+- creer "tests/rotten/phase1_selenium/test_movie_page.py"
+- executer => `uv run python -m tests.rotten.phase_1_selenium.test_movie_page `
+
+- creer "tests/rotten/phase_2_extraction/test_movie_page.py"
+- executer => `uv run python -m tests.rotten.phase_2_extraction.test_scores `
+
+- creer "tests/rotten/phase_2_extraction/test_movie_infos.py"
+- executer => `uv run python -m tests.rotten.phase_2_extraction.test_movie_infos `
+
+- creer "tests/rotten/phase_3_catalog_movies/test_one_base_movies.py"
+- executer => `uv run python -m tests.rotten.phase_3_catalog_movies.test_one_base_movies `
+
+- creer "tests/rotten/phase_3_catalog_movies/test_all_bases_movies.py"
+- executer => `uv run python -m tests.rotten.phase_3_catalog_movies.test_all_bases_movies `
+
+- creer "tests/rotten/phase_3_catalog_movies/test_one_base_movies_listing.py"
+- executer => `uv run python -m tests.rotten.phase_3_catalog_movies.test_one_base_movies_listing `
+
+- creer "tests/rotten/phase_3_catalog_movies/test_all_bases_movies_listing.py"
+- executer => `uv run python -m tests.rotten.phase_3_catalog_movies.test_all_bases_movies_listing `
+- creer "tests/rotten/rotten/phase_3_catalog_movies/test_rotten_horror_pagination_behavior.py"
+- executer => `uv run python -m tests.rotten.phase_3_catalog_movies.test_rotten_horror_pagination_behavior `
+
+- creer "tests/rotten/rotten/phase_3_catalog_movies/test_rotten_horror_raw_dataset_integrity.py"
+- executer => `uv run python -m tests.rotten.phase_3_catalog_movies.test_rotten_horror_raw_dataset_integrity `
+
+## Pipeline ##
+```
+pipeline/
+    rotten.py
+```
+
+Responsabilité :
+- orchestration extraction
+- sauvegarde raw JSON
+
+```
+from ingestion.rotten_client import RottenClient
+from pathlib import Path
+import json
+import time
+
+
+class RottenPipeline:
+    """
+    Pipeline RAW Rotten Tomatoes
+
+    Équivalent TMDB phase 1 :
+    - extraction paginée
+    - stockage brut JSON
+    - préparation future enrichissement
+    """
+
+    def __init__(self, output_dir="data/raw/rotten"):
+        self.client = RottenClient()
+        self.output_dir = Path(output_dir)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+
+    # =========================
+    # FETCH PAGE
+    # =========================
+
+    def fetch_page(self, base: str, page: int, genre="horror", sort="a_z"):
+        """
+        Récupère une page via pagination Selenium.
+        """
+
+        return self.client.get_movie_links_paginated(
+            base=base,
+            genre=genre,
+            sort=sort,
+            selector='a[data-qa="discovery-media-list-item-caption"]',
+            max_pages=page  # important: contrôle pagination externe
+        )
+
+    # =========================
+    # SAVE RAW PAGE
+    # =========================
+
+    def save_page(self, base_name: str, urls: list, page: int):
+        """
+        Sauvegarde une page brute en JSON.
+        """
+
+        file_path = self.output_dir / f"{base_name}_page_{page}.json"
+
+        data = {
+            "base": base_name,
+            "page": page,
+            "count": len(urls),
+            "urls": urls
+        }
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+
+        return file_path
+
+    # =========================
+    # RUN PIPELINE
+    # =========================
+
+    def run(self, bases: dict, max_pages: int = 2, sleep_time: float = 0.5):
+        """
+        Pipeline RAW Rotten.
+
+        - boucle sur bases
+        - pagination contrôlée
+        - sauvegarde page par page
+        """
+
+        print("\n=== DÉMARRAGE PIPELINE ROTTEN RAW ===\n")
+
+        for base_name, base_value in bases.items():
+
+            print(f"\n=== BASE {base_name} ===")
+
+            for page in range(1, max_pages + 1):
+
+                print(f"Récupération page {page}...")
+
+                urls = self.client.get_movie_links_paginated(
+                    base=base_value,
+                    genre="horror",
+                    sort="a_z",
+                    selector='a[data-qa="discovery-media-list-item-caption"]',
+                    max_pages=page
+                )
+
+                file_path = self.save_page(base_name, urls, page)
+
+                print(f"Sauvegardé -> {file_path}")
+
+                time.sleep(sleep_time)
+
+        print("\n=== PIPELINE ROTTEN TERMINÉ ===")
+
+    # =========================
+    # CLEAN EXIT
+    # =========================
+
+    def close(self):
+        self.client.close()
+```
+1) creation d'un test :
+   ```
+   tests/
+   └── rotten/
+      ├── __init__.py
+      │
+      ├── phase_test_pipeline/
+      │   ├── __init__.py
+      │   └── test_save_horror_movies.py
+   ```
+
+   - executer => `uv run python -m tests.rotten.phase_test_pipeline.test_save_horror_movies `
+
+2) amelioration de rotten.py pour
+- un pipeline orchestré propre (multi-pages)
+- une couche standardisée RAW (structure stable future)
+   ```  
+   data/
+      raw/
+         rotten/
+   ```
+- une séparation claire :
+  - DISCOVER (liste)
+  - RAW STORAGE (page brute)
+- utilisation de runner.py  
+  => pour executer `uv run python -m pipeline.runner `
+
+3) enrichissement des données  
+Pour chaque URL : "https://www.rottentomatoes.com/m/1408" ouvrir la fiche film puis récupérer :
+   - extract_movie_infos()
+   - extract_movie_scores()  
+  déjà codées dans RottenClient.
+
+note : le test "test_save_horror_movies.py" n'est maintenant plus valide, le code ayant etait modifié. Il n a donc plus aucun interet et devrait être archiver
+
+
+## Cleaning / transformation ( pré-normalisation) ##
+```
+processing/cleaning/rotten/
+    cleaner.py
+    run.py
+```
+
+Responsabilité :
+- standardisation
+- gestion NULL
+- nettoyer les chaînes de caractères (strip)
+- nettoyer les listes
+- supprimer les doublons dans les listes
+- uniformiser les None
+- filtrer les films non Horror
+- conserver la structure Rotten d'origine
+
+Pas de renommage de colonnes.  
+Pas de conversion de dates.  
+Pas de conversion de runtime.  
+Pas de normalisation métier.  
+
+Résultat attendu :
+```
+data/
+└── cleaned/
+    └── rotten/
+        cleaned_movies_at_home_enriched.json
+        cleaned_movies_coming_soon_enriched.json
+        cleaned_movies_in_theaters_enriched.json
+        cleaned_tv_series_browse_enriched.json
+```
+
+Pour executer en fera `uv run python -m processing.cleaning.rotten.run `
+
