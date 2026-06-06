@@ -49,9 +49,6 @@ class IMDBCLeaner:
             "director_name": movie.get("director_name"),
             "director_gender": movie.get("director_gender"),
             "director_department": movie.get("director_department"),
-
-            # META
-            "source": "imdb"
         }
 
         # -----------------------------

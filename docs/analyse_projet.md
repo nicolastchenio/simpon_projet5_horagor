@@ -274,14 +274,15 @@ project/
 │   │   │   ├── cleaner.py
 │   │   │   └── run.py
 │   │   │
-│   │   ├── shared/
-│   │   │   ├── text_utils.py
-│   │   │   └── dataframe_utils.py
+│   │   ├── kaggle/
+│   │   │   ├── cleaner.py
+│   │   │   └── run.py
 │   │
 │   ├── normalization/  => Responsable des données imbriquées JSON
 │   │   ├── tmdb_normalization.py
 │   │   ├── imdb_normalization.py
-│   │   └── omdb_normalization.py
+│   │   ├── rotten_normalization.py
+│   │   └── kaggle_normalization.py
 │   │
 │   ├── matching/ => rapprochement TMDB / IMDb / OMDb, détection doublons entre sources, fuzzy matching
 │   │   ├── tmdb_imdb_matching.py
@@ -302,7 +303,8 @@ project/
 │   └── runner.py => orchestration
 │   ├── tmdb.py
 │   ├── imdb.py
-│   └── rotten_pipeline.py
+│   ├── rotten.py
+│   └── kaggle.py
 │
 ├── tests/
 │   ├── tmdb/
@@ -311,27 +313,28 @@ project/
 │   │   ├── phase_2_extraction.py
 │   │   ├── phase_3_catalog_movies
 │   ├── imdb/
-│   ├── kaggle/
-│   └── spark/
+│   └── kaggle
 │
 ├── data/
 │   ├── raw/ => données brutes non modifiées
-│   │   ├── tmdb
-│   │   ├── imdb
-│   │   ├── rotten
+│   │   ├── tmdb/
+│   │   ├── imdb/
+│   │   ├── kaggle/
+│   │   ├── rotten/
 │   │   │   ├── movies_at_home
 │   │   │   ├── movies_coming_soon
 │   │   │   ├── movies_in_theaters
 │   │   │   └── tv_series_browse
 │   
 │   ├── cleaned/ => données nettoyées
-│   │   ├── tmdb
-│   │   ├── imdb
-│   │   ├── rotten
+│   │   ├── tmdb/
+│   │   ├── imdb/
+│   │   ├── rotten/
+│   │   ├── kaggle/
+│
 │   └── gold/ => données finales prêtes pour usage
 │
 ├── docs/
-│
 ├── .env
 ├── .gitignore
 ├── pyproject.toml

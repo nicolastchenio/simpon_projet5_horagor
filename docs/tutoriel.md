@@ -1189,3 +1189,176 @@ data/
 
 Pour executer en fera `uv run python -m processing.cleaning.rotten.run `
 
+# Kaggle horror-movies #
+
+https://www.kaggle.com/datasets/evangower/horror-movies/data
+
+## Ingestion ##
+```
+ingestion/
+    kaggle_client.py
+```
+
+- charger le CSV
+- vérifier qu'il existe
+- retourner un DataFrame
+- fournir quelques informations de base
+
+faire 
+- `uv add polars `
+- `uv add pyarrow `
+- `uv add numpy `
+
+Car Polars s'appuie souvent sur Arrow pour les performances et cela te servira probablement plus tard pour :
+- Parquet
+- échanges entre DataFrames
+- traitements analytiques
+- dataset Gold
+
+Polars utilise NumPy pour certaines conversions (to_numpy)
+
+## tests ##
+```
+tests/kaggle/
+ ├── test_connection.py
+ ├── test_ingestion.py
+ ├── test_profile.py
+ ├── test_exploration_genres.py
+ ├── test_pipeline_filters.py
+ └── test_dataset_analysis.py
+
+ ```
+
+- test_ingestion.py
+   vérifier que le dataset Kaggle est correctement chargé et exploitable pour le pipeline, au-delà de la simple connexion.
+
+   On passe donc de “le fichier existe” à “les données sont structurées correctement pour ingestion pipeline” :
+   Ce que ce test doit valider
+
+   Sans multiplier les tests, tu veux couvrir 5 points clés :
+
+      1. Colonnes attendues
+
+         Ton dataset Kaggle :
+         - id
+         - title
+         - original_title
+         - overview
+         etc.
+
+         👉 Vérifie qu’elles existent.
+
+      2. Types de base exploitables
+      - id → numérique ou string convertible
+      - release_date → texte date
+      - genre_names → string
+         
+      3. Valeurs critiques non nulles
+      Minimum pour ingestion :
+      - id
+      - title
+
+      4. Cohérence globale
+      - dataset non vide
+      -nombre de lignes cohérent
+
+      5. Aperçu rapide (debug pipeline)
+      - sample exploitable
+
+- test_profile.py
+   Ce test doit répondre à 5 questions :
+   1. Répartition des genres  
+   Quels genres dominent ?
+   2. Distribution des notes (vote_average)  
+   Films bien notés / mal notés
+   3. Complétude des données  
+   taux de null global
+   4. Analyse budget / revenue  
+   films rentables vs non rentables
+   5. Aperçu exploitable pipeline  
+   sample structuré
+
+- test_exploration_genres.py
+   Passage d’un format brut → exploitable ML
+   - Avant : "Horror, Thriller"
+   - Après : ["Horror", "Thriller"]
+   - Puis : exploded table (1 ligne = 1 genre)
+
+- test_pipeline_filters.py
+    - valider les filtres métier simples (genre, notes, revenus)
+    - vérifier la cohérence des sous-ensembles
+    - préparer la base pour exploitation analytique
+
+- test_dataset_selection.py
+  - identifier les colonnes conservées
+  - identifier les colonnes supprimées
+  - préparer le pipeline
+
+### les testes ###
+- creer "tests/kaggle/test_connection.py"
+  - executer => `uv run python -m tests.kaggle.test_connection `
+- creer "tests/kaggle/test_ingestion.py"
+  - executer => `uv run python -m tests.kaggle.test_ingestion `
+- creer "tests/kaggle/test_profile.py"
+  - executer => `uv run python -m tests.kaggle.test_profile `
+- creer "tests/kaggle/test_exploration_genres.py"
+  - executer => `uv run python -m tests.kaggle.test_exploration_genres `
+- creer "tests/kaggle/test_pipeline_filters.py"
+  - executer => `uv run python -m tests.kaggle.test_pipeline_filters `
+- creer "tests/kaggle/test_dataset_analysis.py"
+  - executer => `uv run python -m tests.kaggle.test_dataset_analysis `
+
+## Pipeline ##
+```
+pipeline/
+    kaggle.py
+```
+Si votre prochaine phase est le nettoyage, alors le pipeline Kaggle ne doit faire qu'une seule chose :
+- charger le CSV brut ;
+- supprimer les colonnes définitivement inutiles ;
+-sauvegarder le dataset quasi brut dans data/cleaned/kaggle.
+
+Aucune transformation métier, aucune normalisation, aucun cast, aucun nettoyage.
+
+Colonnes à conserver:
+
+""
+"id"
+"original_title"
+"title"
+"original_language"
+"overview"
+"tagline"
+"release_date"
+"popularity"
+"vote_count"
+"vote_average"
+"budget"
+"revenue"
+"runtime"
+"genre_names"
+
+Pour exercuter on fera maintenant depuis la racine : `uv run python -m pipeline.runner `
+
+## Cleaning / transformation ( pré-normalisation) ##
+```
+processing/cleaning/kaggle/
+    cleaner.py
+    run.py
+```
+Responsabilité :
+- nettoyer les chaînes de caractères
+- convertir les valeurs vides en None
+- extraire éventuellement release_year
+- ne pas renommer les colonnes
+- ne pas normaliser les genres
+- ne pas modifier les types métier
+- ne pas faire de mapping TMDB/IMDb/Rotten
+
+Pour executer en fera `uv run python -m processing.cleaning.kaggle.run `
+
+
+
+
+
+Phase Normalization → harmonisation des schémas et ajout de métadonnées (source, ids externes, champs standardisés)
