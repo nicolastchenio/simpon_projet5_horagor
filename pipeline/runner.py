@@ -1,6 +1,7 @@
 from pipeline.tmdb import TMDBPipeline
 from pipeline.imdb import IMDbPipeline
 from pipeline.rotten import RottenPipeline
+from pipeline.kaggle import KagglePipeline
 
 
 def main():
@@ -20,18 +21,24 @@ def main():
     # =========================
     # ROTTEN PIPELINE (RAW SCRAPING)
     # =========================
-    rotten_pipeline = RottenPipeline()
+    # rotten_pipeline = RottenPipeline()
 
-    try:
-        for base in RottenPipeline.BASES.values():
+    # try:
+    #     for base in RottenPipeline.BASES.values():
 
-            rotten_pipeline.run(
-                base=base,
-                max_pages=1  # <= contrôle global ici
-            )
+    #         rotten_pipeline.run(
+    #             base=base,
+    #             max_pages=1  # <= contrôle global ici
+    #         )
 
-    finally:
-        rotten_pipeline.close()
+    # finally:
+    #     rotten_pipeline.close()
+        
+    # =========================
+    # KAGGLE PIPELINE
+    # =========================
+    kaggle_pipeline = KagglePipeline()
+    kaggle_pipeline.run()
 
 
 if __name__ == "__main__":
