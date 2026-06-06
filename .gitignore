@@ -25,20 +25,32 @@ Thumbs.db
 # DATASETS
 # =========================
 
-# 1. On ignore TOUS les fichiers par défaut dans ces dossiers
-data/raw/*
-data/cleaned/*
-data/gold/*
+# # 1. On ignore TOUS les fichiers par défaut dans ces dossiers
+# data/raw/*
+# data/cleaned/*
+# data/gold/*
 
-# 2. MAIS on autorise Git à explorer les sous-dossiers (on ne les ignore pas)
-!data/raw/*/
-!data/cleaned/*/
-!data/gold/*/
+# # 2. MAIS on autorise Git à explorer les sous-dossiers (on ne les ignore pas)
+# !data/raw/*/
+# !data/cleaned/*/
+# !data/gold/*/
 
-# 3. On autorise explicitement les fichiers .gitkeep à n'importe quelle profondeur
+# # 3. On autorise explicitement les fichiers .gitkeep à n'importe quelle profondeur
+# !data/raw/**/.gitkeep
+# !data/cleaned/**/.gitkeep
+# !data/gold/**/.gitkeep
+
+
+# On ignore TOUT le contenu des dossiers de données, peu importe la profondeur
+data/raw/**/*
+data/cleaned/**/*
+data/gold/**/*
+
+# MAIS on fait une exception uniquement pour les fichiers .gitkeep
 !data/raw/**/.gitkeep
 !data/cleaned/**/.gitkeep
 !data/gold/**/.gitkeep
+
 
 # Databases
 *.sqlite
