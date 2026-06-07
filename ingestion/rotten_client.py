@@ -1,3 +1,5 @@
+# ingestion/rotten_client.py
+
 import time
 import json
 from typing import Optional, List, Dict
@@ -5,6 +7,7 @@ from typing import Optional, List, Dict
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 
 
 class RottenClient:
@@ -357,3 +360,51 @@ class RottenClient:
             result["sentiment"] = critics.get("sentiment")
 
         return result
+    
+    # ==========================================
+    # CASTING : CONTRÔLE DE NAVIGATION ET SÉCURITÉ
+    # ==========================================
+    def extract_movie_cast(self) -> Dict:
+        """
+        Extraction du casting uniquement.
+        Ignore complètement le crew.
+        """
+
+        html = self.get_html()
+        soup = self.parse_html(html)
+
+        cast = []
+
+        cards = soup.select("cast-and-crew-card")
+
+        print(f"Nombre de cartes casting trouvées : {len(cards)}")  # ---- pour debug --------
+
+        for card in cards:
+
+            role = card.get("data-role", "")
+
+            # uniquement les cartes cast
+            if "cast" not in role:
+                continue
+
+            actor_tag = card.select_one('rt-text[slot="title"]')
+            character_tag = card.select_one('rt-text[slot="characters"]')
+            credits_tag = card.select_one('rt-text[slot="credits"]')
+
+            actor = actor_tag.get_text(strip=True) if actor_tag else None
+            character = (
+                character_tag.get_text(strip=True)
+                if character_tag else None
+            )
+            credits = (
+                credits_tag.get_text(strip=True)
+                if credits_tag else None
+            )
+
+            cast.append({
+                "actor": actor,
+                "character": character,
+                "credits": credits
+            })
+
+        return {"cast": cast}

@@ -29,7 +29,12 @@ class TMDBCleaner:
         if not isinstance(value, str):
             return value
 
-        return value.strip()
+        value = value.strip()
+
+        if value == "":
+            return None
+
+        return value
 
     def clean_list(self, values: Any) -> list:
         """
@@ -48,21 +53,38 @@ class TMDBCleaner:
 
         for value in values:
 
-            # nettoyage string
+            # -------------------------
+            # STRING
+            # -------------------------
             if isinstance(value, str):
+
                 value = value.strip()
+
                 if value == "":
                     continue
 
-            # skip None
+            # -------------------------
+            # DICT IMBRIQUÉ
+            # -------------------------
+            elif isinstance(value, dict):
+
+                value = self.clean_dict(value)
+
+            # -------------------------
+            # NONE
+            # -------------------------
             if value is None:
                 continue
 
-            # suppression doublons
+            # -------------------------
+            # DÉDOUBLONNAGE
+            # -------------------------
             key = str(value)
 
             if key not in seen:
+
                 seen.add(key)
+
                 cleaned.append(value)
 
         return cleaned

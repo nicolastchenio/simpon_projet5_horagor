@@ -143,3 +143,23 @@ class TMDBClient:
                 "language": "fr-FR"
             }
         )
+        
+    def get_movie_credits(self, movie_id):
+        """
+        Récupère le casting d'un film.
+
+        Args:
+            movie_id (int):
+                Identifiant TMDB
+
+        Returns:
+            dict:
+                Réponse credits TMDB
+        """
+
+        return self._get(
+            f"/movie/{movie_id}/credits",
+            {
+                "language": "fr-FR"
+            }
+        )

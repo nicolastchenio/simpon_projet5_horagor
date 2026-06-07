@@ -26,13 +26,19 @@ class RottenCleaner:
         """
         Nettoie une chaîne de caractères.
         """
+
         if value is None:
             return None
 
         if not isinstance(value, str):
             return value
 
-        return value.strip()
+        value = value.strip()
+
+        if value == "":
+            return None
+
+        return value
 
     def clean_list(self, values):
         """
@@ -41,6 +47,7 @@ class RottenCleaner:
         - suppression des espaces
         - suppression des doublons
         """
+
         if values is None:
             return None
 
@@ -56,7 +63,7 @@ class RottenCleaner:
             if value and value not in cleaned:
                 cleaned.append(value)
 
-        return cleaned
+        return cleaned or None
 
     def clean_movie(self, movie: Dict[str, Any]):
         """
@@ -119,7 +126,13 @@ class RottenCleaner:
             "tomatometer": self.clean_string(movie.get("tomatometer")),
             "popcornmeter": self.clean_string(movie.get("popcornmeter")),
             "average_rating": self.clean_string(movie.get("average_rating")),
-            "sentiment": self.clean_string(movie.get("sentiment"))
+            "sentiment": self.clean_string(movie.get("sentiment")),
+            
+            # Casting
+            "cast": self.clean_cast(
+                    movie.get("cast")
+                ),
+        
         }
 
         return cleaned
@@ -149,3 +162,37 @@ class RottenCleaner:
                 cleaned_movies.append(cleaned_movie)
 
         return cleaned_movies
+    
+    def clean_cast(self, cast_list):
+        """
+        Nettoyage du casting.
+        """
+
+        if not cast_list:
+            return None
+
+        cleaned_cast = []
+
+        for actor in cast_list:
+
+            if not isinstance(actor, dict):
+                continue
+
+            cleaned_actor = {
+                "actor": self.clean_string(
+                    actor.get("actor")
+                ),
+                "character": self.clean_string(
+                    actor.get("character")
+                ),
+                "credits": self.clean_string(
+                    actor.get("credits")
+                )
+            }
+
+            if any(cleaned_actor.values()):
+                cleaned_cast.append(
+                    cleaned_actor
+                )
+
+        return cleaned_cast or None
