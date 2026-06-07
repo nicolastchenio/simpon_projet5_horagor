@@ -1499,12 +1499,54 @@ processing/
 
 - creation de "tests/matching/test_run_pipeline.py" => `uv run python -m tests.matching.test_run_pipeline `
 
+# Fusion #
 
------------------------------------
-------------------------------
 Fusion Répond à : Quelles informations conserve-t-on ?
 
-if kaggle_tmdb_id == tmdb_tmdb_id:uv run python -m tests.matching.test_utils
-    # vérification de cohérence
-    if normalize_title(kaggle_title) == normalize_title(tmdb_title):
-        match
+CE QUE VA FAIRE LA FUSION : 
+- Regrouper les matches
+- Résoudre les conflits
+- Construire le MASTER FINAL
+
+```
+processing/
+  fusion/
+    schema.py
+    merger.py
+    run.py (optionnel)
+```
+
+- creation de "tests/fusion/test_fusion.py" => `uv run python -m tests.fusion.test_fusion `
+
+
+--------------------------------------
+--------------------------------------
+Vous pouvez techniquement passer à la création du dataset Gold, mais il manque une pièce maîtresse : l'orchestration globale de la fusion sur les données
+  réelles.
+
+  Actuellement, vous avez des composants séparés (Matchers, Merger) et des tests qui passent, mais le fichier pipeline/runner.py ne lie pas encore tout
+  ensemble pour produire le fichier final.
+
+  Voici ce qu'il reste à faire pour finaliser l'étape Gold :
+
+  1. Créer le script d'orchestration Gold (pipeline/gold.py)
+  Ce script doit :
+   1. Charger tous les fichiers .json que vous avez dans data/normalized/.
+   2. Exécuter le MatchingPipeline sur ces données réelles.
+   3. Fusionner les résultats avec le FusionEngine.
+   4. Sauvegarder le résultat final dans data/gold/horror_movies_gold.json.
+
+  2. Mettre à jour pipeline/runner.py
+  Le runner actuel ne fait que l'ingestion (et une grande partie est commentée). Il faudrait le structurer pour qu'il puisse lancer la phase "Gold" après
+  les autres phases.
+
+  3. Vérifier la gestion des "Manques" (Priorité de fusion)
+  Votre consigne stipule : "Si TMDB manque d'un synopsis, le système doit automatiquement basculer sur la source de priorité suivante."
+   * Actuellement : Votre Merger ne fusionne que les index et les identifiants.
+   * À faire : Dans le Merger.merge_group, il faudrait ajouter la logique de "remplissage" des champs vides (overview, runtime, etc.) en suivant l'ordre de
+     priorité (TMDB > Rotten > Kaggle > IMDb).
+
+  ---
+
+  Mon conseil :
+  Avant de dire "C'est fini", nous devrions créer un script pipeline/gold.py qui fait le travail de bout en bout sur vos données réelles.
