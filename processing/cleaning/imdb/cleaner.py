@@ -30,14 +30,10 @@ class IMDBCLeaner:
             "overview": movie.get("overview") or None,
             "tagline": movie.get("tagline") or None,
 
-            # GENRES (on ne transforme rien → brut si absent)
-            "genres": movie.get("genres"),
-
             # DATES
             "release_date": movie.get("release_date"),
 
             # FEATURES NUMÉRIQUES (clean uniquement = cast safe)
-            "runtime": movie.get("runtime"),
             "budget": movie.get("budget"),
             "revenue": movie.get("revenue"),
             "popularity": movie.get("popularity"),

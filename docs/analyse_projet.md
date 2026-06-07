@@ -279,6 +279,8 @@ project/
 │   │   │   └── run.py
 │   │
 │   ├── normalization/  => Responsable des données imbriquées JSON
+│   │   ├── schema.py => contrat de données global
+│   │   ├── base.py (définir une base commune pour tous les mappers (TMDB, IMDb, Rotten, Kaggle)
 │   │   ├── tmdb_normalization.py
 │   │   ├── imdb_normalization.py
 │   │   ├── rotten_normalization.py
