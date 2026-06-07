@@ -1358,7 +1358,109 @@ Responsabilité :
 Pour executer en fera `uv run python -m processing.cleaning.kaggle.run `
 
 
+# Normalisation #
+
+Problème actuel (ce que montrent tes données)
+
+Tu as 4 mondes différents :
+
+TMDB
+- genres = [{id, name}]
+- cast = objets structurés complets
+- dates ISO correctes
+- scores 0–10
+- langues structurées
+- 
+IMDb
+- genres = null
+- ids ambigus (imdb_id parfois numérique)
+- director séparé
+- runtime souvent null
+
+Rotten Tomatoes
+- genres = ["Horror", "Thriller"]
+- dates = "May 29, 2026, Wide" ❌ (non exploitable direct)
+- scores en % + strings
+- cast partiel
+
+Kaggle
+- genres = "Horror, Thriller" (string)
+- scores numériques OK
+- structure déjà proche mais non standard
+
+Objectif de la normalisation (résultat attendu)=>  obtenir une structure UNIQUE pour tous.
+
+Étapes internes :
+1) Charger cleaned dataset
+2) Mapper vers schema canonique
+3) Transformer formats :
+- dates
+- genres
+- runtime
+- cast
+4) Produire normalized dataset
+
+creation de :
+```
+│   ├── normalization/  => Responsable des données imbriquées JSON
+│   │   ├── schema.py => contrat de données global (unifier toutes les sources dans un format stable, typé, exploitable pour matchin) (c est notre modèle métier)
+│   │   ├── base.py (définir une base commune pour tous les mappers (TMDB, IMDb, Rotten, Kaggle))
+│   │   ├── tmdb_normalization.py
+│   │   ├── imdb_normalization.py
+│   │   ├── rotten_normalization.py
+│   │   └── kaggle_normalization.py
+```
+
+Rôle du BaseNormalizer:  
+
+      Chaque source va :
+      - recevoir un dictionnaire brut
+      - retourner un FilmNormalized
+
+## tmdb_normalizer.py ##
+Transformer ton JSON TMDB (structure riche, imbriquée) vers FilmNormalized sans perte d’information utile pour le matching
+
+Creation de  "tests/normalization/test_normalization_tmdb.py" pour tester la normalisation. Le resultat sera dans "data/normalized/tmdb/"
+=> `uv run python -m tests.normalization.test_normalization_tmdb `
+
+## imdb_normalizer.py ##
+
+Ce normalizer doit faire exactement la même chose que TMDB, mais à partir de la source IMDb :
+
+- transformer les données IMDb → FilmNormalized
+- mapper uniquement les champs disponibles IMDb
+- laisser None pour les autres sources (TMDB, Rotten, Kaggle)
+- produire une sortie compatible matching + fusion
 
 
+Creation de  "tests/normalization/test_imdb_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/imdb/"
+=> `uv run python -m tests.normalization.test_imdb_normalization `
 
-Phase Normalization → harmonisation des schémas et ajout de métadonnées (source, ids externes, champs standardisés)
+## rotten_normalizer.py ##
+Objectif du RottenNormalizer : transformer des formats hétérogènes (films + séries + pages “coming soon / theaters / at home”) en un schéma commun propre, compatible avec FilmNormalized.
+
+Donc essayer de mapper :
+- ids
+  - imdb_id = None
+  - tmdb_id = None
+- title
+- overview ← synopsis
+- genres ← genre
+- release_date ← extrait propre (YYYY-MM-DD si possible)
+- release_year ← extrait du texte
+- runtime_minutes ← conversion "1h 50m"
+- scores
+  - imdb = average_rating (si présent)
+  - tmdb = None
+  - rotten_tomatoes = tomatometer (converti float)
+- popularity → None ou ignorer
+- cast → actor → CastMember(name, character)
+
+Creation de  "tests/normalization/test_rotten_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/rotten/"
+=> `uv run python -m tests.normalization.test_rotten_normalization `
+
+## kaggle_normalizer.py ##
+Objectif : Transformer un film Kaggle brut vers FilmNormalized.
+
+Creation de  "tests/normalization/test_kaggle_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/kaggle/"
+=> `uv run python -m tests.normalization.test_kaggle_normalization `
