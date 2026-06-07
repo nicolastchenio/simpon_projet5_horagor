@@ -287,8 +287,11 @@ project/
 │   │   └── kaggle_normalization.py
 │   │
 │   ├── matching/ => rapprochement TMDB / IMDb / OMDb, détection doublons entre sources, fuzzy matching
-│   │   ├── tmdb_imdb_matching.py
-│   │   └── entity_matching.py
+│   │   ├── schema.py => L'objectif est de représenter un match entre plusieurs sources
+│   │   ├── utils.py => Contiendra les fonctions commune
+│   │   ├── id_matcher.py => id_matcher.py
+│   │   ├── fuzzy_matcher.pyatching.pypy
+│   │   └──run.pypy
 │   │
 │   ├── fusion/ => fusion TMDB + IMDb + Rotten Tomatoes
 │   │   └── movie_fusion.py
@@ -314,8 +317,10 @@ project/
 │   │   ├── phase_1_selenium.py
 │   │   ├── phase_2_extraction.py
 │   │   ├── phase_3_catalog_movies
-│   ├── imdb/
-│   └── kaggle
+│   ├── kaggle/
+│   ├── normalization/
+│   ├── matching/
+│   └── ???
 │
 ├── data/
 │   ├── raw/ => données brutes non modifiées

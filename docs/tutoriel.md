@@ -1464,3 +1464,47 @@ Objectif : Transformer un film Kaggle brut vers FilmNormalized.
 
 Creation de  "tests/normalization/test_kaggle_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/kaggle/"
 => `uv run python -m tests.normalization.test_kaggle_normalization `
+
+
+# Matching #
+
+L'objectif est simple : Déterminer quels films provenant de TMDB, IMDb, Rotten et Kaggle représentent en réalité le même film.
+
+La phase de matching ne fusionne rien. Elle construit uniquement les liens entre les sources.Matching répond à la question : Qui est le même film ?
+
+- Étape 1 : définir la clé de matching
+On doit décider comment reconnaître qu'un film est identique.
+
+- Étape 2 : normaliser les titres
+- Étape 3 : indexer chaque source
+- Étape 4 : construire les correspondances
+- Étape 5 : produire un fichier de matches
+
+```
+processing/
+└── matching/
+    ├── schema.py => L'objectif est de représenter un match entre plusieurs sources
+    ├── utils.py => Contiendra les fonctions communes
+    ├── id_matcher.py => id_matcher.py
+    ├── fuzzy_matcher.py
+    └── run.py
+```
+
+- creation de "tests/matching/test_utils.py" => `uv run python -m tests.matching.test_utils `
+
+- creation de "tests/matching/test_id_matcher.py" => `uv run python -m tests.matching.test_id_matcher `
+
+- creation de "tests/matching/test_fuzzy_matcher.py" => `uv run python -m tests.matching.test_fuzzy_matcher `
+
+
+- creation de "tests/matching/test_run_pipeline.py" => `uv run python -m tests.matching.test_run_pipeline `
+
+
+-----------------------------------
+------------------------------
+Fusion Répond à : Quelles informations conserve-t-on ?
+
+if kaggle_tmdb_id == tmdb_tmdb_id:uv run python -m tests.matching.test_utils
+    # vérification de cohérence
+    if normalize_title(kaggle_title) == normalize_title(tmdb_title):
+        match
