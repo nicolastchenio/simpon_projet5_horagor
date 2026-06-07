@@ -1,106 +1,125 @@
 # processing/matching/run.py
 
-from typing import List, Dict, Any
-
+from typing import List
 from processing.matching.id_matcher import IDMatcher
 from processing.matching.fuzzy_matcher import FuzzyMatcher
 from processing.matching.schema import MatchRecord
+from processing.normalization.schema import FilmNormalized
 
 
 class MatchingPipeline:
+    """
+    Orchestrateur du matching multi-sources.
+    
+    Stratégie MDM :
+    1. ID Matching (fort)
+    2. Fuzzy Matching (fallback)
+    
+    Travaille EXCLUSIVEMENT sur FilmNormalized.
+    """
 
     def __init__(self):
         self.id_matcher = IDMatcher()
         self.fuzzy_matcher = FuzzyMatcher()
 
-    # --------------------------------------------------
-    # ID MATCHING
-    # --------------------------------------------------
-    def apply_id_matching(
-        self,
-        tmdb: List[Dict[str, Any]],
-        kaggle: List[Dict[str, Any]],
-        imdb: List[Dict[str, Any]],
+    def run(
+        self, 
+        tmdb: List[FilmNormalized], 
+        kaggle: List[FilmNormalized], 
+        imdb: List[FilmNormalized], 
+        rotten: List[FilmNormalized]
     ) -> List[MatchRecord]:
+        """
+        Exécute le matching complet entre TMDB (master) et les autres sources.
+        """
 
-        results = []
+        # Aggregator : tmdb_index -> MatchRecord
+        aggregated = {}
 
-        results += self.id_matcher.match_by_tmdb_id(tmdb, kaggle)
-        results += self.id_matcher.match_by_imdb_id(tmdb, imdb)
+        def get_or_create_record(tmdb_idx: int) -> MatchRecord:
+            if tmdb_idx not in aggregated:
+                aggregated[tmdb_idx] = MatchRecord(
+                    master_id=f"match_{tmdb_idx:06d}",
+                    tmdb_index=tmdb_idx
+                )
+            return aggregated[tmdb_idx]
 
-        return results
+        # On traite chaque source externe séparément
+        sources = [
+            ("kaggle", kaggle),
+            ("imdb", imdb),
+            ("rotten", rotten)
+        ]
 
-    # --------------------------------------------------
-    # FUZZY
-    # --------------------------------------------------
-    def apply_fuzzy_matching(
-        self,
-        tmdb: List[Dict[str, Any]],
-        external: List[Dict[str, Any]],
-        source: str,
-    ) -> List[MatchRecord]:
+        for source_name, external_data in sources:
+            if not external_data:
+                continue
 
-        return self.fuzzy_matcher.match(tmdb, external, source)
+            matched_tmdb_indices = set()
+            matched_external_indices = set()
 
-    # --------------------------------------------------
-    # RUN
-    # --------------------------------------------------
-    def run(self, tmdb, kaggle, imdb, rotten):
+            # --- 1. ID MATCHING (PRIORITAIRE) ---
+            
+            # Tentative via TMDB_ID
+            id_matches = self.id_matcher.match_by_tmdb_id(tmdb, external_data, source_name)
+            for m in id_matches:
+                record = get_or_create_record(m.tmdb_index)
+                record.source_indices.update(m.source_indices)
+                record.match_level += f"[{m.match_level}]"
+                matched_tmdb_indices.add(m.tmdb_index)
+                matched_external_indices.add(m.source_indices[source_name])
 
-        master = {}
+            # Tentative via IMDB_ID (si pas encore matché par TMDB_ID)
+            id_imdb_matches = self.id_matcher.match_by_imdb_id(tmdb, external_data, source_name)
+            for m in id_imdb_matches:
+                if m.tmdb_index in matched_tmdb_indices:
+                    continue
+                if m.source_indices[source_name] in matched_external_indices:
+                    continue
+                    
+                record = get_or_create_record(m.tmdb_index)
+                record.source_indices.update(m.source_indices)
+                record.match_level += f"[{m.match_level}]"
+                matched_tmdb_indices.add(m.tmdb_index)
+                matched_external_indices.add(m.source_indices[source_name])
 
-        # --------------------------------------------------
-        # INITIALISATION MASTER
-        # --------------------------------------------------
-        for i in range(len(tmdb)):
-            master[i] = MatchRecord(
-                master_id=f"tmdb_{i}",
-                tmdb_index=i,
-                kaggle_index=None,
-                imdb_index=None,
-                rotten_index=None,
-                match_level="MASTER",
-            )
+            # --- 2. FUZZY MATCHING (FALLBACK) ---
+            
+            # On ne tente le fuzzy que pour ce qui n'a pas été trouvé par ID
+            remaining_tmdb = [
+                (idx, film) for idx, film in enumerate(tmdb) 
+                if idx not in matched_tmdb_indices
+            ]
+            remaining_external = [
+                (idx, film) for idx, film in enumerate(external_data) 
+                if idx not in matched_external_indices
+            ]
 
-        # --------------------------------------------------
-        # ID MATCHING (remplit master)
-        # --------------------------------------------------
-        id_matches = self.id_matcher.match_by_tmdb_id(tmdb, kaggle)
+            if not remaining_tmdb or not remaining_external:
+                continue
 
-        for m in id_matches:
-            if m.tmdb_index is not None:
-                master[m.tmdb_index].kaggle_index = m.kaggle_index
+            # Extraction des listes pour le fuzzy matcher
+            tmdb_subset = [f for _, f in remaining_tmdb]
+            ext_subset = [f for _, f in remaining_external]
+            
+            fuzzy_matches = self.fuzzy_matcher.match(tmdb_subset, ext_subset, source_name)
+            
+            for m in fuzzy_matches:
+                # Récupération des vrais index originaux
+                original_tmdb_idx = remaining_tmdb[m.tmdb_index][0]
+                original_ext_idx = remaining_external[m.source_indices[source_name]][0]
 
-        id_matches_imdb = self.id_matcher.match_by_imdb_id(tmdb, imdb)
+                # Sécurité : un film TMDB ou externe ne doit pas être matché deux fois
+                if original_tmdb_idx in matched_tmdb_indices:
+                    continue
+                if original_ext_idx in matched_external_indices:
+                    continue
 
-        for m in id_matches_imdb:
-            if m.tmdb_index is not None:
-                master[m.tmdb_index].imdb_index = m.imdb_index
+                record = get_or_create_record(original_tmdb_idx)
+                record.source_indices[source_name] = original_ext_idx
+                record.match_level += f"[{m.match_level}]"
+                
+                matched_tmdb_indices.add(original_tmdb_idx)
+                matched_external_indices.add(original_ext_idx)
 
-        # --------------------------------------------------
-        # FUZZY MATCHING (complète uniquement les manquants)
-        # --------------------------------------------------
-        for i, m in enumerate(master.values()):
-
-            # KAGGLE
-            if m.kaggle_index is None:
-                for j, k in enumerate(kaggle):
-                    if self.fuzzy_matcher.is_match(tmdb[i], k):
-                        m.kaggle_index = j
-                        break
-
-            # IMDB
-            if m.imdb_index is None:
-                for j, k in enumerate(imdb):
-                    if self.fuzzy_matcher.is_match(tmdb[i], k):
-                        m.imdb_index = j
-                        break
-
-            # ROTTEN
-            if m.rotten_index is None:
-                for j, k in enumerate(rotten):
-                    if self.fuzzy_matcher.is_match(tmdb[i], k):
-                        m.rotten_index = j
-                        break
-
-        return list(master.values())
+        return list(aggregated.values())

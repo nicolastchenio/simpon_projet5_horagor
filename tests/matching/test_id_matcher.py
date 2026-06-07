@@ -1,7 +1,6 @@
 # tests/matching/test_id_matcher.py
 
 import json
-
 from processing.normalization.schema import FilmNormalized
 from processing.matching.id_matcher import IDMatcher
 
@@ -13,34 +12,34 @@ KAGGLE_FILE = "data/normalized/kaggle/normalized_kaggle.json"
 def load_movies(path: str):
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-
     return [FilmNormalized.model_validate(m) for m in data]
 
 
 def main():
-
+    print("Chargement des données...")
     tmdb_movies = load_movies(TMDB_FILE)
     kaggle_movies = load_movies(KAGGLE_FILE)
 
     matcher = IDMatcher()
 
+    print("Matching par TMDB ID...")
     matches = matcher.match_by_tmdb_id(
         tmdb_movies=tmdb_movies,
-        kaggle_movies=kaggle_movies,
+        external_movies=kaggle_movies,
+        source_name="kaggle"
     )
 
-    print()
-    print(f"TMDB films   : {len(tmdb_movies)}")
+    print(f"\nTMDB films   : {len(tmdb_movies)}")
     print(f"Kaggle films : {len(kaggle_movies)}")
     print(f"Matches      : {len(matches)}")
-    print()
+    print("\n10 premiers matches :")
 
     for m in matches[:10]:
         print(
-            m.master_id,
-            m.match_level,
-            f"TMDB={m.tmdb_index}",
-            f"KAGGLE={m.kaggle_index}",
+            f"{m.master_id} | "
+            f"Level: {m.match_level} | "
+            f"TMDB_idx: {m.tmdb_index} | "
+            f"KAGGLE_idx: {m.source_indices.get('kaggle')}"
         )
 
 

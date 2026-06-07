@@ -1,7 +1,7 @@
 # processing/matching/schema.py
 
-from dataclasses import dataclass
-from typing import Optional
+from dataclasses import dataclass, field
+from typing import Optional, Dict
 
 
 @dataclass
@@ -9,17 +9,12 @@ class MatchRecord:
     """
     Représente un film reconnu comme étant la même entité
     entre plusieurs sources.
-
-    Cette structure sera utilisée par la phase de matching.
-
-    La fusion viendra plus tard.
     """
 
     master_id: str
+    tmdb_index: int
 
-    tmdb_index: Optional[int] = None
-    kaggle_index: Optional[int] = None
-    imdb_index: Optional[int] = None
-    rotten_index: Optional[int] = None
+    # Dictionnaire des index par source : {"kaggle": 12, "imdb": 5, ...}
+    source_indices: Dict[str, int] = field(default_factory=dict)
 
     match_level: str = ""
