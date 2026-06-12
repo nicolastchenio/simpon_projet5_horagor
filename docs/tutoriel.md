@@ -1518,6 +1518,16 @@ processing/
 
 - creation de "tests/fusion/test_fusion.py" => `uv run python -m tests.fusion.test_fusion `
 
+# Gold #
+
+1. Créer le script d'orchestration Gold (pipeline/gold.py)  
+Ce script doit :
+- Charger tous les fichiers .json que vous avez dans data/normalized/.
+- Exécuter le MatchingPipeline sur ces données réelles.
+- Fusionner les résultats avec le FusionEngine.
+- Sauvegarder le résultat final dans data/gold/horror_movies_gold.json.
+
+Pour executer ` uv run python -m pipeline.gold `
 
 --------------------------------------
 --------------------------------------
@@ -1529,18 +1539,13 @@ Vous pouvez techniquement passer à la création du dataset Gold, mais il manque
 
   Voici ce qu'il reste à faire pour finaliser l'étape Gold :
 
-  1. Créer le script d'orchestration Gold (pipeline/gold.py)
-  Ce script doit :
-   1. Charger tous les fichiers .json que vous avez dans data/normalized/.
-   2. Exécuter le MatchingPipeline sur ces données réelles.
-   3. Fusionner les résultats avec le FusionEngine.
-   4. Sauvegarder le résultat final dans data/gold/horror_movies_gold.json.
 
-  2. Mettre à jour pipeline/runner.py
+
+  1. Mettre à jour pipeline/runner.py
   Le runner actuel ne fait que l'ingestion (et une grande partie est commentée). Il faudrait le structurer pour qu'il puisse lancer la phase "Gold" après
   les autres phases.
 
-  3. Vérifier la gestion des "Manques" (Priorité de fusion)
+  1. Vérifier la gestion des "Manques" (Priorité de fusion)
   Votre consigne stipule : "Si TMDB manque d'un synopsis, le système doit automatiquement basculer sur la source de priorité suivante."
    * Actuellement : Votre Merger ne fusionne que les index et les identifiants.
    * À faire : Dans le Merger.merge_group, il faudrait ajouter la logique de "remplissage" des champs vides (overview, runtime, etc.) en suivant l'ordre de
