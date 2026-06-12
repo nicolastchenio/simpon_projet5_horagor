@@ -1497,3 +1497,34 @@ L'objectif de cette phase est de créer un dataset unique et complet en fusionna
   **Script d'exécution :** ` uv run python -m processing.gold.run `
 
  Le résultat sera sauvegardé dans " data/gold/gold_horror_movies.json." Ce fichier sera la source de vérité pour l'importation dans la base de données Supabase (Phase 8-10).
+
+
+# Orchestration #
+
+creation  d'un orchestation (main.py à la racine de ton projet) qui va realiser le pipline d ingestion et apres l ensemble du processing (cleaning, normalisation, matching, fusion et  gold)
+
+Voici ce qui a été fait pour rendre cela possible :
+
+1. Flexibilité de Ingestion : J'ai modifié pipeline/tmdb.py et pipeline/rotten.py pour qu'ils acceptent un paramètre max_pages. S'il est à None, ils
+   récupèrent tout ; sinon, ils s'arrêtent au nombre demandé.
+2. Refactorisation du Processing : J'ai passé en revue tous tes scripts run.py (nettoyage, normalisation, etc.) pour encapsuler leur logique dans des
+   fonctions main(). Cela permet de les importer sans qu'ils ne s'exécutent tout seuls.
+3. Création du main.py : Ce fichier pilote désormais toute la chaîne, de l'ingestion brute jusqu'à la génération du dataset Gold.
+
+Comment l'utiliser ?
+
+Pour lancer ton processus complet sur 10 pages (comme tu l'as souhaité pour tes tests), utilise simplement cette commande :
+
+` uv run python main.py 10 `
+
+Si tu souhaites plus tard lancer la récupération de la totalité des données, il te suffira de ne pas mettre d'argument :
+
+` uv run python main.py `
+
+Le workflow exécuté :
+1. Phase 1 : Ingestion (TMDB, IMDb, Rotten, Kaggle)
+2. Phase 2 : Nettoyage (Cleaners par source)
+3. Phase 3 : Normalisation (Schéma pivot commun)
+4. Phase 4 : Matching (Réconciliation inter-sources)
+5. Phase 5 : Fusion (Consolidation MDM)
+6. Phase 6 : Gold (Sélection finale et calcul des scores)

@@ -75,18 +75,22 @@ class RottenPipeline:
 
         all_seen = set()
         previous_count = 0
+        current_page = 1
 
-        for page in range(1, max_pages + 1):
+        while True:
+            # Condition de sortie si max_pages est défini
+            if max_pages is not None and current_page > max_pages:
+                break
 
             # construction URL browse (genre/sort fixés ici)
             url = self.client.build_browse_url(
                 base=base,
                 genre="horror",
                 sort="a_z",
-                page=page
+                page=current_page
             )
 
-            print(f"\n===== PAGE {page} =====")
+            print(f"\n===== PAGE {current_page} =====")
             print(f"URL : {url}")
 
             self.client.open_page(url)
@@ -111,12 +115,15 @@ class RottenPipeline:
                 break
 
             # stop si pagination bloquée (RT duplique parfois les pages)
-            if current_count == previous_count:
-                print("STOP : pagination stagnante")
+            # On vérifie si on a ajouté de nouveaux éléments
+            initial_seen_count = len(all_seen)
+            all_seen.update(movies)
+            
+            if len(all_seen) == initial_seen_count and current_page > 1:
+                print("STOP : plus de nouveaux films trouvés (pagination stagnante)")
                 break
 
-            previous_count = current_count
-            all_seen.update(movies)
+            current_page += 1
 
         urls = sorted(all_seen)
 

@@ -225,11 +225,34 @@ project/
 │   │   │   └── run.py
 │   │
 │   ├── normalization/  
+│   │   ├── tmdb/
+│   │   │   ├── nomalizer.py
+│   │   │   └── run.py
+│   │   │
+│   │   ├── imdb/
+│   │   │   ├── nomalizer.py
+│   │   │   └── run.py
+│   │   │
+│   │   ├── omdb/
+│   │   │   ├── nomalizer.py
+│   │   │   └── run.py
+│   │   │
+│   │   ├── kaggle/
+│   │       ├── nomalizer.py
+│   │       └── run.py└── run.py
 │   │
 │   ├── matching/ 
+│   │   ├── matcher.py
+│   │   └── run.py
 │   │
-│   └──fusion/ 
-│
+│   ├── fusion/
+│   │   ├── fuser.py
+│   │   └── run.py
+│   │
+│   └──gold/ 
+│   │   ├── generator.py
+│   │   └── run.py
+│   │
 ├── database/
 │   ├── models.py
 │   └── session.py
@@ -244,13 +267,8 @@ project/
 ├── tests/
 │   ├── tmdb/
 │   ├── rotten/
-│   │   ├── phase_1_selenium.py
-│   │   ├── phase_2_extraction.py
-│   │   ├── phase_3_catalog_movies
 │   ├── kaggle/
-│   ├── normalization/
-│   ├── matching/
-│   └── ???
+│   └── imdb/
 │
 ├── data/
 │   ├── raw/ => données brutes non modifiées
