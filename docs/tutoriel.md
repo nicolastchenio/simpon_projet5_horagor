@@ -1355,198 +1355,48 @@ Responsabilité :
 - ne pas modifier les types métier
 - ne pas faire de mapping TMDB/IMDb/Rotten
 
-Pour executer en fera `uv run python -m processing.cleaning.kaggle.run `
+## Normalization / Transformation (Schéma Pivot) ##
+
+L'objectif de cette phase est de transformer les datasets nettoyés de chaque source vers un **schéma pivot commun** afin de permettre le matching et la fusion.
+
+### Travaux réalisés (Commun à toutes les sources) ###
+1.  **Création d'un utilitaire de normalisation (`processing/normalization/utils.py`) :**
+    *   `normalize_title` : Conversion en minuscules, suppression des accents et des caractères spéciaux pour le matching.
+    *   `parse_iso_date` : Standardisation des dates au format ISO `YYYY-MM-DD`.
+    *   `scale_score` : Mise à l'échelle de tous les scores sur une base de 0 à 10 (ex: 85% -> 8.5).
+2.  **Schéma Pivot cible :**
+    *   `id`, `imdb_id`, `title`, `matching_title`, `release_date`, `release_year`, `runtime`, `genres`, `overview`, `tagline`, `score`, `vote_count`, `budget`, `revenue`, `production_companies`, `original_language`, `source`.
+
+### 1. TMDB Normalisation ###
+*   **Source :** `data/cleaned/tmdb/`
+*   **Actions :** 
+    *   Extraction des noms de genres et de compagnies.
+    *   Conservation de la **popularité** et du **poster_path**.
+    *   Extraction simplifiée du **casting** (liste de noms).
+*   **Script :** `uv run python -m processing.normalization.tmdb.run`
+
+### 2. Rotten Tomatoes Normalisation ###
+*   **Source :** `data/cleaned/rotten/`
+*   **Actions :** 
+    *   Conversion du runtime `"1h 41m"` en minutes.
+    *   Parsing des dates.
+    *   **Score :** Aligné sur `average_rating` (sur 10).
+    *   Conservation des réalisateurs (**director**) et extraction du **casting**.
+*   **Script :** `uv run python -m processing.normalization.rotten.run`
+
+### 3. Kaggle Normalisation ###
+*   **Source :** `data/cleaned/kaggle/`
+*   **Actions :** Découpage de la chaîne de genres.
+*   **Script :** `uv run python -m processing.normalization.kaggle.run`
+
+### 4. IMDb Normalisation ###
+*   **Source :** `data/cleaned/imdb/`
+*   **Actions :** 
+    *   Conservation de la **popularité** et du **réalisateur** (`director_name`).
+    *   Alignement des scores.
+*   **Script :** `uv run python -m processing.normalization.imdb.run`
+
+---
+Tous les fichiers normalisés sont générés dans le dossier `data/normalized/`.
 
 
-# Normalisation #
-
-Problème actuel (ce que montrent tes données)
-
-Tu as 4 mondes différents :
-
-TMDB
-- genres = [{id, name}]
-- cast = objets structurés complets
-- dates ISO correctes
-- scores 0–10
-- langues structurées
-- 
-IMDb
-- genres = null
-- ids ambigus (imdb_id parfois numérique)
-- director séparé
-- runtime souvent null
-
-Rotten Tomatoes
-- genres = ["Horror", "Thriller"]
-- dates = "May 29, 2026, Wide" ❌ (non exploitable direct)
-- scores en % + strings
-- cast partiel
-
-Kaggle
-- genres = "Horror, Thriller" (string)
-- scores numériques OK
-- structure déjà proche mais non standard
-
-Objectif de la normalisation (résultat attendu)=>  obtenir une structure UNIQUE pour tous.
-
-Étapes internes :
-1) Charger cleaned dataset
-2) Mapper vers schema canonique
-3) Transformer formats :
-- dates
-- genres
-- runtime
-- cast
-4) Produire normalized dataset
-
-creation de :
-```
-│   ├── normalization/  => Responsable des données imbriquées JSON
-│   │   ├── schema.py => contrat de données global (unifier toutes les sources dans un format stable, typé, exploitable pour matchin) (c est notre modèle métier)
-│   │   ├── base.py (définir une base commune pour tous les mappers (TMDB, IMDb, Rotten, Kaggle))
-│   │   ├── tmdb_normalization.py
-│   │   ├── imdb_normalization.py
-│   │   ├── rotten_normalization.py
-│   │   └── kaggle_normalization.py
-```
-
-Rôle du BaseNormalizer:  
-
-      Chaque source va :
-      - recevoir un dictionnaire brut
-      - retourner un FilmNormalized
-
-## tmdb_normalizer.py ##
-Transformer ton JSON TMDB (structure riche, imbriquée) vers FilmNormalized sans perte d’information utile pour le matching
-
-Creation de  "tests/normalization/test_normalization_tmdb.py" pour tester la normalisation. Le resultat sera dans "data/normalized/tmdb/"
-=> `uv run python -m tests.normalization.test_normalization_tmdb `
-
-## imdb_normalizer.py ##
-
-Ce normalizer doit faire exactement la même chose que TMDB, mais à partir de la source IMDb :
-
-- transformer les données IMDb → FilmNormalized
-- mapper uniquement les champs disponibles IMDb
-- laisser None pour les autres sources (TMDB, Rotten, Kaggle)
-- produire une sortie compatible matching + fusion
-
-
-Creation de  "tests/normalization/test_imdb_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/imdb/"
-=> `uv run python -m tests.normalization.test_imdb_normalization `
-
-## rotten_normalizer.py ##
-Objectif du RottenNormalizer : transformer des formats hétérogènes (films + séries + pages “coming soon / theaters / at home”) en un schéma commun propre, compatible avec FilmNormalized.
-
-Donc essayer de mapper :
-- ids
-  - imdb_id = None
-  - tmdb_id = None
-- title
-- overview ← synopsis
-- genres ← genre
-- release_date ← extrait propre (YYYY-MM-DD si possible)
-- release_year ← extrait du texte
-- runtime_minutes ← conversion "1h 50m"
-- scores
-  - imdb = average_rating (si présent)
-  - tmdb = None
-  - rotten_tomatoes = tomatometer (converti float)
-- popularity → None ou ignorer
-- cast → actor → CastMember(name, character)
-
-Creation de  "tests/normalization/test_rotten_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/rotten/"
-=> `uv run python -m tests.normalization.test_rotten_normalization `
-
-## kaggle_normalizer.py ##
-Objectif : Transformer un film Kaggle brut vers FilmNormalized.
-
-Creation de  "tests/normalization/test_kaggle_normalization.py" pour tester la normalisation. Le resultat sera dans "data/normalized/kaggle/"
-=> `uv run python -m tests.normalization.test_kaggle_normalization `
-
-
-# Matching #
-
-L'objectif est simple : Déterminer quels films provenant de TMDB, IMDb, Rotten et Kaggle représentent en réalité le même film.
-
-La phase de matching ne fusionne rien. Elle construit uniquement les liens entre les sources.Matching répond à la question : Qui est le même film ?
-
-- Étape 1 : définir la clé de matching
-On doit décider comment reconnaître qu'un film est identique.
-
-- Étape 2 : normaliser les titres
-- Étape 3 : indexer chaque source
-- Étape 4 : construire les correspondances
-- Étape 5 : produire un fichier de matches
-
-```
-processing/
-└── matching/
-    ├── schema.py => L'objectif est de représenter un match entre plusieurs sources
-    ├── utils.py => Contiendra les fonctions communes
-    ├── id_matcher.py => id_matcher.py
-    ├── fuzzy_matcher.py
-    └── run.py
-```
-
-- creation de "tests/matching/test_utils.py" => `uv run python -m tests.matching.test_utils `
-
-- creation de "tests/matching/test_id_matcher.py" => `uv run python -m tests.matching.test_id_matcher `
-
-- creation de "tests/matching/test_fuzzy_matcher.py" => `uv run python -m tests.matching.test_fuzzy_matcher `
-
-
-- creation de "tests/matching/test_run_pipeline.py" => `uv run python -m tests.matching.test_run_pipeline `
-
-# Fusion #
-
-Fusion Répond à : Quelles informations conserve-t-on ?
-
-CE QUE VA FAIRE LA FUSION : 
-- Regrouper les matches
-- Résoudre les conflits
-- Construire le MASTER FINAL
-
-```
-processing/
-  fusion/
-    schema.py
-    merger.py
-    run.py (optionnel)
-```
-
-- creation de "tests/fusion/test_fusion.py" => `uv run python -m tests.fusion.test_fusion `
-
-
---------------------------------------
---------------------------------------
-Vous pouvez techniquement passer à la création du dataset Gold, mais il manque une pièce maîtresse : l'orchestration globale de la fusion sur les données
-  réelles.
-
-  Actuellement, vous avez des composants séparés (Matchers, Merger) et des tests qui passent, mais le fichier pipeline/runner.py ne lie pas encore tout
-  ensemble pour produire le fichier final.
-
-  Voici ce qu'il reste à faire pour finaliser l'étape Gold :
-
-  1. Créer le script d'orchestration Gold (pipeline/gold.py)
-  Ce script doit :
-   1. Charger tous les fichiers .json que vous avez dans data/normalized/.
-   2. Exécuter le MatchingPipeline sur ces données réelles.
-   3. Fusionner les résultats avec le FusionEngine.
-   4. Sauvegarder le résultat final dans data/gold/horror_movies_gold.json.
-
-  2. Mettre à jour pipeline/runner.py
-  Le runner actuel ne fait que l'ingestion (et une grande partie est commentée). Il faudrait le structurer pour qu'il puisse lancer la phase "Gold" après
-  les autres phases.
-
-  3. Vérifier la gestion des "Manques" (Priorité de fusion)
-  Votre consigne stipule : "Si TMDB manque d'un synopsis, le système doit automatiquement basculer sur la source de priorité suivante."
-   * Actuellement : Votre Merger ne fusionne que les index et les identifiants.
-   * À faire : Dans le Merger.merge_group, il faudrait ajouter la logique de "remplissage" des champs vides (overview, runtime, etc.) en suivant l'ordre de
-     priorité (TMDB > Rotten > Kaggle > IMDb).
-
-  ---
-
-  Mon conseil :
-  Avant de dire "C'est fini", nous devrions créer un script pipeline/gold.py qui fait le travail de bout en bout sur vos données réelles.

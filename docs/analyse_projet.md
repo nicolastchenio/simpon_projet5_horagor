@@ -91,12 +91,6 @@ Le cleaner doit seulement faire
 - filtrage Horror
 - suppression d'éventuels caractères parasites
 
-Le cleaner ne doit plus faire
-- création de nouveaux champs (release_year)
-- transformation de structure
-- extraction de valeurs métier
-- harmonisation entre sources
-- normalisation
 
 ### 3.1 Nettoyage général ###
 
@@ -116,71 +110,23 @@ Conserver uniquement :
 - Horror / Gore
 
 ## Phase 4 — Normalisation ##
+- Harmonisation des dates (ISO 8601).
+- Standardisation des durées (minutes).
+- Création de `matching_title` (lowercase, sans accents/spéciaux).
+- Standardisation des listes : Transformer les genres et entreprises en listes de strings simples.
+- Alignement des noms de colonnes pour la fusion.
 
-Objectif : homogénéiser les formats.
-
-normlisation :
-- release_year
-- genres -> list[str]
-- runtime_minutes
-- date ISO
-- vote scores
-- schéma commun
-- suppression doublons de films
-- fusion d’entrées
-- règles métier
-- déduplication cross-sources
-
-### 4.1 Dates ###
-
-- Format unique : ISO 8601
-- Cas particulier :
-  - année seule → YYYY-01-01
-
-### 4.2 Scores ###
-
-- TMDB / IMDB → sur 10
-- Rotten Tomatoes → conserver sur 100
-
-### 4.3 Textes ###
-
-- Nettoyage whitespace
-- Uniformisation des champs (overview, synopsis)
-
-## Phase 5 — Matching / Réconciliation (MDM) ##
-
-Objectif : identifier les mêmes films entre sources.
-
-### Niveaux de matching : ###
-
-#### 5.1 Niveau 1 (prioritaire) ####
-
-- tmdb_id
-
-#### 5.2 Niveau 2 ####
-
-- imdb_id
-
-#### 5.3 Niveau 3 (fuzzy matching) ####
-
-- titre + année
-- algorithme :
-  - distance de Levenshtein
+## Phase 5 — Matching ##
+- Jointure sur `matching_title` + `release_year`.
+- Utilisation du Fuzzy Matching pour les titres (Levenshtein).
+- Création d'une table de correspondance inter-sources.
 
 ## Phase 6 — Fusion des données ##
+- Application de la priorité : TMDB > Rotten > Kaggle > IMDb.
+- Complétion des champs manquants (synopsis, budget, etc.).
+- Agrégation des différents scores de notation.
+- Traçabilité : Ajouter une colonne sources_found pour savoir quelles sources ont contribué à ce film.
 
-Objectif : créer une fiche film unique enrichie.
-
-Stratégie de priorité :
-1) TMDB (source maître)
-2) Rotten Tomatoes
-3) Kaggle
-4) IMDB
-5) Spark
-
-Règles :
-- Si donnée manquante → prendre source suivante
-- Ne jamais écraser une donnée prioritaire par une source inférieure
 
 ## Phase 7 — Création du dataset “Gold” ##
 
@@ -278,27 +224,11 @@ project/
 │   │   │   ├── cleaner.py
 │   │   │   └── run.py
 │   │
-│   ├── normalization/  => Responsable des données imbriquées JSON
-│   │   ├── schema.py => contrat de données global
-│   │   ├── base.py (définir une base commune pour tous les mappers (TMDB, IMDb, Rotten, Kaggle)
-│   │   ├── tmdb_normalization.py
-│   │   ├── imdb_normalization.py
-│   │   ├── rotten_normalization.py
-│   │   └── kaggle_normalization.py
+│   ├── normalization/  
 │   │
-│   ├── matching/ => rapprochement TMDB / IMDb / OMDb, détection doublons entre sources, fuzzy matching
-│   │   ├── schema.py => L'objectif est de représenter un match entre plusieurs sources
-│   │   ├── utils.py => Contiendra les fonctions commune
-│   │   ├── id_matcher.py => id_matcher.py
-│   │   ├── fuzzy_matcher.pyatching.pypy
-│   │   └──run.pypy
+│   ├── matching/ 
 │   │
-│   ├── fusion/ => fusion TMDB + IMDb + Rotten Tomatoes
-│   │   └── movie_fusion.py
-│   │
-│   └── utils/  => fonctions communes
-│       ├── text_utils.py
-│       └── dataframe_utils.py
+│   └──fusion/ 
 │
 ├── database/
 │   ├── models.py
@@ -363,7 +293,3 @@ project/
 - Qualité des données > quantité
 - Respect strict du genre Horror
 - Traçabilité des sources
-
-Si nécessaire, l’étape suivante peut consister à détailler :
-- le schéma de base de données (MCD/MLD)
-- ou l’architecture technique du pipeline (plus avancée, type production)
