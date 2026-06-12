@@ -31,6 +31,11 @@ data/**
 # Et on autorise les fichiers .gitkeep pour marquer les dossiers
 !data/**/.gitkeep
 
+# Exceptions : Fichiers sources à conserver sur Git
+!data/raw/kaggle/horror_movies.csv
+!data/raw/imdb/movie.sqlite
+
+
 
 
 # Databases
