@@ -1355,11 +1355,11 @@ Responsabilité :
 - ne pas modifier les types métier
 - ne pas faire de mapping TMDB/IMDb/Rotten
 
-## Normalization / Transformation (Schéma Pivot) ##
+# Normalization / Transformation (Schéma Pivot) #
 
 L'objectif de cette phase est de transformer les datasets nettoyés de chaque source vers un **schéma pivot commun** afin de permettre le matching et la fusion.
 
-### Travaux réalisés (Commun à toutes les sources) ###
+## Travaux réalisés (Commun à toutes les sources) ##
 1.  **Création d'un utilitaire de normalisation (`processing/normalization/utils.py`) :**
     *   `normalize_title` : Conversion en minuscules, suppression des accents et des caractères spéciaux pour le matching.
     *   `parse_iso_date` : Standardisation des dates au format ISO `YYYY-MM-DD`.
@@ -1400,3 +1400,63 @@ L'objectif de cette phase est de transformer les datasets nettoyés de chaque so
 Tous les fichiers normalisés sont générés dans le dossier `data/normalized/`.
 
 
+# Matching #
+
+L'objectif de cette phase est de réconcilier les films provenant des 4 sources différentes en identifiant ceux qui sont identiques, malgré des variations de titres.
+
+### Travaux réalisés ###
+1.  **Moteur de Matching (`processing/matching/matcher.py`) :**
+    *   **Stratégie de réconciliation :** 
+        *   Niveau 1 : Correspondance exacte sur `matching_title` + `release_year`.
+        *   Niveau 2 : Fuzzy matching (similarité textuelle via `difflib.SequenceMatcher`) avec un seuil de **0.90** pour les films de la même année.
+
+         Dans certains datasets (notamment TMDB), le champ release_year était à null car il n'était pas extrait de la release_date lors de la normalisation.  
+         - Utilitaire : Ajout d'une fonction extract_year dans processing/normalization/utils.py pour extraire l'année de n'importe quel format de date.
+         - Normaliseurs : Mise à jour des normaliseurs TMDB, Kaggle et IMDb pour garantir que release_year est systématiquement peuplé à partir de la release_date si le champ est manquant.  
+  
+         Les années sont maintenant correctement extraites des dates ISO (ex: 2026-05-13 -> 2026), ce qui améliore considérablement le taux de succès du matching.
+
+2.  **Table de correspondance :**
+    *   Génération d'un fichier central `data/matched/matching_table.json`.
+    *   Ce fichier sert de "pont" entre les sources : il liste chaque film TMDB (source maîtresse) et associe les IDs correspondants dans Rotten Tomatoes, Kaggle et IMDb.
+3.  **Script d'exécution :**
+    *   `uv run python -m processing.matching.run`
+    *   Le script affiche des statistiques de matching pour évaluer la qualité du recouvrement entre les sources.
+
+### Structure du fichier `matching_table.json` : ###
+```json
+{
+    "tmdb_id": 1339713,
+    "title": "Obsession",
+    "release_year": 2026,
+    "matches": {
+        "tmdb": 1339713,
+        "rotten": "https://www.rottentomatoes.com/m/obsession_2026",
+        "kaggle": 760161,
+        "imdb": 43597
+    }
+}
+```
+ Son but est de servir de "pont" pour la phase suivante (la fusion).
+   - Le matching est bien réalisé via le titre et l'année.
+   - Le résultat stocké est l'ID de la source correspondante pour permettre au module de fusion de retrouver directement les données sans refaire tout le
+     calcul de similarité.
+
+
+# Fusion et Consolidation (MDM) #
+
+L'objectif de cette phase est de créer un dataset unique et complet en fusionnant les informations des 4 sources selon une logique de priorité.
+
+### Travaux réalisés ###
+1.  **Module de Fusion (`processing/fusion/fuser.py`) :**
+    *   **Logique de priorité :** TMDB (Source Maîtresse) > Rotten Tomatoes > Kaggle > IMDb.
+    *   **Complétion intelligente :** Si un champ (synopsis, budget, durée, réalisateur, casting) est vide dans TMDB, le système va automatiquement chercher la valeur dans la source suivante selon l'ordre de priorité.
+    *   **Agrégation des scores :** Conservation de tous les scores spécifiques (`score_rotten_critics`, `score_imdb`, etc.) pour permettre des analyses croisées.
+    *   **Traçabilité :** Ajout d'une colonne `enrichment_sources` listant les sources ayant contribué à enrichir la fiche du film.
+2.  **Dataset fusionné :**
+    *   Génération du fichier `data/fusioned/merged_dataset.json`.
+3.  **Script d'exécution :**
+    *   `uv run python -m processing.fusion.run`
+
+---
+Le dataset fusionné est maintenant techniquement complet. La prochaine étape est la **Phase 7 : Création du dataset "Gold"** pour finaliser la sélection des colonnes pour le RAG.

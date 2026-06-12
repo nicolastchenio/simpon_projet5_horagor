@@ -5,7 +5,7 @@
         "title": "Il peccato di Lola",
         "matching_title": "il peccato di lola",
         "release_date": "1984-05-04",
-        "release_year": null,
+        "release_year": 1984,
         "runtime": 88,
         "genres": [
             "Drame",
@@ -41,7 +41,7 @@
         "title": "The Crucifix: Blood of the Exorcist",
         "matching_title": "the crucifix blood of the exorcist",
         "release_date": "2025-01-09",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 92,
         "genres": [
             "Horreur"
@@ -75,7 +75,7 @@
         "title": "Conspiração Fatal",
         "matching_title": "conspiracao fatal",
         "release_date": "2022-05-26",
-        "release_year": null,
+        "release_year": 2022,
         "runtime": 0,
         "genres": [
             "Horreur"
@@ -117,7 +117,7 @@
         "title": "Alien, le huitième passager",
         "matching_title": "alien le huitieme passager",
         "release_date": "1979-05-25",
-        "release_year": null,
+        "release_year": 1979,
         "runtime": 117,
         "genres": [
             "Horreur",
@@ -156,7 +156,7 @@
         "title": "Conjuring : Les Dossiers Warren",
         "matching_title": "conjuring les dossiers warren",
         "release_date": "2013-07-18",
-        "release_year": null,
+        "release_year": 2013,
         "runtime": 112,
         "genres": [
             "Horreur",
@@ -206,7 +206,7 @@
         "title": "World War Z",
         "matching_title": "world war z",
         "release_date": "2013-06-19",
-        "release_year": null,
+        "release_year": 2013,
         "runtime": 116,
         "genres": [
             "Action",
@@ -260,7 +260,7 @@
         "title": "Slanted",
         "matching_title": "slanted",
         "release_date": "2026-03-13",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 102,
         "genres": [
             "Comédie",
@@ -310,7 +310,7 @@
         "title": "The Bride!",
         "matching_title": "the bride",
         "release_date": "2026-03-04",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 127,
         "genres": [
             "Science-Fiction",
@@ -362,7 +362,7 @@
         "title": "Black Phone 2",
         "matching_title": "black phone 2",
         "release_date": "2025-10-15",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 114,
         "genres": [
             "Horreur",
@@ -410,7 +410,7 @@
         "title": "Scream",
         "matching_title": "scream",
         "release_date": "1996-12-20",
-        "release_year": null,
+        "release_year": 1996,
         "runtime": 111,
         "genres": [
             "Crime",
@@ -460,7 +460,7 @@
         "title": "Destination Finale : Bloodlines",
         "matching_title": "destination finale bloodlines",
         "release_date": "2025-05-14",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 110,
         "genres": [
             "Horreur",
@@ -512,7 +512,7 @@
         "title": "Knock Knock",
         "matching_title": "knock knock",
         "release_date": "2015-06-26",
-        "release_year": null,
+        "release_year": 2015,
         "runtime": 99,
         "genres": [
             "Horreur",
@@ -557,7 +557,7 @@
         "title": "Faces of Death",
         "matching_title": "faces of death",
         "release_date": "2026-04-10",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 97,
         "genres": [
             "Horreur"
@@ -606,7 +606,7 @@
         "title": "Exit 8",
         "matching_title": "exit 8",
         "release_date": "2025-08-28",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 100,
         "genres": [
             "Horreur",
@@ -651,7 +651,7 @@
         "title": "Les Intrus : Chapitre 3",
         "matching_title": "les intrus chapitre 3",
         "release_date": "2026-02-05",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 92,
         "genres": [
             "Horreur",
@@ -703,7 +703,7 @@
         "title": "Frankenstein",
         "matching_title": "frankenstein",
         "release_date": "2025-10-17",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 150,
         "genres": [
             "Drame",
@@ -754,7 +754,7 @@
         "title": "Shining",
         "matching_title": "shining",
         "release_date": "1980-05-23",
-        "release_year": null,
+        "release_year": 1980,
         "runtime": 119,
         "genres": [
             "Horreur",
@@ -805,7 +805,7 @@
         "title": "Psychose",
         "matching_title": "psychose",
         "release_date": "1960-06-22",
-        "release_year": null,
+        "release_year": 1960,
         "runtime": 109,
         "genres": [
             "Horreur",
@@ -854,7 +854,7 @@
         "title": "Le Sifflet",
         "matching_title": "le sifflet",
         "release_date": "2026-01-20",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 97,
         "genres": [
             "Horreur",
@@ -903,7 +903,7 @@
         "title": "Constantine",
         "matching_title": "constantine",
         "release_date": "2005-02-08",
-        "release_year": null,
+        "release_year": 2005,
         "runtime": 121,
         "genres": [
             "Fantastique",
