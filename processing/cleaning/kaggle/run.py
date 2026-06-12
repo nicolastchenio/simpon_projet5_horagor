@@ -18,87 +18,91 @@ CLEAN_DIR = Path(
     "data/cleaned/kaggle"
 )
 
-# Création du dossier de sortie
+def main():
+    # Création du dossier de sortie
 
-CLEAN_DIR.mkdir(
-    parents=True,
-    exist_ok=True
-)
-
-# =====================================
-# INITIALISATION CLEANER
-# =====================================
-
-cleaner = KaggleCleaner()
-
-# =====================================
-# PARCOURS DATASETS
-# =====================================
-
-for file in RAW_DIR.glob(
-    "horror_movies_selected.json"
-):
-
-    print(
-        f"\nTraitement : {file.name}"
+    CLEAN_DIR.mkdir(
+        parents=True,
+        exist_ok=True
     )
 
-    # -------------------------
-    # Lecture dataset brut
-    # -------------------------
+    # =====================================
+    # INITIALISATION CLEANER
+    # =====================================
 
-    with open(
-        file,
-        "r",
-        encoding="utf-8"
-    ) as f:
+    cleaner = KaggleCleaner()
 
-        data = json.load(f)
+    # =====================================
+    # PARCOURS DATASETS
+    # =====================================
 
-    # -------------------------
-    # Nettoyage dataset
-    # -------------------------
+    for file in RAW_DIR.glob(
+        "horror_movies_selected.json"
+    ):
 
-    cleaned = cleaner.clean_dataset(
-        data
-    )
-
-    # -------------------------
-    # Fichier de sortie
-    # -------------------------
-
-    output_file = (
-        CLEAN_DIR
-        / f"cleaned_{file.name}"
-    )
-
-    # -------------------------
-    # Sauvegarde
-    # -------------------------
-
-    with open(
-        output_file,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            cleaned,
-            f,
-            indent=4,
-            ensure_ascii=False
+        print(
+            f"\nTraitement : {file.name}"
         )
 
-    # -------------------------
-    # Logs
-    # -------------------------
+        # -------------------------
+        # Lecture dataset brut
+        # -------------------------
 
-    print(
-        f"[OK] Kaggle cleaned saved -> "
-        f"{output_file}"
-    )
+        with open(
+            file,
+            "r",
+            encoding="utf-8"
+        ) as f:
 
-    print(
-        f"Films conservés : "
-        f"{len(cleaned)}"
-    )
+            data = json.load(f)
+
+        # -------------------------
+        # Nettoyage dataset
+        # -------------------------
+
+        cleaned = cleaner.clean_dataset(
+            data
+        )
+
+        # -------------------------
+        # Fichier de sortie
+        # -------------------------
+
+        output_file = (
+            CLEAN_DIR
+            / f"cleaned_{file.name}"
+        )
+
+        # -------------------------
+        # Sauvegarde
+        # -------------------------
+
+        with open(
+            output_file,
+            "w",
+            encoding="utf-8"
+        ) as f:
+
+            json.dump(
+                cleaned,
+                f,
+                indent=4,
+                ensure_ascii=False
+            )
+
+        # -------------------------
+        # Logs
+        # -------------------------
+
+        print(
+            f"[OK] Kaggle cleaned saved -> "
+            f"{output_file}"
+        )
+
+        print(
+            f"Films conservés : "
+            f"{len(cleaned)}"
+        )
+
+if __name__ == "__main__":
+    main()

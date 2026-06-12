@@ -210,28 +210,38 @@ class TMDBPipeline:
     ):
         """
         Exécute le pipeline complet.
+        Si max_pages est None, récupère toutes les pages disponibles.
         """
 
         print(
             "=== Démarrage pipeline TMDB Horror ===\n"
         )
 
-        for page in range(
-            1,
-            max_pages + 1
-        ):
-
+        current_page = 1
+        
+        while True:
             print(
-                f"\nRécupération page {page}..."
+                f"\nRécupération page {current_page}..."
             )
 
             # --------------------------------------
             # Discover Horror
             # --------------------------------------
-
-            data = self.fetch_page(
-                page
-            )
+            data = self.fetch_page(current_page)
+            
+            # Récupération du nombre total de pages au premier appel
+            if current_page == 1:
+                total_pages = data.get("total_pages", 1)
+                
+                # Si l'utilisateur a spécifié une limite, on la respecte
+                if max_pages is not None:
+                    limit_pages = min(max_pages, total_pages)
+                else:
+                    # Limite technique TMDB sur Discover (500 pages)
+                    limit_pages = min(total_pages, 500)
+                
+                print(f"Total de pages disponibles : {total_pages}")
+                print(f"Pages à traiter : {limit_pages}")
 
             movies = data.get(
                 "results",
@@ -239,7 +249,7 @@ class TMDBPipeline:
             )
 
             print(
-                f"{len(movies)} films récupérés"
+                f"{len(movies)} films récupérés (Page {current_page}/{limit_pages})"
             )
 
             # --------------------------------------
@@ -258,7 +268,7 @@ class TMDBPipeline:
 
             file_path = (
                 self.output_dir /
-                f"enriched_horror_page_{page}.json"
+                f"enriched_horror_page_{current_page}.json"
             )
 
             with open(
@@ -278,6 +288,12 @@ class TMDBPipeline:
                 f"Dataset enrichi sauvegardé -> "
                 f"{file_path}"
             )
+
+            # Condition de sortie
+            if current_page >= limit_pages:
+                break
+                
+            current_page += 1
 
         print(
             "\n=== Pipeline TMDB terminé ==="
