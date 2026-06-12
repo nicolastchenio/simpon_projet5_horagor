@@ -53,6 +53,21 @@ def parse_iso_date(date_str: str) -> str:
         
     return None
 
+def extract_year(date_str: str) -> int:
+    """
+    Extrait l'année (int) d'une chaîne de date (YYYY-MM-DD ou YYYY).
+    """
+    if not date_str or not isinstance(date_str, str):
+        return None
+        
+    match = re.search(r"(\d{4})", date_str)
+    if match:
+        try:
+            return int(match.group(1))
+        except:
+            return None
+    return None
+
 def scale_score(score: any, max_val: float = 10.0) -> float:
     """
     Ramène un score sur une échelle de 0 à 10.

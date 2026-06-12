@@ -5,7 +5,7 @@
         "title": "Cisza nocna",
         "matching_title": "cisza nocna",
         "release_date": "2024-10-31",
-        "release_year": null,
+        "release_year": 2024,
         "runtime": 87,
         "genres": [
             "Horreur",
@@ -56,7 +56,7 @@
         "title": "Conjuring : L'Heure du jugement",
         "matching_title": "conjuring l heure du jugement",
         "release_date": "2025-09-03",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 135,
         "genres": [
             "Horreur"
@@ -106,7 +106,7 @@
         "title": "Nadie va a escuchar tu grito",
         "matching_title": "nadie va a escuchar tu grito",
         "release_date": "2025-09-05",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 80,
         "genres": [
             "Horreur",
@@ -144,7 +144,7 @@
         "title": "Sinners",
         "matching_title": "sinners",
         "release_date": "2025-04-16",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 138,
         "genres": [
             "Horreur",
@@ -195,7 +195,7 @@
         "title": "The Mortuary Assistant",
         "matching_title": "the mortuary assistant",
         "release_date": "2026-02-13",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 91,
         "genres": [
             "Horreur",
@@ -233,7 +233,7 @@
         "title": "DOOR",
         "matching_title": "door",
         "release_date": "1988-05-14",
-        "release_year": null,
+        "release_year": 1988,
         "runtime": 94,
         "genres": [
             "Horreur",
@@ -271,7 +271,7 @@
         "title": "Midnight Matinee",
         "matching_title": "midnight matinee",
         "release_date": "1988-10-12",
-        "release_year": null,
+        "release_year": 1988,
         "runtime": 78,
         "genres": [
             "Horreur",
@@ -319,7 +319,7 @@
         "title": "28 Ans plus tard : Le Temple des morts",
         "matching_title": "28 ans plus tard le temple des morts",
         "release_date": "2026-01-14",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 110,
         "genres": [
             "Horreur",
@@ -370,7 +370,7 @@
         "title": "Passenger",
         "matching_title": "passenger",
         "release_date": "2026-05-20",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 94,
         "genres": [
             "Horreur",
@@ -411,7 +411,7 @@
         "title": "The Substance",
         "matching_title": "the substance",
         "release_date": "2024-09-07",
-        "release_year": null,
+        "release_year": 2024,
         "runtime": 141,
         "genres": [
             "Horreur",
@@ -462,7 +462,7 @@
         "title": "Wormtown",
         "matching_title": "wormtown",
         "release_date": "2025-09-27",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 101,
         "genres": [
             "Science-Fiction",
@@ -497,7 +497,7 @@
         "title": "I Spit on Your Grave",
         "matching_title": "i spit on your grave",
         "release_date": "2010-06-17",
-        "release_year": null,
+        "release_year": 2010,
         "runtime": 107,
         "genres": [
             "Thriller",
@@ -538,7 +538,7 @@
         "title": "ドールハウス",
         "matching_title": "",
         "release_date": "2025-06-13",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 110,
         "genres": [
             "Horreur",
@@ -579,7 +579,7 @@
         "title": "Pirouette fatale",
         "matching_title": "pirouette fatale",
         "release_date": "2026-03-13",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 91,
         "genres": [
             "Musique",
@@ -632,7 +632,7 @@
         "title": "Dernier train pour Busan",
         "matching_title": "dernier train pour busan",
         "release_date": "2016-07-20",
-        "release_year": null,
+        "release_year": 2016,
         "runtime": 118,
         "genres": [
             "Horreur",
@@ -686,7 +686,7 @@
         "title": "Alas Roban",
         "matching_title": "alas roban",
         "release_date": "2026-01-15",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 111,
         "genres": [
             "Drame",
@@ -735,7 +735,7 @@
         "title": "Évanouis",
         "matching_title": "evanouis",
         "release_date": "2025-08-04",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 129,
         "genres": [
             "Horreur",
@@ -787,7 +787,7 @@
         "title": "Retour à Silent Hill",
         "matching_title": "retour a silent hill",
         "release_date": "2026-01-21",
-        "release_year": null,
+        "release_year": 2026,
         "runtime": 106,
         "genres": [
             "Mystère",
@@ -843,7 +843,7 @@
         "title": "镜花风月三之螺女挑情",
         "matching_title": "",
         "release_date": "1982-01-01",
-        "release_year": null,
+        "release_year": 1982,
         "runtime": 80,
         "genres": [
             "Horreur"
@@ -873,7 +873,7 @@
         "title": "Five Nights at Freddy's 2",
         "matching_title": "five nights at freddy s 2",
         "release_date": "2025-12-03",
-        "release_year": null,
+        "release_year": 2025,
         "runtime": 104,
         "genres": [
             "Horreur",

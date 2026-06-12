@@ -1,7 +1,7 @@
 # processing/normalization/kaggle/normalizer.py
 
 from typing import List, Dict, Any
-from processing.normalization.utils import normalize_title, parse_iso_date, scale_score
+from processing.normalization.utils import normalize_title, parse_iso_date, scale_score, extract_year
 
 class KaggleNormalizer:
     """
@@ -17,13 +17,20 @@ class KaggleNormalizer:
         if raw_genres:
             genres = [g.strip() for g in raw_genres.split(",")]
 
+        release_date = parse_iso_date(movie.get("release_date"))
+        
+        # Priorité au release_year déjà présent, sinon extraction depuis la date
+        release_year = movie.get("release_year")
+        if release_year is None and release_date:
+            release_year = extract_year(release_date)
+
         normalized = {
             "id": movie.get("id"),
             "imdb_id": None,
             "title": title,
             "matching_title": normalize_title(title),
-            "release_date": parse_iso_date(movie.get("release_date")),
-            "release_year": movie.get("release_year"),
+            "release_date": release_date,
+            "release_year": release_year,
             "runtime": movie.get("runtime"),
             "genres": genres,
             "overview": movie.get("overview"),
