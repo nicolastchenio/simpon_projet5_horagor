@@ -1458,5 +1458,42 @@ L'objectif de cette phase est de créer un dataset unique et complet en fusionna
 3.  **Script d'exécution :**
     *   `uv run python -m processing.fusion.run`
 
----
-Le dataset fusionné est maintenant techniquement complet. La prochaine étape est la **Phase 7 : Création du dataset "Gold"** pour finaliser la sélection des colonnes pour le RAG.
+# Gold #
+
+ c'est ici que l'on transforme une donnée "techniquement
+  fusionnée" en un produit "prêt à l'emploi".
+
+  Voici la stratégie détaillée de ce que nous allons faire :
+
+  1. L'Objectif du Dataset "Gold"
+  Le dataset fusionné actuel contient encore beaucoup de "bruit" technique et de colonnes intermédiaires. Le dataset Gold doit être :
+   - Sélectif : On ne garde que les colonnes utiles pour l'utilisateur final et le moteur de recherche.
+   - Parfaitement propre : Plus aucune valeur aberrante ou format incohérent.
+
+  2. Structure du Dataset Gold (Colonnes retenues)
+  On garde un schéma propre et efficace :
+   - Identité : title, release_year, original_language.
+   - Contenu : overview, tagline, genres, director, cast.
+   - Qualité :
+       - score_tmdb, score_imdb, score_rotten_critics, score_rotten_audience.
+       - score_horragor : Une moyenne calculée des scores disponibles.
+   - Métadonnées : runtime, budget, revenue, production_companies.
+
+  3.On cré un nouveau module dans processing/gold/. Ce script va :
+   -  Charger le merged_dataset.json.
+   -  Appliquer une priorité de contenu : On élimine les films qui n'ont ni overview ni tagline (trop peu d'informations pour être intéressants)
+   -  Calculer un Score Global : Faire une moyenne pondérée de tous les scores disponibles pour avoir une note unique "HorRAGor
+
+   ```
+   processing/
+      └── gold/
+         ├── generator.py  (Logique de transformation)
+         └── run.py        (Script d'exécution)
+   data/
+   └── gold/
+         └── gold_horror_movies.json
+   ```
+ 
+  **Script d'exécution :** ` uv run python -m processing.gold.run `
+
+ Le résultat sera sauvegardé dans " data/gold/gold_horror_movies.json." Ce fichier sera la source de vérité pour l'importation dans la base de données Supabase (Phase 8-10).

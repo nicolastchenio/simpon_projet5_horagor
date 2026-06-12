@@ -9,8 +9,8 @@ def main():
     # =========================
     # TMDB PIPELINE
     # =========================
-    # tmdb_pipeline = TMDBPipeline()
-    # tmdb_pipeline.run(max_pages=3)
+    tmdb_pipeline = TMDBPipeline()
+    tmdb_pipeline.run()
 
     # =========================
     # IMDb PIPELINE
@@ -21,18 +21,18 @@ def main():
     # =========================
     # ROTTEN PIPELINE (RAW SCRAPING)
     # =========================
-    rotten_pipeline = RottenPipeline()
+    # rotten_pipeline = RottenPipeline()
 
-    try:
-        for base in RottenPipeline.BASES.values():
+    # try:
+    #     for base in RottenPipeline.BASES.values():
 
-            rotten_pipeline.run(
-                base=base,
-                max_pages=1  # <= contrôle global ici
-            )
+    #         rotten_pipeline.run(
+    #             base=base,
+    #             max_pages=1  # <= contrôle global ici
+    #         )
 
-    finally:
-        rotten_pipeline.close()
+    # finally:
+    #     rotten_pipeline.close()
         
     # =========================
     # KAGGLE PIPELINE
