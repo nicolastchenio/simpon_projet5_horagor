@@ -47,9 +47,10 @@ def seed_data(file_path: str):
         with open(file_path, "r", encoding="utf-8") as f:
             movies_data = json.load(f)
 
-        print(f"Début de l'importation de {len(movies_data)} films...")
+        total_movies = len(movies_data)
+        print(f"Début de l'importation de {total_movies} films...")
 
-        for item in movies_data:
+        for index, item in enumerate(movies_data, 1):
             # 1. Gestion du réalisateur
             director_name = item.get("director") or "Inconnu"
             director = get_or_create(db, Realisateur, nom=director_name)
@@ -82,25 +83,26 @@ def seed_data(file_path: str):
             db.add(score)
 
             # 4. Association des genres (Many-to-Many)
-            # Utilisation de set() pour supprimer les doublons dans la liste source
             genres_list = sorted(list(set(item.get("genres") or [])))
             for g_name in genres_list:
                 genre = get_or_create(db, Genre, nom=g_name)
                 film.genres.append(genre)
 
             # 5. Association des acteurs (Many-to-Many)
-            # Utilisation de set() pour éviter les erreurs de contrainte UNIQUE
             cast_list = sorted(list(set(item.get("cast") or [])))
             for a_name in cast_list:
                 acteur = get_or_create(db, Acteur, nom=a_name)
                 film.acteurs.append(acteur)
 
             # 6. Association des sociétés de production (Many-to-Many)
-            # Certains JSON peuvent avoir la même société listée deux fois pour un même film
             prod_list = sorted(list(set(item.get("production_companies") or [])))
             for p_name in prod_list:
                 societe = get_or_create(db, SocieteProduction, nom=p_name)
                 film.societes_production.append(societe)
+
+            # Affichage de la progression tous les 100 films
+            if index % 100 == 0 or index == total_movies:
+                print(f"Progression : {index}/{total_movies} films traités...")
 
         # Validation de l'ensemble des opérations
         db.commit()

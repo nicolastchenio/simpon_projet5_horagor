@@ -19,7 +19,8 @@ class Acteur(Base):
 
     nom: Mapped[str] = mapped_column(
         String(255),
-        nullable=False
+        nullable=False,
+        index=True
     )
 
     films = relationship(

@@ -5,9 +5,9 @@ import database.models
 
 
 def main():
-
+    print(f"Connexion à : {engine.url}")
+    print("Métadonnées détectées :", Base.metadata.tables.keys())
     Base.metadata.create_all(bind=engine)
-
     print("Tables créées.")
 
 
