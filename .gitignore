@@ -34,6 +34,7 @@ data/**
 # Exceptions : Fichiers sources à conserver sur Git
 !data/raw/kaggle/horror_movies.csv
 !data/raw/imdb/movie.sqlite
+!data/gold/gold_horror_movies.json
 
 
 
