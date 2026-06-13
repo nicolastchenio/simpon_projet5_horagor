@@ -1528,3 +1528,38 @@ Le workflow exécuté :
 4. Phase 4 : Matching (Réconciliation inter-sources)
 5. Phase 5 : Fusion (Consolidation MDM)
 6. Phase 6 : Gold (Sélection finale et calcul des scores)
+
+# ORM sdlAlchemy #
+
+ajouter les dépendance :
+- ` uv add sqlalchemy `
+- ` uv add psycopg2-binary `
+- ` uv add python-dotenv `
+
+```
+database/
+│
+├── __init__.py
+├── base.py => Contient la classe de base SQLAlchemy.
+├── session.py => Connexion PostgreSQL / Supabase.
+├── create_tables.py => Permet de créer la base.
+├── seed_gold.py
+│
+└── models/
+    │
+    ├── __init__.py => pour charger tous les modèles.
+    ├── associations.py => Tables N-N.
+    ├── film.py
+    ├── score.py
+    ├── acteur.py
+    ├── genre.py
+    ├── realisateur.py
+    └── societe_production.py
+```
+
+Pour exeuter le script ` uv run python -m database.create_tables `
+
+importer le fichier "gold_horror_movies.json" dans la base de données sqlite horagor.db  via "database/seed_gold.py"
+
+Pour executer le script ` uv run python -m database.seed_gold `
+

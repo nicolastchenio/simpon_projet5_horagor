@@ -237,7 +237,7 @@ project/
 │   │   │   ├── nomalizer.py
 │   │   │   └── run.py
 │   │   │
-│   │   ├── kaggle/
+│   │   └── kaggle/
 │   │       ├── nomalizer.py
 │   │       └── run.py└── run.py
 │   │
@@ -252,17 +252,29 @@ project/
 │   └──gold/ 
 │   │   ├── generator.py
 │   │   └── run.py
-│   │
-├── database/
-│   ├── models.py
-│   └── session.py
 │
 ├── pipeline/ => construction des datasets
-│   └── runner.py => orchestration
+│   ├── runner.py => orchestration
 │   ├── tmdb.py
 │   ├── imdb.py
 │   ├── rotten.py
 │   └── kaggle.py
+│
+├── database/
+│   ├── __init__.py
+│   ├── base.py => Contient la classe de base SQLAlchemy.
+│   ├── session.py => Connexion PostgreSQL / Supabase.
+│   ├── create_tables.py => Permet de créer la base.
+│   ├── seed_gold.py
+│   └── models/
+│       ├── __init__.py => pour charger tous les modèles.
+│       ├── associations.py => Tables N-N.
+│       ├── film.py
+│       ├── score.py
+│       ├── acteur.py
+│       ├── genre.py
+│       ├── realisateur.py
+│       └── societe_production.py
 │
 ├── tests/
 │   ├── tmdb/
@@ -280,14 +292,28 @@ project/
 │   │   │   ├── movies_coming_soon
 │   │   │   ├── movies_in_theaters
 │   │   │   └── tv_series_browse
-│   
+│   │   
 │   ├── cleaned/ => données nettoyées
 │   │   ├── tmdb/
 │   │   ├── imdb/
 │   │   ├── rotten/
-│   │   ├── kaggle/
-│
-│   └── gold/ => données finales prêtes pour usage
+│   │   └──kaggle/
+│   │
+│   ├── normalizes/ => données normalisées
+│   │   ├── tmdb/
+│   │   ├── imdb/
+│   │   ├── rotten/
+│   │   └── kaggle/
+│   │
+│   ├── matched/ => données matchées
+│   │
+│   ├── fusioned/ => données fusionnées
+│   │
+│   ├── gold/ => données finales prêtes pour usage
+│   │   └── gold_horror_movies.json
+│   │
+│   └── database/ => données persistantes sqlite
+│       └── horagor.db
 │
 ├── docs/
 ├── .env
