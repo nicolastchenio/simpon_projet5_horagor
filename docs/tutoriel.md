@@ -1563,3 +1563,123 @@ importer le fichier "gold_horror_movies.json" dans la base de données sqlite ho
 
 Pour executer le script ` uv run python -m database.seed_gold `
 
+
+## passer de sqlite a postgresl ##
+
+Avoir Postgresql en local (sinon le telechreger via l'installeur) => pour verifier ` psql --version `
+
+Si c est ok aller dans un terminal powershell (de l ordinateur pas de visual studo code) et executer la commande ` psql -U postgres `  
+- Il va te demander le mot de passe défini à l’installation.
+- Dans le shell  on va creer la base de données du projet  :  
+   ` CREATE DATABASE horagor_db; `
+- on crée ensuite un utilisateur (propre pour ton projet tToujours dans psql :
+   ```
+   CREATE USER horagor_user WITH PASSWORD 'password';
+   GRANT ALL PRIVILEGES ON DATABASE horagor_db TO horagor_user;
+   ```
+- Quitter psql : ` \q `
+- tester la connexion : `psql -U horagor_user -d horagor_db `
+
+Rajouter dans le .env => ` DATABASE_URL=postgresql://horagor_user:password@localhost:5432/horagor_db `
+
+Puisque que l'on a changé de base de données, on doit exécuter à nouveau le script de création pour que PostgreSQL crée la structure (tables, index,
+  relations) :
+
+   ` uv run python -m database.create_tables `
+
+et ensuite Relancer l'importation (Seed) une fois les tables créées dans PostgreSQL pour  relancer l'importation des données :
+
+   ` uv run python -m database.seed_gold `
+
+bonus :  
+J'ai appliqué des optimisations nécessaires pour que le passage à PostgreSQL soit le plus efficace possible :
+
+   1. Indexation des noms : J'ai ajouté index=True sur les colonnes nom dans les fichiers :
+       * database/models/acteur.py
+       * database/models/realisateur.py
+       * database/models/societe_production.py
+       * (Note : Genre.nom est déjà indexé via sa contrainte unique=True).
+   2. Indicateur de progression : J'ai mis à jour database/seed_gold.py pour afficher un message tous les 100 films traités.
+
+Ainsi le chargement des donnee gold dans postgresql devrait etre accéléré
+
+Pour visualiser les tables de la based de donne de "horagor_db" on peut utiliser 
+
+- pgAdmin 4 (installer avec postgresql) :
+  1) Si demandé : mot de passe postgres (celui de l’installation)
+  2) Accéder à ta base Dans l’arborescence :
+  ```
+  Servers
+   └── PostgreSQL 18
+        └── Databases
+             └── horagor_db
+  ```
+  3) Voir les tables
+  ```
+  Schemas
+   └── public
+        └── Tables
+  ```
+     on verra film, score, genre, .. 
+      
+  4) Pour voir les données  
+
+  selectionner l'onglet "Object"  puis " View/Edit Data → All Rows "
+
+- on peut aussi utiliser la methode sql via powershelle
+  1) ouvrire  ` psql -U horagor_user -d horagor_db `
+  2) Lister tables ` \dt `
+  3) Voir contenu ` table SELECT * FROM film LIMIT 10; `
+  4) Voir structure table ` \d film `
+
+--------------
+
+Note personnel : j avais un probleme de creation de table dans postgrsql =>
+
+En analysant l'exécution du script database.create_tables, j'ai découvert une erreur de permissions PostgreSQL :
+
+   " sqlalchemy.exc.ProgrammingError: (psycopg2.errors.InsufficientPrivilege) ERREUR: droit refusé pour le schéma  "
+
+Pourquoi cela arrive ?
+Depuis PostgreSQL 15, les droits par défaut sur le schéma public ont changé. Même si on a donné tous les privilèges sur la base de données à horagor_user, cet utilisateur n'a pas automatiquement le droit de créer des tables dans le schéma public.
+
+Comment corriger cela ?
+on doit  accorder explicitement les droits sur le schéma public à l'utilisateur.
+
+   1. Connectez-vous à PostgreSQL avec l'utilisateur superutilisateur (postgres) dans votre terminal :
+      ` psql -U postgres -d horagor_db `
+   2. Exécutez la commande suivante :
+      ` GRANT ALL ON SCHEMA public TO horagor_user; `
+   3. (Optionnel mais recommandé pour les versions récentes) Donnez la propriété du schéma à l'utilisateur :
+
+      ` ALTER SCHEMA public OWNER TO horagor_user; `
+
+  Ensuite, relancez les scripts :
+   1. `uv run python -m database. ` (Cette fois, vous devriez voir les tables se créer).
+   2. `uv run python -m database.seed_gold `
+
+  J'ai également préparé un petit script de diagnostic " check_db_status." " à la racine que vous pouvez lancer pour vérifier si les tables sont bien présentes après votre manipulation : `uv run python check_db_status.py `
+
+
+j' ai également du faire dans power shell:
+   ```
+   PS C:\WINDOWS\System32> psql -U postgres -d horagor_db
+   Mot de passe pour l'utilisateur postgres :
+
+   psql (18.4)
+   Attention : l'encodage console (850) diffère de l'encodage Windows (1252).
+               Les caractères 8 bits peuvent ne pas fonctionner correctement.
+               Voir la section « Notes aux utilisateurs de Windows » de la page
+               référence de psql pour les détails.
+   Saisissez « help » pour l'aide.
+
+   horagor_db=# GRANT ALL ON SCHEMA public TO horagor_user;
+   GRANT
+   horagor_db=# ALTER SCHEMA public OWNER TO horagor_user;
+   ALTER SCHEMA
+   horagor_db=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO horagor_user;
+   GRANT
+   horagor_db=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO horagor_user;
+   GRANT
+   ```
+--------------
