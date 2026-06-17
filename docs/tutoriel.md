@@ -1529,7 +1529,7 @@ Le workflow exécuté :
 5. Phase 5 : Fusion (Consolidation MDM)
 6. Phase 6 : Gold (Sélection finale et calcul des scores)
 
-# ORM sdlAlchemy #
+# ORM sqlAlchemy #
 
 ajouter les dépendance :
 - ` uv add sqlalchemy `
@@ -1564,7 +1564,7 @@ importer le fichier "gold_horror_movies.json" dans la base de données sqlite ho
 Pour executer le script ` uv run python -m database.seed_gold `
 
 
-## passer de sqlite a postgresl ##
+## passer de sqlite a postgresql ##
 
 Avoir Postgresql en local (sinon le telechreger via l'installeur) => pour verifier ` psql --version `
 
@@ -1683,3 +1683,27 @@ j' ai également du faire dans power shell:
    GRANT
    ```
 --------------
+
+# Supabase #
+
+1) Créer le projet "horagor" dans Supabase
+2) Récupérer les informations de connexion
+   Dans le tableau de bord Supabase :
+   - Ouvre ton projet.
+   - Clique sur Connect (en haut à droite).
+   - Choisis ORMs ou Connection string.
+   - Cherche la section Transaction pooler ou Direct connection.
+   - Tu devrais voir quelque chose ressemblant à :  
+        en mode session =>  ` postgresql://postgres:[YOUR-PASSWORD]@db.hfzbvagiudsyxhmcmzmy.supabase.co:5432/postgres `  
+         ou  
+        en mode transaction =>  ` postgresql://postgres.hfzbvagiudsyxhmcmzmy:[YOUR-PASSWORD]@aws-0-eu-west-3.pooler.supabase.com:6543/postgres `  
+3) Modifier le .env
+   remplacer "DATABASE_URL=postgresql://horagor_user:password@localhost:5432/horagor_db" par 
+4) tester la connection
+   Dans un terminal powerShell => `psql "postgresql://postgres:MON_MDP@db.hfzbvagiudsyxhmcmzmy.supabase.co:5432/postgres" ` en remplacant "MON_MDP" par le mot de passe que l on a creer dans supabase lorsque l on a creer notre nouveau projet
+5) Exécuter : ` uv run python -m database.create_tables `
+6) Vérifier dans Supabase : Database → Tables
+7) importer les données : ` uv run python -m database.seed_gold `
+8) Contrôler dans : Table Editor que les films sont présents.
+
+

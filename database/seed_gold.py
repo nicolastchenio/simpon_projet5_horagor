@@ -100,11 +100,15 @@ def seed_data(file_path: str):
                 societe = get_or_create(db, SocieteProduction, nom=p_name)
                 film.societes_production.append(societe)
 
-            # Affichage de la progression tous les 100 films
-            if index % 100 == 0 or index == total_movies:
+            # Affichage de la progression tous les 10 films
+            if index % 10 == 0 or index == total_movies:
                 print(f"Progression : {index}/{total_movies} films traités...")
 
-        # Validation de l'ensemble des opérations
+            # Validation par paquets de 100 films pour Supabase (évite les pertes et permet la visualisation)
+            if index % 100 == 0:
+                db.commit()
+
+        # Validation finale pour les derniers films restants
         db.commit()
         print("Importation terminée avec succès !")
 
