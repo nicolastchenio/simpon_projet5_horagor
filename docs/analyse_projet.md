@@ -189,7 +189,7 @@ Obligatoire :
 - Stratégie de fusion
 - Choix techniques
 
-# STRUCTURE CONSEILLÉE DU PROJET #
+# STRUCTURE DU PROJET #
 ```
 project/
 │
@@ -297,7 +297,7 @@ project/
 │   │   ├── tmdb/
 │   │   ├── imdb/
 │   │   ├── rotten/
-│   │   └──kaggle/
+│   │   └── kaggle/
 │   │
 │   ├── normalizes/ => données normalisées
 │   │   ├── tmdb/
