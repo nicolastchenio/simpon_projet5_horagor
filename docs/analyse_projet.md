@@ -202,8 +202,8 @@ project/
 │   ├── tmdb_client.py
 │   ├── rotten_client.py
 │   ├── imdb_client.py
-│   ├── kaggle_loader.py
-│   └── spark_processor.py
+│   ├── kaggle_clienty.py
+│   └── spark_client.py
 │
 ├── processing/
 │   │
@@ -258,7 +258,8 @@ project/
 │   ├── tmdb.py
 │   ├── imdb.py
 │   ├── rotten.py
-│   └── kaggle.py
+│   ├── kaggle.py
+│   └── spark.py
 │
 ├── database/
 │   ├── __init__.py
@@ -287,6 +288,8 @@ project/
 │   │   ├── tmdb/
 │   │   ├── imdb/
 │   │   ├── kaggle/
+│   │   ├── spark/
+│   │   │   └── horror_movies.parquet/
 │   │   ├── rotten/
 │   │   │   ├── movies_at_home
 │   │   │   ├── movies_coming_soon

@@ -2,6 +2,7 @@ from pipeline.tmdb import TMDBPipeline
 from pipeline.imdb import IMDbPipeline
 from pipeline.rotten import RottenPipeline
 from pipeline.kaggle import KagglePipeline
+from pipeline.spark import SparkPipeline
 
 
 def main(max_pages=None):
@@ -39,6 +40,12 @@ def main(max_pages=None):
     # =========================
     kaggle_pipeline = KagglePipeline()
     kaggle_pipeline.run()
+
+    # =========================
+    # SPARK PIPELINE
+    # =========================
+    spark_pipeline = SparkPipeline()
+    spark_pipeline.run()
 
 
 if __name__ == "__main__":
