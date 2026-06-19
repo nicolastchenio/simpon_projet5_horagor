@@ -1706,4 +1706,189 @@ j' ai également du faire dans power shell:
 7) importer les données : ` uv run python -m database.seed_gold `
 8) Contrôler dans : Table Editor que les films sont présents.
 
+# Pyspark #
+## installation de pyspark ##
+1) installer java 21 ou
+https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html  
+Mettre le chemin vers java dans ses variables d’environnement (JAVA_HOME)
 
+2) installer pysqprk dans le projet ` uv add pyspark `
+3) pour verifier que l'installation a fonctionner `uv run pyspark `
+   - pour tester  
+         ```
+            data = [{"test": "ok", "valeur": 1}, {"test": "spark", "valeur": 2}]  
+            df = spark.createDataFrame(data)  
+            df.show()
+         ```
+   - pour sortir ` exit() ` ou utiliser le raccourci clavier Ctrl + Z puis Entrée
+
+
+4) hadoop (pour windows 11)
+   1. Créez un dossier C:\hadoop\bin.
+   2. Téléchargez winutils.exe pour Hadoop 3.3.6 (compatible Spark 4) depuis un dépôt de confiance (https://github.com/cdarlint/winutils/tree/master/hadoop-3.3.6/bin).
+
+      - Cliquez sur winutils.exe dans la liste sur GitHub.
+      - Placez-le dans C:\hadoop\bin.
+      - telecharger via powershell le fichier "hadoop.dll"
+         ` Invoke-WebRequest -Uri "https://github.com/cdarlint/winutils/raw/master/hadoop-3.3.6/bin/hadoop.dll" -OutFile "C:\hadoop\bin\hadoop.dll" `
+      - Placez-les dans C:\hadoop\bin.
+   3. Ajoutez ces variables d'environnement (dans Windows ou dans votre terminal PowerShell) :
+   ```
+      $env:HADOOP_HOME = "C:\hadoop"
+      $env:Path += ";C:\hadoop\bin"
+   ```
+   4. Redémarrez votre terminal et relancez uv run pyspark.
+
+   Pour être certain que Hadoop (et winutils) est correctement configuré et que vous ne rencontrerez pas d'erreurs lors de l'écriture de fichiers ou de traitements complexes, voici comment le vérifier :
+
+   1. Vérifier l'absence d'alerte au démarrage
+   Lancez PySpark avec uv run pyspark.
+      * Si Hadoop est BIEN configuré : Vous ne devriez plus voir le message WARN Shell: Did not find winutils.exe.
+      * Si vous voyez encore le message : C'est que Spark ne trouve pas encore votre dossier C:\hadoop\bin.
+
+   2. Le test de l'écriture (Le juge de paix)
+   Le meilleur moyen de tester winutils sous Windows est de forcer Spark à écrire sur le disque. Si winutils n'est pas là, Windows refusera de gérer les permissions et Spark plantera.
+
+   Dans votre console PySpark (>>>), tapez ceci :
+
+      - Créer un petit DataFrame  
+      ` df = spark.createDataFrame([{"test": "Hadoop OK"}]) `  
+      
+      - Tenter de l'écrire sur le disque  
+      ` df.write.mode("overwrite").json("data/test_hadoop") `
+
+      Succès : Si la commande s'exécute sans erreur et qu'un dossier data/test_hadoo   p est créé à la racine de votre projet, Hadoop fonctionne parfaitement.
+
+      Échec : Si vous obtenez une erreur de type java.io.IOException: (null) entry in command string ou Permission denied, c'est que HADOOP_HOME n'est pas encore bien reconnu.
+
+## integration de "data\raw\kaggle\horror_movies.csv" dans pyspark ##
+
+Pour intégrer votre fichier CSV dans PySpark, voici la démarche conceptuelle à suivre :
+
+   1. Initialiser une SparkSession : C'est le point d'entrée obligatoire. Elle permet de configurer l'application et de
+      se connecter au cluster (ou à votre machine locale).
+   2. Utiliser le lecteur CSV de Spark : Spark possède un module natif pour lire les fichiers structurés. Vous
+      utiliserez la méthode de lecture de format CSV.
+   3. Configurer les options de lecture :
+       * En-têtes (header) : Préciser que la première ligne contient les noms des colonnes.
+       * Inférence de schéma (inferSchema) : Demander à Spark d'analyser les données pour deviner automatiquement les
+         types (dates, nombres, texte) au lieu de tout charger en texte.
+       * Délimiteur : S'assurer que le séparateur utilisé dans votre fichier (souvent la virgule pour un CSV) est bien
+         reconnu.
+   4. Charger dans un DataFrame : Le résultat sera un DataFrame Spark, qui est une structure de données distribuée vous
+      permettant d'effectuer des requêtes et des transformations à grande échelle.
+
+   Note sur le chemin : Il faudra veiller à ce que le chemin "data/raw/kaggle/horror_movies.csv" soit accessible par l'environnement Spark (chemin relatif ou absolu sur votre système de fichiers).
+
+  Pour garder une architecture cohérente avec vos autres clients
+  (kaggle_client.py, tmdb_client.py, etc.).
+
+  Voici comment cela s'organiserait logiquement :
+
+   1. Le Code (ingestion/spark_client.py) : Ce fichier contiendra la logique technique pour démarrer Spark et lire le
+      fichier CSV.
+   2. La Source (data/raw/kaggle/horror_movies.csv) : C'est notre fichier d'origine tel qu'il a été téléchargé.
+   3. La Destination (data/raw/spark) :
+       * Si on veux simplement "transformer" le CSV en un format que Spark manipule très rapidement, on utilise
+         généralement le format Parquet.
+       * Enregistrer les données dans data/raw/spark/horror_movies.parquet permettrait à nos futurs traitements de
+         charger les données instantanément sans avoir à re-analyser le CSV (qui est plus lent à lire).
+
+   Le format Parquet est un format binaire compressé : Spark "sait" déjà où sont les données et de quels types elles sont.
+
+
+   Pour que notre projet soit propre et automatisé, l'idée est de mettre en place un Pipeline d'Ingestion.
+
+   Voici comment ce pipeline s'organiserait logiquement :
+
+      1. Le flux de données (Dataflow)
+       * Source : data/raw/kaggle/horror_movies.csv (Données brutes, format texte, lentes à lire).
+       * Action (Le Pipeline) : Un script Python qui utilise le spark_client.py
+       * Destination : data/raw/spark/horror_movies.parquet (Données optimisées pour Spark, format binaire, ultra-rapides).
+
+      2. Pourquoi un "Pipeline" ?
+      Plutôt que de manipuler le CSV à chaque fois que l'on veut faire une analyse, on lance ce pipeline une seule fois
+      (ou à chaque mise à jour du fichier Kaggle).
+      Une fois que les données sont dans "data/raw/spark", tous nos futurs scripts de Machine Learning ou d'analyse se
+      connecteront directement au dossier spark/ au lieu du dossier kaggle/.
+
+      3. Structure pour le pipeline
+       créer un fichier dans un dossier pipelines/) nommé spark.py qui fera le lien :
+
+          - Extraction : Lire le CSV via load_csv().
+          - Validation : Vérifier que les données sont bien chargées (ex: pas de colonnes vides critiques
+          - Chargement : Écrire en Parquet via save_to_parquet().
+  
+  Pour executer le pipeline ` uv run python -m pipeline.spark `
+
+  ### Pour visualiser vos données stockées au format Parquet ( data/raw/spark/horror_movies.parquet ) ###
+  
+   plusieurs méthodes simples s'offrent à vous :
+
+   #### Option 1 : Via un script Python rapide (avec PySpark)
+
+  On peut charger le fichier Parquet en quelques lignes et afficher les premières données dans votre console.
+
+  Créez un script temporaire ou lancez ceci dans un interpréteur Python :
+
+   ```
+      from ingestion.spark_client import SparkClient
+
+      # 1. Initialiser le client Spark
+      client = SparkClient(app_name="VisualisationParquet")
+
+      # 2. Charger le fichier Parquet
+      df = client.spark.read.parquet("data/raw/spark/horror_movies.parquet")
+
+      # 3. Visualiser les 10 premières lignes et le schéma
+      df.show(10, truncate=True)
+      df.printSchema()
+
+      # 4. Arrêter Spark
+      client.stop()
+   ```
+   #### Option 2 : Via la console interactive PySpark
+
+  C'est idéal pour taper des commandes à la volée :
+
+  1. Lancez la console PySpark avec la commande :
+    ` uv run pyspark `
+
+  2. Tapez ces commandes dans la console ( >>> ) :
+   ```
+      # Charger le dossier Parquet
+      df = spark.read.parquet("data/raw/spark/horror_movies.parquet")
+
+      # Afficher les 5 premiers titres de films
+      df.select("title", "release_date", "vote_average").show(5)
+
+      # Connaître le nombre total de lignes
+      print(df.count())
+   ```
+  3. Pour quitter la console, tapez  exit() .
+
+  #### Option 3 : Visualisation rapide sans Spark (avec Polars)
+
+   Polars sait lire instantanément le format Parquet de manière extrêmement rapide et sans avoir à démarrer de session Java/Spark :
+
+   ```
+      import polars as pl
+
+      # Lire le Parquet directement
+      df = pl.read_parquet("data/raw/spark/horror_movies.parquet")
+
+      # Afficher les premières lignes
+      print(df.head(10))
+  
+   ```
+  ####  Option 4 : Graphiquement dans VS Code
+
+  avec VS Code, on peut installer l'extension "parquet-viewer" ou "Data Wrangler". Elles permettront de cliquer directement sur le dossier/fichier  .parquet  pour l'ouvrir dans un tableau interactif (comme une feuille Excel).
+
+   ####  Option 5 : générer ce CSV à partir de vos données Spark
+   
+   Exécuter la commande suivante dans votre terminal :
+
+      ` uv run python -c "import polars as pl; pl.read_parquet('data/raw/spark/horror_movies.parquet/*.parquet').write_csv('data/raw/spark/visualisation_horror_movies.csv')" ` 
+
+   Un fichier simple et lisible nommé visualisation_horror_movies.csv  sera créé dans le dossier  data/raw/spark/ . Vous pourrez l'ouvrir directement dans VS Code.*
